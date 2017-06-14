@@ -49,7 +49,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoreet justo por
 \maketitle
 \section{Proofs of Bell-Kochen-Specker Contextuality}
 
-Historically, proofs of Bell-Kochen-Specker, or Maximal, contextuality have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety.  In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove one row or column before it fails to be a proof of contextuality at all, although we may remove more than one row or column. We can think of these structures as exhibiting a kind of circular dependency.
+Historically, proofs of Bell-Kochen-Specker, or Maximal, contextuality have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety.  In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. We can think of these structures as exhibiting a kind of circular dependency.
 
 We first need to define what we mean by different strengths of contextuality, following Abramsky and Brandenburger \cite{Abra2011}, as applied to this situation.
 
@@ -63,25 +63,16 @@ A collection of quantum measurement operators demonstrate \emph{maximal contextu
 
 
 
-If we consider the 33-ray proof of the Bell-Kochen-Specker theorem due to Peres \cite{Pere1991}, then removing one context from the structure also removes all its contextuality. Is this surprising? We can say that Peres would deliberately have chosen a minimal example, that could not have anything taken away from it whilst still forming a proof of contextuality, which is a fair comment. However, removing a single context not only renders the structure unable to exhibit maximal contextuality, but \emph{renders it unable to exhibit Hardy contextuality as well}.
+Let us consider the 33-ray proof of the Bell-Kochen-Specker theorem due to Peres \cite{Pere1991}. Removing any one context from the structure, \emph{i.e.} not allowing, by some restriction, one basis to be commensurable, also removes all its contextuality. Is this surprising? It seems likely that Peres would deliberately have chosen a minimal example, that could not have anything taken away from it whilst still forming a proof of contextuality, which is a fair comment. However, removing a single context not only renders the structure unable to exhibit maximal contextuality, but \emph{renders it unable to exhibit Hardy contextuality as well}.
 
 That is to say, without introducting other structure to our consideration, we cannot think of this proof of noncontextuality as being a composite of proofs that each possibility is not noncontextually explainable\footnote{If we convert this proof into a proof of nonlocality (which is by nature, state-dependent rather than state-independent), then we can use the structure this gives us to prove something of this form. In this situation, we end up mostly %check%
-discarding parts of the restrictions stemming from relationships that exist between contexts rather than removing contexts themselves, in a way which retains operational significance. This is not possible in the contextuality scenario.}. This is somewhat surprising, since we might have expected some contextuality to remain in the system when we introduce a minor epistemic restriction-- the inability to measure one of the sixteen contexts that are quantum-mechanically available in the situation. This ``lynchpin'' property of the scenario can be thought of as reflecting the fact that the distribution is very close to noncontextual in the sense outlined by Winter \cite{Wint2014}. Only one context need be disrupted before the remainder has a classical explanation.
+discarding parts of the restrictions stemming from relationships that exist between contexts rather than removing contexts themselves, in a way which retains operational significance. This is not possible in the contextuality scenario.}. There is no proper subset of the allowable contexts that would constitute a proof that any of its possibilities were contextual. This is somewhat surprising, since we might have expected some contextuality to remain in the system when we introduce a minor epistemic restriction-- the inability to measure one of the sixteen contexts that are quantum-mechanically available in the situation. This ``lynchpin'' property of the scenario can be thought of as reflecting the fact that the distribution is very close to noncontextual in the sense outlined by Winter \cite{Wint2014}. Only one context need be disrupted before the remainder has a classical explanation.
 
-By taking $n$ rotated copies the vectors used in Peres's proof, we can construct a noncontextuality scenario in which $\nicefrac{n}{33}$ of the contexts need to be disrupted in order for the statistics to be explained noncontextually. We can make this notion more concrete by defining notions of distance between two quantum probability distributions $\mathcal{P}$, $\mathcal{Q}$ in a quantum subtheory with contexts $\mathcal{C}$:
+By taking $n$ rotated copies the vectors used in Peres's proof, we can construct a noncontextuality scenario in which $\nicefrac{n}{33}$ of the contexts need to be disrupted in order for the statistics to be explained noncontextually.
 
-\begin{equation}
-\delta_1(\mathcal{P},\mathcal{Q})=\frac{1}{2\left|\mathcal{C}\right|}\sum_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{Q}(x)\right|.
-\end{equation}
- This is simply the total variation distance between the two distributions, averaged over context. This has operational significance: it is the distinguishability of the two distributions if the context measured is chosen uniformly at random.
+In this paper, we will investigate how we can use these ideas as alternative metrics for the contextuality displayed by a particular operational scenario, with a focus on possibilistic cases. First, we will consider the case of nonlocality, and demonstrate hardness results for computing how nonlocal, given this definition, a no-signalling scenario is. Then, moving to the more general contextuality scenario, we will investigate within a graph-theoretic framework how robust, in this sense, different Kochen-Specker sets are; and set a bound on how robust any quantum scenario can be. We will demonstrate that it is possible that other physical theories can be more contextual, given this definition, than quantum mechanics. We can consider this as a stronger analogue than the observation that a PR-box is more nonlocal with respect to the CHSH inequality than any quantum-mechanically accessible scenario.
 
 
-\begin{equation}
-\delta_2(\mathcal{P},\mathcal{Q})=\frac{1}{2}\max_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{Q}(x)\right|.
-\end{equation}
- This is simply the total variation distance between the two distributions, where we maximise over the contexts. This has operational significance: it is the distinguishability of the two distributions if the context measured is chosen optimally.
-
-Add possibilistic one too. Is the Kullback-Liebler divergence interesting here?
 
 \section{Alternative definitions of contextuality as contextuality measures}
 
@@ -154,7 +145,7 @@ blehhh
 Proofs of maximal contextuality can be converted into proofs of maximal nonlocality by obvious thing. Can then talk about distance from local polytope as sensible measure. Same of Hardy contextuality and Hardy nonlocality.
 What does this end up meaning? Is this identical to the description by Winter?
 
-\subsection{Possibilistic Measures of Nonlocality}
+\section{Possibilistic Measures of Nonlocality}
 
 We saw that for a contextuality situation, a measure of the strength of a maximal contextuality scenario was the number of projectors whose values needed to depend on context . For a nonlocality scenario (which is of course inherently state-dependent), we have a choices in how we interpret this condition. We could count the minimum number of maximally-fine grained projectors whose outcomes depend on context, so if Alice measures in the basis $\{\ket{a_0},\ket{a_1}\dots\ket{a_n}\}$, and Bob measures in the basis $\{\ket{b_0},\ket{b_1}\dots\ket{b_n}\}$, we are counting projectors of the form $\ket{a_i}\ket{b_j}$ which have context-dependent outcomes. However, in many nonlocality scenarios, each of these fine-grained projectors may only occur in a single context, and so while this is the most obvious analogue to the maximal contextuality scenario described above, this metric does not capture the structure of the nonlocality problem.
 
