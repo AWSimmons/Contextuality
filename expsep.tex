@@ -91,7 +91,8 @@ Let us consider the case of nonlocality. Operationally, our scenario is represen
 \end{equation}
 This is a table of probability outcomes for a nonlocality experiment on the state $\nicefrac{1}{\sqrt{3}}\left(\ket{00}+\ket{01}+\ket{11}\right)$, and it demonstrates Hardy nonlocality. The $\ket{-}\ket{-}$ outcome possibility cannot be accounted for within a local hidden variable model; and such this model has a \emph{paradoxical probability}, the maximum probability over contexts of exhibiting a nonlocal possibility, of $\nicefrac{1}{12}$. The maximum for any Hardy paradox, a table exhibiting these exact possibilities, is given by $\nicefrac{5\sqrt{5}-11}{2}$. (This nonlocal possibility is also sometimes called the EPR2 decomposition).
 
-We see that this scenario, then, has a nonlocal fraction strictly greater than the paradoxical probability, since we can't remove that possibility alone without creating a signalling situation (this is a fundamental feature of nonlocal possibilities, and could be used as their definition). Calculation of the contextual fraction, however, is computationally complex; indeed, determining whether it is nonzero is \textsc{NP-complete} for a 
+We see that this scenario, then, has a nonlocal fraction strictly greater than the paradoxical probability; were we able to find a data table corresponding to a deterministic hidden variable, and subtract it from the given data table in a way that respected no-signalling and accounted for the probability of the nonlocal possibility, then the possibility would not be nonlocal in the first place!
+Calculation of the contextual fraction is computationally complex; indeed, determining whether it is nonzero is \textsc{NP-complete} for a 
 nontrivial two-party nonlocality scenario exactly when one party has access to measurements with three or more outcomes \cite{SimmCC}.
 
 We can define operationally-motivated metrics for nonlocality based on the variational distance between a given probability distribution and its closest local distribution, broken down into comparable contexts. For example, we could define the distance as being the statistical distinguishability of the distribution from the nearest local distribution, taking an average or a maximum over contexts. These correspond to operational situations where we pick contexts at random, and seek to distinguish the two distributions, or where we are allowed to choose a context in which the distributions are maximally different.
@@ -134,7 +135,7 @@ Do this later i guess.
 
 Note: nonlocality metrics are very well-studied. This must be coincident with something. maybe it's coincident with "maximum violation of a Bell inequality". It's sort of related to nonlocal fraction but as we have pointed out it can't be identical to it. "Robustness measure of nonlocality" often distance when mixing with pure noise.
 
-\section{The sheaf-theoretic approach to nonlocality and contextuality}
+\section{Possibilistic Measures of Nonlocality}
 
 The sheaf-theoretic approach to nonlocality introduces the concept of "logical" contextuality/nonlocality by considering probability theories in semirings other than $\mathbb{R}_+$, for example the Boolean semiring. Doing so restores the concept of nonlocality as being defined by the violation of inequalities corresponding to facets of a local polytope. However, this setting poses a mathematical problem for our scheme: without additive inverses, we cannot proceed with our definitions as written. We also do not have access to division, which rules out other statistical distance measures such as the Kullback-Liebler divergence.
 
@@ -144,8 +145,6 @@ blehhh
 
 Proofs of maximal contextuality can be converted into proofs of maximal nonlocality by obvious thing. Can then talk about distance from local polytope as sensible measure. Same of Hardy contextuality and Hardy nonlocality.
 What does this end up meaning? Is this identical to the description by Winter?
-
-\section{Possibilistic Measures of Nonlocality}
 
 We saw that for a contextuality situation, a measure of the strength of a maximal contextuality scenario was the number of projectors whose values needed to depend on context . For a nonlocality scenario (which is of course inherently state-dependent), we have a choices in how we interpret this condition. We could count the minimum number of maximally-fine grained projectors whose outcomes depend on context, so if Alice measures in the basis $\{\ket{a_0},\ket{a_1}\dots\ket{a_n}\}$, and Bob measures in the basis $\{\ket{b_0},\ket{b_1}\dots\ket{b_n}\}$, we are counting projectors of the form $\ket{a_i}\ket{b_j}$ which have context-dependent outcomes. However, in many nonlocality scenarios, each of these fine-grained projectors may only occur in a single context, and so while this is the most obvious analogue to the maximal contextuality scenario described above, this metric does not capture the structure of the nonlocality problem.
 
@@ -237,9 +236,9 @@ Proof unfinished- this proof technique may not work
 
 \end{proof}
 
-\section{A quantum proof of maximal contextuality cannot be too far from the noncontextual polytope}
+\section{How robust can quantum maximal contextuality be?}
 
-Consider the orthogonality graph $\mathcal{G}$ of a maximal nonlocality scenario, in which we identify projectors with vertices, and two vertices $g_1$, $g_2$, identified with $\ket{\psi_1}$, $\ket{\psi_2}$ are joined by an edge iff $\braket{\psi_1}{\psi_2}=0$. Following [[CITE]], we will restrict our attention to outcome assignments in which we do not ever assign a ``1'' valuation to two orthogonal vectors. An \emph{independent set} is a subset of vertices, none of which are joined by an edge. Any noncontextual assignment of ``1''s, then, will form an independent set since we cannot have two orthogonal vectors, \emph{i.e.} vertices joined by an edge in our set of vectors which are noncontextually given ``1'' assignments. The size of the largest independent set of a graph $\mathcal{G}$ is denoted $\alpha(\mathcal{G})$ and is called the \emph{independence number}. Another important graph concept is that of a clique:%can put some good motivation for this approach here- in most graph-based KS proofs the coarse-grained projectors are effectively allowed to vary contextually in their assignment 
+Consider the orthogonality graph $\mathcal{G}$ of a maximal nonlocality scenario, in which we identify projectors with vertices, and two vertices $g_1$, $g_2$, identified with $\ket{\psi_1}$, $\ket{\psi_2}$ are joined by an edge iff $\braket{\psi_1}{\psi_2}=0$. Following Renner and Wolf \cite{Renn2004}, we will restrict our attention to outcome assignments in which we do not ever assign a ``1'' valuation to two orthogonal vectors; this is known as a \emph{weak Kochen-Specker set}. A weak Kochen-Specker set can be extended to a full Kochen-Specker set with the addition of $O(|\ket{\psi_i}|^2d)$ extra vectors, or we can consider the incomplete bases as being completed by additional projectors, whose valuations are allowed to be contextual as they are outside the scope of our scenario. An \emph{independent set} is a subset of vertices, none of which are joined by an edge. Any noncontextual assignment of ``1''s, then, will form an independent set since we cannot have two orthogonal vectors, \emph{i.e.} vertices joined by an edge in our set of vectors which are noncontextually given ``1'' assignments. The size of the largest independent set of a graph $\mathcal{G}$ is denoted $\alpha(\mathcal{G})$ and is called the \emph{independence number}. Another important graph concept is that of a clique:%can put some good motivation for this approach here- in most graph-based KS proofs the coarse-grained projectors are effectively allowed to vary contextually in their assignment 
 
 \begin{defn}[Clique]
 For a graph $\mathcal{G}=\{V,E\}$, a vertex subset $C\subset V$ is a \emph{Clique} if the subgraph induced from $\mathcal{G}$ on $C$ is \emph{complete}, that is,  every vertex in $C$ is connected to every other.
@@ -256,7 +255,7 @@ For a graph $\mathcal{G}=\{V,E\}$, a vertex subset $T\subset V$ is a \emph{maxim
 Clearly, the set of vertices associated with a set of vectors given either noncontextual or contextual ``1'' assignments is a Maximum-clique hitting set. This allows us to define our first figure-of-merit for a set of vectors forming a Kochen-Specker type proof of the Bell-Kochen-Specker theorem.
 
 \begin{equation}q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|\end{equation},
-where $T$ is a maximum-clique hitting-set. We see that this is the figure-of-merit we posited: we take a set $T$ of vectors which will recieve a ``1'' valuation, either contextually or noncontextually, and subtract from it the number of those vectors that can support a noncontextual valuation. It is therefore the number of vectors that must recieve a contextual valuation in any model for the scenario. In order that we might more directly compare this quantity between graphs of different sizes, we can consider its graph density:
+where $T$ is a maximum-clique hitting-set. We see that this is a graph-theoretic representation of the possibilistic figure-of-merit we posited above: we take a set $T$ of vectors which will recieve a ``1'' valuation, either contextually or noncontextually, and subtract from it the number of those vectors that can support a noncontextual valuation. It is therefore the number of vectors that must recieve a contextual valuation in any model for the scenario. However, we can note that it is possible to achieve an arbitrarily high value of $q_a$ just by taking an equal number of noninteracting copies of, for example, the Peres-Mermin magic square. In order that we might more directly compare this quantity between graphs of different sizes, we can consider its graph density:
 \begin{equation}
 q(\mathcal{G})=\frac{q_a(\mathcal{G})}{|V(\mathcal{G})|}.
 \end{equation}
@@ -264,7 +263,9 @@ We now have a graph-theoretic formulation of our quantity of interest. What valu
 \begin{equation}
 q_a(\mathcal{G})\geq \min |T|-\alpha(\mathcal{G}).
 \end{equation}
-We note that while, in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$. %Find/give proof of the first one of these claims. Hitting set is NP-complete and we are doing hitting set with a couple of really minor restrictions.
+We note that in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$, since for triangle-free graphs, this is equivalent to finding a vertex cover, which is \textbf{NP}-complete \cite{Polj1974}. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$ \cite{Gare1979}. 
+
+We will now demonstrate an upper bound on the quantity $q(\mathcal{G})$ for any quantum-mechanically accessible $\mathcal{G}$ in terms of the quantum dimension of the vectors that give rise to it. We will do this by bounding above the size of a maximum-clique hitting set for such a graph, which, since we ignore the subtrahend related to independence entirely, forms a trivial upper bound.
 \begin{thm}
 Any orthogonality graph induced by a set of vectors $\ket{\psi_i}$ in a $d$-dimensional Hilbert space has
 \begin{equation}
@@ -371,13 +372,15 @@ There exists a constant $C$ such that for all $n\in\mathbb{N}$ there exists a re
 
 Hence, we have
 \begin{align}
-\lim_{n\rightarrow\infty}q(\mathcal{G}_n)&\geq\lim_{n\rightarrow\infty}\frac{n-C\sqrt{n\log n}}{n}\\
-&\geq 1-\lim_{n\rightarrow\infty}C\sqrt{\frac{\log n}{n}}=1.
+\lim_{n\rightarrow\infty}q(\mathcal{G}_n)&\geq\lim_{n\rightarrow\infty}\frac{n-2C\sqrt{n\log n}}{n}\\
+&\geq 1-2C\lim_{n\rightarrow\infty}\sqrt{\frac{\log n}{n}}=1.
 \end{align}
 So, we have $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\infty$. We see then that quantum mechanics does not display maximal contextuality as robustly, given this definition of robustness, as other possible GPTs. This could potentially have an impact on attempts to recreate quantum mechanics as a principle theory.
 
 \FloatBarrier
 \section{Classical Communication cost}
+
+\section{Future Work}
 
 
 
