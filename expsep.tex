@@ -275,9 +275,9 @@ Any orthogonality graph induced by a set of vectors $\ket{\psi_i}$ in a $d$-dime
 \begin{proof}
 The proof proceeds by demonstrating the existence of a region of Hilbert space, such that any basis for that Hilbert space must have at least one basis element that lies within the region. Hence, the set of vectors from a finite set that lie in this region must intersect every basis that can be formed from that finite set.
 
-Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A complex hyperspherical cap subtending a larger angle than this will then necessarily capture at least one element from the basis.
+Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A closed complex hyperspherical cap subtending this angle will then necessarily capture at least one element from the basis.
 
-An (open) complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2> t$ for some $t\in\mathbb{R}$. The derivation of the volume of this annulus in $\mathbb{C}^d$ is given in [cite] and we reproduce it here:
+A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2\geq t$ for some $t\in\mathbb{R}$. The derivation of the volume of this annulus in $\mathbb{C}^d$ is given in [cite] and we reproduce it here:
 
 \begin{equation}V=\frac{2\pi^n(1-t)^{d-1}}{(d-1)!}\end{equation}
 Plugging in $t=0$, we get the volume for the entire hypersphere:
@@ -286,27 +286,27 @@ And so the hyperspherical cap in which we are interested takes up $\nicefrac{V}{
 \begin{equation}
 \frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}
 \end{equation}
-It now remains to be proved that what the positions are for the set of vectors $\{\psi\}$, there must be some place in which we can place this spherical cap such that we only intersect strictly less than $\left(1-\nicefrac1d \right)^{d-1}$ of them. 
+It now remains to be proved that no matter the positions of the set of vectors $\{\psi\}$, there must be some place in which we can place this spherical cap such that we only intersect strictly less than $\left(1-\nicefrac1d \right)^{d-1}$ of them. 
 
 Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^d$. We define a space $SU(d)\times S_\mathbb{C}^d$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^d$ is equipped with the uniform measure.
 
-At each $\ket{\psi_i}$, we place a bump function $f_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$, where $\epsilon$ is taken to be sufficiently small compared to $d$.
+At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$, where $\epsilon$ is taken to be sufficiently small compared to $d$.
 
-closed hyperspherical cap, centred at $\ket{0}$, with a volume $V$ such that $\nicefrac{V}{V_S}=p$. We consider the following quantity:
+Let $C_p$ denote the closed hyperspherical cap, centred at $\ket{0}$, with a volume $V$ such that $\nicefrac{V}{V_S}=p$. We consider the following quantity:
 \begin{equation}
 \oint_{SU(d)\times S_\mathbb{C}^d} \mathbbm{1}_{g.z\in C_p} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
 \end{equation}
 By Fubini's theorem, we have:
 \begin{align}
-\int_{SU(d)} \oint_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in C_p} \sum_i f_\ket{\psi_i}(z) \dif z \dif g &= \oint_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in C_p} \sum_i f_\ket{\psi_i}(z) \dif g \dif z \\
- &= \sum_i\oint_{S_\mathbb{C}^d}f_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in C_p} \dif g \dif z \label{eqn:1} \\
- &= p\sum_i\oint_{S_\mathbb{C}^d}f_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+\int_{SU(d)} \oint_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in C_p} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \oint_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in C_p} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
+\int_{SU(d)} h(g,p,\epsilon) \dif g  &= \sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in C_p} \dif g \dif z \label{eqn:1} \\
+ &= p\sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
 &= p\left|\ket{\psi_i}\right|
 \end{align}
 
 
 
-In which equality holds between equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the spherical cap is twirled by the rotation group it becomes a constant function with value $p$. Now, we can interpret the left hand side as an average over the elements $g\in SU(d)$ of the number of the $\ket{\psi_i}$ that intersect the spherical cap $g^{-1}C$. However, we note that since the bump functions are not exact delta functions, there is by necessity some over- or under-counting of the point density, depending on whether a bump function, centred inside the cap, has some of its measure outside the cap; or a bump function centred outside the cap has some of its measure within. We note that if we contract our spherical cap's extent by $\epsilon$, we cease to capture any of the measure of the bump functions outside the original spherical cap. This means that the expression now represents an underestimate of the exact count of points within the cap $g^{-1}C$. Contracting the spherical cap by $\epsilon$ of course has an effect on the proportion of the sphere taken up by the cap:
+In which equality holds between equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the spherical cap is twirled by the rotation group it becomes a constant function with value $p$. Now, we would like to interpret the left hand side as an average over the elements $g\in SU(d)$ of $h(g,p,\epsilon)$, the number of the $\ket{\psi_i}$ that intersect the spherical cap $g^{-1}C$. However, we note that since the bump functions are not exact delta functions, there is by necessity some over- or under-counting of the point density, depending on whether a bump function, centred inside the cap, has some of its measure outside the cap; or a bump function centred outside the cap has some of its measure within. We note that if we contract our spherical cap's extent by $\epsilon$, we cease to capture any of the measure of the bump functions outside the original spherical cap. This means that the expression now represents an underestimate of the exact count of points within the cap $g^{-1}C$. Contracting the spherical cap by $\epsilon$ of course has an effect on the proportion of the sphere taken up by the cap:
 \begin{equation}
 p(\epsilon)=\left(1-\frac{1}{d}-\epsilon\right)^{d-1}=p-\epsilon(d-1) p^{\frac{d-2}{d-1}} +o(\epsilon).
 \end{equation}
