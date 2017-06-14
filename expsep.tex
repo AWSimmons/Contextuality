@@ -1,0 +1,442 @@
+\documentclass{amsart}
+\pdfoutput=1
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\usepackage{bbm}
+\usepackage{wrapfig}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{makecell}
+\usepackage{pifont}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{lem}{Lemma}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator*{\argmax}{arg\max} % thin space, limits underneath in displays
+\newcommand{\ket}[1]{{\left\vert{#1}\right\rangle}}
+\newcommand{\bra}[1]{{\left\langle{#1}\right\vert}}
+\newcommand{\braket}[2]{{\left< {#1} \middle\vert {#2}\right>}}
+\newcommand{\ketbra}[1]{{\left\vert {#1}\middle\rangle\middle\langle{#1}\right\vert}}
+\newcommand{\sprod}[2]{\left|\left< {#1} \middle| {#2} \right>\right|}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+\makeatletter
+\renewcommand*{\@textcolor}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+\interfootnotelinepenalty=10000
+
+
+\begin{document}
+\title{Alternative metrics for contextuality}
+\author{Andrew W. Simmons}
+\address{Department of Physics, Imperial College London, SW7 2AZ.}
+\begin{abstract}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoreet justo porttitor quam euismod consequat. Morbi dapibus lectus at nulla eleifend tincidunt. Mauris vulputate lorem congue sapien tempor bibendum. Fusce risus nunc, dapibus ut tortor sit amet, convallis vulputate magna. Aenean fringilla tincidunt odio, ut pharetra erat aliquam et. Nulla ultrices in odio at rutrum. Morbi vel libero erat. Proin arcu lacus, dignissim et semper malesuada, accumsan id tellus. Duis non ex est. Aliquam lacinia, ex eu hendrerit fermentum, diam nunc sagittis justo, sollicitudin suscipit elit est ut nibh. Ut ac odio nulla.
+\end{abstract}
+\maketitle
+\section{Proofs of Bell-Kochen-Specker Contextuality}
+
+Historically, proofs of Bell-Kochen-Specker, or Maximal, contextuality have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety.  In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove one row or column before it fails to be a proof of contextuality at all, although we may remove more than one row or column. We can think of these structures as exhibiting a kind of circular dependency.
+
+We first need to define what we mean by different strengths of contextuality, following Abramsky and Brandenburger \cite{Abra2011}, as applied to this situation.
+
+\begin{defn}[Hardy Contextuality]
+A collection of quantum measurement operators demonstrate \emph{Hardy contextuality} if there is a possible outcome that cannot be explained within a noncontextual, outcome-deterministic ontological model without that model also predicting that some outcomes are possible when they should be impossible.
+\end{defn}
+
+\begin{defn}[Maximal Contextuality]
+A collection of quantum measurement operators demonstrate \emph{maximal contextuality} if the existence of any noncontextual, outcome-deterministic ontic state in an ontological model for that situation would predict events being possible that should be impossible. %Wow that's a shit definition%.
+\end{defn}
+
+
+
+If we consider the 33-ray proof of the Bell-Kochen-Specker theorem due to Peres \cite{Pere1991}, then removing one context from the structure also removes all its contextuality. Is this surprising? We can say that Peres would deliberately have chosen a minimal example, that could not have anything taken away from it whilst still forming a proof of contextuality, which is a fair comment. However, removing a single context not only renders the structure unable to exhibit maximal contextuality, but \emph{renders it unable to exhibit Hardy contextuality as well}.
+
+That is to say, without introducting other structure to our consideration, we cannot think of this proof of noncontextuality as being a composite of proofs that each possibility is not noncontextually explainable\footnote{If we convert this proof into a proof of nonlocality (which is by nature, state-dependent rather than state-independent), then we can use the structure this gives us to prove something of this form. In this situation, we end up mostly %check%
+discarding parts of the restrictions stemming from relationships that exist between contexts rather than removing contexts themselves, in a way which retains operational significance. This is not possible in the contextuality scenario.}. This is somewhat surprising, since we might have expected some contextuality to remain in the system when we introduce a minor epistemic restriction-- the inability to measure one of the sixteen contexts that are quantum-mechanically available in the situation. This ``lynchpin'' property of the scenario can be thought of as reflecting the fact that the distribution is very close to noncontextual in the sense outlined by Winter \cite{Wint2014}. Only one context need be disrupted before the remainder has a classical explanation.
+
+By taking $n$ rotated copies the vectors used in Peres's proof, we can construct a noncontextuality scenario in which $\nicefrac{n}{33}$ of the contexts need to be disrupted in order for the statistics to be explained noncontextually. We can make this notion more concrete by defining notions of distance between two quantum probability distributions $\mathcal{P}$, $\mathcal{Q}$ in a quantum subtheory with contexts $\mathcal{C}$:
+
+\begin{equation}
+\delta_1(\mathcal{P},\mathcal{Q})=\frac{1}{2\left|\mathcal{C}\right|}\sum_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{Q}(x)\right|.
+\end{equation}
+ This is simply the total variation distance between the two distributions, averaged over context. This has operational significance: it is the distinguishability of the two distributions if the context measured is chosen uniformly at random.
+
+
+\begin{equation}
+\delta_2(\mathcal{P},\mathcal{Q})=\frac{1}{2}\max_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{Q}(x)\right|.
+\end{equation}
+ This is simply the total variation distance between the two distributions, where we maximise over the contexts. This has operational significance: it is the distinguishability of the two distributions if the context measured is chosen optimally.
+
+Add possibilistic one too. Is the Kullback-Liebler divergence interesting here?
+
+\section{Alternative definitions of contextuality as contextuality measures}
+
+One metric for contextuality that has appeared in the literature \cite{Abra2011, DeSi2015}, is the \emph{contextual fraction}, in which we consider our probability distribution to be a convex mixture between a noncontextual theory and a contextual one. This notion is what prompts the term ``maximal contextuality''; if a scenario is maximally contextual then it has a contextual fraction that is the highest possible: 1. Other metrics have also been explored; one important one, possessing operational meaning, is \emph{negativity} (find cite). These definitions have their own strengths and weaknesses. Both are independent of re-labelling the measurement effects, but contextual fraction has no apparent operational relevance, and negativity is defined relative to a specific choice of frame, with no known procedure for its minimisation.
+
+Let us consider the case of nonlocality. Operationally, our scenario is represented by some sort of data table, such as the one below:
+
+\begin{equation}\renewcommand{\arraystretch}{1.5}
+\begin{array}{c| c c | c c |} \renewcommand{\arraystretch}{1.5}
+&\ket{+}&\ket{-}&\ket{0}&\ket{1}\\\hline
+\ket{+}&\frac{3}{4} &\frac{1}{12}  &\frac{2}{3} & \frac{1}{6}\\
+\ket{-}&\frac{1}{12} &\frac{1}{12}  &0 &\frac{1}{6}\\ \hline
+\ket{0}&\frac{2}{3}&0&\frac{1}{3} &\frac{1}{3} \\
+\ket{1}&\frac{1}{6}&\frac{1}{6} &\frac{1}{3} &0 \\ \hline
+\end{array} \renewcommand{\arraystretch}{1}
+\end{equation}
+This is a table of probability outcomes for a nonlocality experiment on the state $\nicefrac{1}{\sqrt{3}}\left(\ket{00}+\ket{01}+\ket{11}\right)$, and it demonstrates Hardy nonlocality. The $\ket{-}\ket{-}$ outcome possibility cannot be accounted for within a local hidden variable model; and such this model has a \emph{paradoxical probability}, the maximum probability over contexts of exhibiting a nonlocal possibility, of $\nicefrac{1}{12}$. The maximum for any Hardy paradox, a table exhibiting these exact possibilities, is given by $\nicefrac{5\sqrt{5}-11}{2}$. (This nonlocal possibility is also sometimes called the EPR2 decomposition).
+
+We see that this scenario, then, has a nonlocal fraction strictly greater than the paradoxical probability, since we can't remove that possibility alone without creating a signalling situation (this is a fundamental feature of nonlocal possibilities, and could be used as their definition). Calculation of the contextual fraction, however, is computationally complex; indeed, determining whether it is nonzero is \textsc{NP-complete} for a 
+nontrivial two-party nonlocality scenario exactly when one party has access to measurements with three or more outcomes \cite{SimmCC}.
+
+We can define operationally-motivated metrics for nonlocality based on the variational distance between a given probability distribution and its closest local distribution, broken down into comparable contexts. For example, we could define the distance as being the statistical distinguishability of the distribution from the nearest local distribution, taking an average or a maximum over contexts. These correspond to operational situations where we pick contexts at random, and seek to distinguish the two distributions, or where we are allowed to choose a context in which the distributions are maximally different.
+
+\begin{equation}
+\delta_{\mbox{av}}(\mathcal{P})=\sup_{\mathcal{L}\in\mathscr{L}}\delta_1(\mathcal{P},\mathcal{L})=\frac{1}{2\left|\mathcal{C}\right|}\sup_{\mathcal{L}\in\mathscr{L}}\sum_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{L}(x)\right|
+\end{equation}
+
+\begin{equation}
+\delta_{\mbox{max}}(\mathcal{P})=\sup_{\mathcal{L}\in\mathscr{L}}\delta_2(\mathcal{P},\mathcal{L})=\frac{1}{2}\sup_{\mathcal{L}\in\mathscr{L}}\max_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{Q}(x)\right|
+\end{equation}
+
+For instance, the Hardy distribution shown above has the following distribution as its closest local distribution, no matter whether we take the maximal variation distance or average it over contexts:
+
+\begin{equation}\renewcommand{\arraystretch}{1.5}
+\begin{array}{c| c c | c c |} 
+&&&&\\\hline
+&\frac{3}{4} &\frac{1}{8}  &\frac{2}{3} & \frac{5}{24}\\
+&\frac{1}{12} &\frac{1}{24}  &0 &\frac{1}{8}\\ \hline
+&\frac{2}{3}&\frac{1}{24}&\frac{3}{8} &\frac{1}{3} \\
+&\frac{1}{6}&\frac{1}{8} &\frac{7}{24} &0 \\ \hline
+\end{array} \renewcommand{\arraystretch}{1}
+\end{equation}
+This gives rise to a distinguishability from local distributions of $\nicefrac{1}{24}$.
+These are sensible metrics for nonlocality. In particular, they have the following properties:
+
+\begin{thm}
+Both the average variation distance and maximum variation distance posess the following desirable properties for a nonlocality metric:
+\begin{enumerate} 
+\item They are non-increasing under local classical post-processing.
+\item They are constant under re-labelling of outcomes or outcome coarse-graining. This follows from basic statistics. Clearly two distributions can't be more distinguishable if we throw away information.
+\item They are linear under mixing with local distributions. Clearly obvious.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Do this later i guess.
+
+\end{proof}
+
+Note: nonlocality metrics are very well-studied. This must be coincident with something. maybe it's coincident with "maximum violation of a Bell inequality". It's sort of related to nonlocal fraction but as we have pointed out it can't be identical to it. "Robustness measure of nonlocality" often distance when mixing with pure noise.
+
+\section{The sheaf-theoretic approach to nonlocality and contextuality}
+
+The sheaf-theoretic approach to nonlocality introduces the concept of "logical" contextuality/nonlocality by considering probability theories in semirings other than $\mathbb{R}_+$, for example the Boolean semiring. Doing so restores the concept of nonlocality as being defined by the violation of inequalities corresponding to facets of a local polytope. However, this setting poses a mathematical problem for our scheme: without additive inverses, we cannot proceed with our definitions as written. We also do not have access to division, which rules out other statistical distance measures such as the Kullback-Liebler divergence.
+
+Given that our semiring may not be extendable into a ring, in this case we must define our statistical distances relative to some penalty function that obeys the following properties:
+
+blehhh
+
+Proofs of maximal contextuality can be converted into proofs of maximal nonlocality by obvious thing. Can then talk about distance from local polytope as sensible measure. Same of Hardy contextuality and Hardy nonlocality.
+What does this end up meaning? Is this identical to the description by Winter?
+
+\subsection{Possibilistic Measures of Nonlocality}
+
+We saw that for a contextuality situation, a measure of the strength of a maximal contextuality scenario was the number of projectors whose values needed to depend on context . For a nonlocality scenario (which is of course inherently state-dependent), we have a choices in how we interpret this condition. We could count the minimum number of maximally-fine grained projectors whose outcomes depend on context, so if Alice measures in the basis $\{\ket{a_0},\ket{a_1}\dots\ket{a_n}\}$, and Bob measures in the basis $\{\ket{b_0},\ket{b_1}\dots\ket{b_n}\}$, we are counting projectors of the form $\ket{a_i}\ket{b_j}$ which have context-dependent outcomes. However, in many nonlocality scenarios, each of these fine-grained projectors may only occur in a single context, and so while this is the most obvious analogue to the maximal contextuality scenario described above, this metric does not capture the structure of the nonlocality problem.
+
+Perhaps a more fruitful approach is to consider how many of the projective measurements available to a single party must be found to have outcomes that depend on the context of which measurement choice is chosen by the other partner. A different generalisation is that we could count the minimum number of contexts that can deviate in their outcomes from a specified set of global valuations. We shall see that both of these are valid measures of possibilistic nonlocality, but have very differing properties with respect to how much nonlocality can be considered achievable by quantum mechanics, as well as the computational complexity of calculating each value.
+
+\begin{defn}[$k$-\textsc{PN1}]
+We define the decision problem $k$-\textsc{PN1} as follows; the input is a table of data as in \cite{Mans2011} and an integer $k$, and we ask the following question: is there an explanation of the table in which the number of projectors available to the two parties whose outcomes depend on context is less than or equal to $k$.
+\end{defn}
+\begin{thm}$k$-\textsc{PN1} is \textbf{NP}-complete when each party's measurements have exactly two outcomes.
+\end{thm}
+
+\begin{proof}
+The proof will be by reduction from \textsc{Vertex Cover}, whose definition, as given by Garey and Johnson \cite{Gare1979}, is as follows:
+\begin{defn}[\textsc{Vertex Cover}]
+\quad\\
+Instance: a graph $\mathcal{G}=(V,E)$ and a positive integer $k\leq V$.\\
+Question: is there a $V'\subset V$ such that $\left|V'\right|\leq k$ and for all $e\in E$, $V\cap e\neq\emptyset$.
+\end{defn}
+
+We will now construct a nonlocality scenario from a given instance of \textsc{Vertex Cover} such that there exists a vertex cover for $\mathcal{G}$ of size $k$ if and only if there exists an explanation of the nonlocality scenario in which the number of projectors with context-independent valuation is $k$. %+\left|E\right|
+
+ Each of the four contexts that makes up the Hardy paradox will have criteria that must be met by a set of contextual rows and columns to be able to explain the paradox. For the context containing the 1 entry that cannot be extended to a deterministic grid, the sufficient conditions are always satisfied by one of the following: ``the measurement row must be contextual", ``the measurement column must be contextual", or ``the measurement row and column must be contextual". The remaining contexts can always be satisfied by \emph{either} one of the following:``the measurement row must be contextual", or ``the measurement column must be contextual". We never require both the measurement column and row to vary, as this would be a violation of no-signalling.
+
+Given a graph $\mathcal{G}=(V,E)$, we construct a nonlocality scenario in which there are $2\left|E\right|$ measurement rows and $\left|V\right|$ measurement columns, noting that since there are only $O(\left|V\right|^2)$ possible edges. Let us label the edges $e_i=\{v^i_1,v^i_2\}$, and for each edge, we place a Hardy paradox in the contexts at the intersections of the measurement rows labelled $2i$ and $2i+1$, and the measurement columns $v^i_1$, and $v^i_2$. Every other context should contain all 1-entries. The Hardy paradoxes we have placed may not be the only Hardy paradoxes in the scenario, due to ``interactions'' between the paradoxes that share measurement rows. %How important is this?
+
+Assume there is a vertex cover for $\mathcal{G}$ of size $k$, namely $K=\{v^K_1,v^K_2\dots v^K_k\}$, and then consider an explanation for the nonlocality scenario in which measurement columns indexed by $K$ are allowed to have outcomes that vary contextually. We will now show that this is a sufficient explanation for the nonlocality scenario.
+
+% Insert proof here but it's basically obvious
+
+We note that for such a scenario, a $k$ minimal for the graph is also a $k$ minimal for the nonlocality scenario: allowing any measurement row to vary contextually affects exactly one of the Hardy paradoxes introduced deliberately by the graph structure, while allowing a measurement column to vary contextually affects affects strictly more than one. Hence, if in a given explanation of the nonlocality scenario, there is a measurement row with a context-dependent outcome, we can replace it with one of the columns involved in the Hardy paradox that involves contexts on that row. By iterating this, we are left with an explanation in which only measurement columns, not rows, are required to vary contextually, which, by construction, is exactly a vertex cover for $\mathcal{G}$. Hence, the size of a minimal vertex cover for $\mathcal{G}$ and the minimal explanation for the nonlocality scenario are equal.
+
+We have exhibited a polynomial-time reduction from \textsc{Vertex Cover} to $k$-\textsc{PN1}. Since  \textsc{Vertex Cover} is \textbf{NP}-hard, so too, then, is $k$-\textsc{PN1}.  In addition, $k$-\textsc{PN1} is in \textbf{NP} since there are only polynomially many 1 entries in the grid and therefore a witness that is an explicit set of data tables that combine to the target table is of polynomial size.
+\end{proof}
+By this reduction from \textsc{Vertex Cover}, we find that unless \textbf{P}=\textbf{NP}, $k$-\textsc{PN1} is not approximable in polynomial time to a factor of better than 1.3606 \cite{Dinu04}, or better than 2 if the Unique Games conjecture holds \cite{Khot03}.
+
+The cases in which one party has a number of measurements greater than two can be seen to be \textbf{NP}-hard since they are already \textbf{NP}-hard for $k=0$ \cite{Abra2011,SimmCC}. This demonstrates another sense in which the case treated by Mansfield and Fritz \cite{Mans2011,Mans2016} is unique.
+
+
+
+\begin{defn}[$k$-\textsc{PN2}]
+We define the decision problem $k$-\textsc{PN2} as follows; the input is a table of data as in \cite{Mans2011} and an integer $k$, and we ask the following question: is there an explanation of the table in which the number of contexts in which outcomes are allowed to freely vary is less than or equal to $k$.
+\end{defn}
+\begin{thm}$k$-\textsc{PN2} is \textbf{NP}-complete when each party's measurements have exactly two outcomes.
+\end{thm}
+\begin{proof}
+The proof will proceed once again by reuction from \textsc{Vertex Cover}. Like in the constructions of Abramsky, Gottlob, and Kolaitis, we will in this instance use a data table that is symmetric on exchange of columns and rows.
+
+Given a graph, 
+Given a graph $\mathcal{G}=(V,E)$, we construct a nonlocality scenario in which there are $\left|V\right|$ measurement rows and columns. Each context at the intersection of the $n$\textsuperscript{th} measurement row and $n$\textsuperscript{th} measurement column is defined to be
+\begin{equation}
+\begin{array}{| c c |} 
+\hline
+ 1& 1\\ 
+ 1 & 0\\ \hline
+\end{array}\,,
+\end{equation}
+which we will refer to as a ``type '' context.
+For each edge, $e=\{v_1,v_2\}\in E$, we will define contexts located at the intersection of the $v_1$\textsuperscript{th} measurement row and the $v_2$\textsuperscript{th} measurement column and at the intersection of the $v_2$\textsuperscript{th} measurement row and the $v_1$\textsuperscript{th} measurement column to be
+\begin{equation}
+\begin{array}{| c c |} 
+\hline
+ 0& 1\\ 
+ 1 & 1\\ \hline
+\end{array}\,,
+\end{equation}
+which we will refer to as a ``type 2'' context. The remaining contexts will be 
+\begin{equation}
+\begin{array}{| c c |} 
+\hline
+ 1& 1\\ 
+ 1 & 1\\ \hline
+\end{array}\,,
+\end{equation}
+a ``type 0'' context. We note that for each edge $\{v_1,v_2\}$, we introduce four Hardy paradoxes, each involving the four contexts at $(v_1,v_1)$, $(v_1,v_2)$, $(v_2,v_1)$ and $(v_2,v_2)$. The nonlocal 1 entries are shown here in red:
+\begin{equation}
+\begin{array}{| c c |c c|} 
+\hline
+ \textcolor{red}{1}& 1&0&1\\ 
+ 1 & 0&1& \textcolor{red}{1}\\ \hline
+ 0& 1& \textcolor{red}{1}&1\\ 
+ 1 & \textcolor{red}{1}&1&0\\ \hline
+\end{array}\,.
+\end{equation}
+A Hardy paradox can only be formed when one of the following structures appears in a square pattern:
+
+
+Proof unfinished- this proof technique may not work
+
+
+\end{proof}
+
+\section{A quantum proof of maximal contextuality cannot be too far from the noncontextual polytope}
+
+Consider the orthogonality graph $\mathcal{G}$ of a maximal nonlocality scenario, in which we identify projectors with vertices, and two vertices $g_1$, $g_2$, identified with $\ket{\psi_1}$, $\ket{\psi_2}$ are joined by an edge iff $\braket{\psi_1}{\psi_2}=0$. Following [[CITE]], we will restrict our attention to outcome assignments in which we do not ever assign a ``1'' valuation to two orthogonal vectors. An \emph{independent set} is a subset of vertices, none of which are joined by an edge. Any noncontextual assignment of ``1''s, then, will form an independent set since we cannot have two orthogonal vectors, \emph{i.e.} vertices joined by an edge in our set of vectors which are noncontextually given ``1'' assignments. The size of the largest independent set of a graph $\mathcal{G}$ is denoted $\alpha(\mathcal{G})$ and is called the \emph{independence number}. Another important graph concept is that of a clique:%can put some good motivation for this approach here- in most graph-based KS proofs the coarse-grained projectors are effectively allowed to vary contextually in their assignment 
+
+\begin{defn}[Clique]
+For a graph $\mathcal{G}=\{V,E\}$, a vertex subset $C\subset V$ is a \emph{Clique} if the subgraph induced from $\mathcal{G}$ on $C$ is \emph{complete}, that is,  every vertex in $C$ is connected to every other.
+\end{defn}
+
+We say that a clique is \emph{maximal} if it cannot be extended by including one more vertex, and that it is a \emph{maximum clique} if there is no clique in $\mathcal{G}$ with more vertices. The size of a maximum clique in $\mathcal{G}$ is denoted $\omega(\mathcal{G})$, and so we note that for a $d$-dimensional quantum system, as long as the set of vectors we can measure includes at least one basis, we will have $\omega(\mathcal{G})=d$. In a complete hidden variable model for a scenario, we require that in every context, there be at least one vector that can take a ``1'' value either contextually or noncontextually. This motivates the following definition:
+
+%This value, then, is highly related to the closeness to a noncontextual distribution in the sense suggested by Winter. However, we wish to introduce a measure of contextuality by allowing the value of a projective measurement to change, depending on context. For this reason, it will be more appropriate and illustrative to adopt the hypergraph approach to contextuality as introduced by Ac\'{i}n, Fritz, Leverrier, and Bel\'{e}n Sainz \cite{Acin2015}. In this picture, we will once again associate our projectors with vertices of the hypergraph, and now we will introduce one hyperedge for each (maximal) context. A noncontextual deterministic hidden variable, then, can be defined as a set that has exactly one vertex in common with each hyperedge. This is called a \emph{transversal} of the hypergraph. Assuming the role of our contextuality metric, then, is the size of the largest \emph{partial transversal}, the largest set of vertices with 0 or 1 vertices in common with every hyperedge. I will denote the size of the largest partial transversal of a hypergraph $\mathcal{H}$ as $\tau(\mathcal{H})$. %We don't want hypergraphs
+
+\begin{defn}[Maximum-clique hitting-set]
+For a graph $\mathcal{G}=\{V,E\}$, a vertex subset $T\subset V$ is a \emph{maximum-clique hitting-set} or \emph{maximum-clique transversal} if for all cliques $C$, $|C|=\omega(\mathcal{G})$, $T\cap C\neq\emptyset$.
+\end{defn}
+
+Clearly, the set of vertices associated with a set of vectors given either noncontextual or contextual ``1'' assignments is a Maximum-clique hitting set. This allows us to define our first figure-of-merit for a set of vectors forming a Kochen-Specker type proof of the Bell-Kochen-Specker theorem.
+
+\begin{equation}q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|\end{equation},
+where $T$ is a maximum-clique hitting-set. We see that this is the figure-of-merit we posited: we take a set $T$ of vectors which will recieve a ``1'' valuation, either contextually or noncontextually, and subtract from it the number of those vectors that can support a noncontextual valuation. It is therefore the number of vectors that must recieve a contextual valuation in any model for the scenario. In order that we might more directly compare this quantity between graphs of different sizes, we can consider its graph density:
+\begin{equation}
+q(\mathcal{G})=\frac{q_a(\mathcal{G})}{|V(\mathcal{G})|}.
+\end{equation}
+We now have a graph-theoretic formulation of our quantity of interest. What values of this quantity are obtainable, either by quantum-mechanically realisable scenarios, or in general probabilistic theories? We note the following trivial lower bound:
+\begin{equation}
+q_a(\mathcal{G})\geq \min |T|-\alpha(\mathcal{G}).
+\end{equation}
+We note that while, in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$. %Find/give proof of the first one of these claims. Hitting set is NP-complete and we are doing hitting set with a couple of really minor restrictions.
+\begin{thm}
+Any orthogonality graph induced by a set of vectors $\ket{\psi_i}$ in a $d$-dimensional Hilbert space has
+\begin{equation}
+\min \left(\frac{|T|}{|V(\mathcal{G})|}\right) < \left(1-\frac1d\right)^{d-1}.
+\end{equation}
+\end{thm}
+\begin{proof}
+The proof proceeds by demonstrating the existence of a region of Hilbert space, such that any basis for that Hilbert space must have at least one basis element that lies within the region. Hence, the set of vectors from a finite set that lie in this region must intersect every basis that can be formed from that finite set.
+
+Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A complex hyperspherical cap subtending a larger angle than this will then necessarily capture at least one element from the basis.
+
+An (open) complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2> t$ for some $t\in\mathbb{R}$. The derivation of the volume of this annulus in $\mathbb{C}^d$ is given in [cite] and we reproduce it here:
+
+\begin{equation}V=\frac{2\pi^n(1-t)^{d-1}}{(d-1)!}\end{equation}
+Plugging in $t=0$, we get the volume for the entire hypersphere:
+\begin{equation}V_S=\frac{2\pi^n}{(d-1)!}\end{equation}
+And so the hyperspherical cap in which we are interested takes up $\nicefrac{V}{V_S}=(1-t)^{d-1}$ of the Hilbert space. Plugging in the value derived above for the necessary $t$ to be sure of capturing at least one element from each basis, we get the value
+\begin{equation}
+\frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}
+\end{equation}
+It now remains to be proved that what the positions are for the set of vectors $\{\psi\}$, there must be some place in which we can place this spherical cap such that we only intersect strictly less than $\left(1-\nicefrac1d \right)^{d-1}$ of them. 
+
+Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^d$. We define a space $SU(d)\times S_\mathbb{C}^d$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^d$ is equipped with the uniform measure.
+
+At each $\ket{\psi_i}$, we place a bump function $f_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$, where $\epsilon$ is taken to be sufficiently small compared to $d$.
+%the minimum distance between vectors $\ket{\psi_i}$. Let $C_p$ denote the 
+%open hyperspherical cap, centred at $\ket{0}$, with a volume $V$ such that $\nicefrac{V}{V_S}=p$. We consider the following quantity:
+closed hyperspherical cap, centred at $\ket{0}$, with a volume $V$ such that $\nicefrac{V}{V_S}=p$. We consider the following quantity:
+\begin{equation}
+\oint_{SU(d)\times S_\mathbb{C}^d} \mathbbm{1}_{g.z\in C_p} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
+\end{equation}
+By Fubini's theorem, we have:
+\begin{align}
+\int_{SU(d)} \oint_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in C_p} \sum_i f_\ket{\psi_i}(z) \dif z \dif g &= \oint_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in C_p} \sum_i f_\ket{\psi_i}(z) \dif g \dif z \\
+ &= \sum_i\oint_{S_\mathbb{C}^d}f_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in C_p} \dif g \dif z \label{eqn:1} \\
+ &= p\sum_i\oint_{S_\mathbb{C}^d}f_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+&= p\left|\ket{\psi_i}\right|
+\end{align}
+%In which equality holds between equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the spherical cap is twirled by the rotation group it becomes a constant function with value $p$. Now, we can interpret the left hand side as an average over the elements $g\in SU(d)$ of the number of the $\ket{\psi_i}$ that intersect the spherical cap $g^{-1}C$, although this is an overestimate since if one of the $\ket{\psi_i}$ lies on the closure of $g^{-1}C$, then it will contribute a value of $\nicefrac12$ regardless of the value of $\epsilon$. We see that even with this (measure 0) overestimation, the average is equal to $p\left|\ket{\psi_i}\right|$, so certainly there is some position for the spherical cap $C$ such that it only intersects $p\left|\ket{\psi_i}\right|$ vectors even in the worst case. Epsilonisation argument- take a $\delta$ bigger epsilonisation cap and then bound the amount of point density that escapes.
+
+
+In which equality holds between equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the spherical cap is twirled by the rotation group it becomes a constant function with value $p$. Now, we can interpret the left hand side as an average over the elements $g\in SU(d)$ of the number of the $\ket{\psi_i}$ that intersect the spherical cap $g^{-1}C$. However, we note that since the bump functions are not exact delta functions, there is by necessity some over- or under-counting of the point density, depending on whether a bump function, centred inside the cap, has some of its measure outside the cap; or a bump function centred outside the cap has some of its measure within. We note that if we contract our spherical cap's extent by $\epsilon$, we cease to capture any of the measure of the bump functions outside the original spherical cap. This means that the expression now represents an underestimate of the exact count of points within the cap $g^{-1}C$. Contracting the spherical cap by $\epsilon$ of course has an effect on the proportion of the sphere taken up by the cap:
+\begin{equation}
+p(\epsilon)=\left(1-\frac{1}{d}-\epsilon\right)^{d-1}=p-\epsilon(d-1) p^{\frac{d-2}{d-1}} +o(\epsilon).
+\end{equation}
+We see then, since $\epsilon$ is taken to be small compared to $d$, that the left hand side of the equation with $p'=p+\epsilon$ can be taken to be a strict underestimate of the count of vertices inside a spherical cap taking up a proportion of the sphere $p$. By taking $\epsilon\rightarrow0$, this lower bound for the average becomes arbitrarily close to $p$. Hence, there is some position for the spherical cap $C$ such that it only intersects $p\left|\ket{\psi_i}\right|$ vectors even in the worst case.
+
+\end{proof} 
+\begin{cor}
+Any quantum mechanically accessible $\mathcal{G}$ has  $q(\mathcal{G})\leq\nicefrac49$.
+\end{cor}
+\begin{proof}
+We note that this quantity can easily be seen to be strictly decreasing with increased quantum dimension $d$. Since two-dimensional quantum systems cannot produce a proof of contextuality, the valuation of this quantity for $d=3$ sets an absolute upper bound for $\min_{T\subset G}|T|$ for quantum-mechanically accessible $\mathcal{G}$, which is $\nicefrac49$. Since $\min_{T\subset G}|T|\geq q(\mathcal{G})$, the result follows.
+\end{proof}
+As $d$ increases, the quantity $(1-\nicefrac1d)^{d-1}$ tends to $\nicefrac1e$. We note that this bound is explicitly not tight for $q(\mathcal{G})$, as we have ignored the subtrahend entirely. %In addition, we will present reason to believe that this bound is not tight for $|T(\mathcal{G}|$, and that it becomes less tight as $d$ becomes higher.
+
+Above, it was shown that a spherical cap taking up a proportion of $(1-\nicefrac1d)^{d-1}$ of Hilbert space must capture at least one vector from every orthonormal basis. However, if for many bases this spherical cap captures more than one basis element, this might suggest that this spherical cap was not the most efficient way of choosing a vector from each basis. We note, though, that the exact geometry of the set of projectors will have a large effect on the efficiency of inefficiency of this constructrion. It is of note that an increase in the quantum dimension, while allowing for more complicated structures and interplay of the permitted projectors that, as we shall demonstrate, seems to allow for construction of quantum graphs with very small independence number, also has a dampening affect on the quantity $|T|$ since the bases themselves have more geometrical constraints.
+
+We note that while a spherical cap taking up a proportion $(1-\nicefrac1d)^{d-1}$ of the Hilbert space must contain at least one out of a basis of $d$ vectors, it can actually contain up to $d$ in the worst case. Below, we will see a specific example of a set of vectors providing a nonlocality scenario, in which \emph{every} projector is captured by a pessimally-chosen spherical cap position. In $d$-dimensional Hilbert space, a spherical cap of proportion $(1-\nicefrac1n)^{d-1}$ can capture $n$ vectors out of a basis. So for any chosen $n'$, as $d$ increases, we see that the fraction of the spherical cap in the construction that cannot capture $n'$ of a basis tends to 0. However, if we consider the fraction of the spherical cap that can capture a constant proportion of basis elements $c$, we get the following behaviour under increasing $d$:
+\begin{equation}
+\lim_{d\rightarrow\infty} \left(1-\frac{1}{cd}\right)^{d-1}=e^{-\frac1c}.
+\end{equation}
+This might imply that the quality of the bound does not degrade as the dimension increases.%Think about this some more.
+
+
+\subsection{Hadamard States and the Hadamard Graph}
+
+In quantum dimension $d$, consider following family of states indexed by bitstrings $\vec{x}\in\{0,1\}^d$:
+\begin{equation}
+\mathcal{H}_d=\left\{ \ket{\psi_{\vec{x}}}:\ket{\psi_{\vec{x}}} = \frac{1}{\sqrt{d}}\sum_{i=0}^{d-1}(-1)^{x_i}\ket{i}  \right\}.
+\end{equation}
+These are called \emph{Hadamard states}. In dimensions $d=2^n$, they form bases which we will call \emph{Hadamard bases}. In this section, we may also consider the following set, which we will call \emph{reduced Hadamard states}.
+\begin{equation}
+\mathcal{R}_d=\left\{ \ket{\psi_{\vec{x}}}:\ket{\psi_{\vec{x}}} = \frac{1}{\sqrt{d}}\left(\ket{0}+\sum_{i=1}^{d-1}(-1)^{x_{i-1}}\ket{i}  \right)\right\}, \qquad\vec{x}\in\left\{\vec{x}\in\{0,1\}^{d-1}:\sum_{i=0}^{d-1} x_i =0 \enspace \mbox{mod 2}\right\}
+\end{equation}
+We can see that this is just the subset of Hadamard states featuring an even number of $-$ signs, with the phase degree of freedom fixed. The reason for this is computational ease; it can be easily seen that when we construct the orthogonality graph for the Hadamard states, it contains two connected components, isomorphic under the reversing the sign of any one basis element. This is because a vector with an odd number of negative components and one with an even number of negative components can never be orthogonal. Hence, all the structure captured by the Hadamard states is also captured by the set of reduced Hadamard states. We fix the phase merely so as to avoid any ambiguity of description.
+
+The Hadamard states in dimension $d$ form what is known as the Hadamard graph. An application of the [cite] theorem tells us that we can bound the independence number of the . It's known that there exist Hadamard bases in dimensions $d=2^k$, but it is not known that Hadamard bases exist in general in all dimensions $d=4k$, suggesting that Hadamard bases have a complicated structure, and that even enumerating the Hadamard bases may not even be in \textbf{P}, since the number of vectors in our set is exponential in $d$. As such, question of what the value of $\min|T|$  is for such graphs is open and is likely to be a difficult question. The Hadamard graphs illustrate a tension in trying to optimise $q(\mathcal{G})$. They are so well connected that they have an exponentially small independence density, so few vectors can recieve a noncontextual assignment of 1, but this same connectedness means that allowing a single vector's valuation to vary contextually ``fixes'' many contexts.
+
+
+%A perturbation from \sum_i w^i \ket{i} is a decent place to centre the cap for Hadamard states.
+
+%\subsection{Andr\'{a}sfai Graphs}
+
+%The family of Andr\'{a}sfai graphs are not quantumly accessible. However, they do allow us to prove a concrete bound on what values of $q(\mathcal{G})$ are achievable within the framework of generalised probabilistic theories. The $n$-Andr\'{a}sfai graph $A_n$  has $3n-1$ vertices, where the $i$\textsuperscript{th} vertex is adjacent to the $(i\pm j)$\textsuperscript{th} vertices, where $j$ is an integer between $1$ and $3n-1$ that is congruent to $1\mod3$. 
+%By construction, then, the Andr\'{a}sfai graphs are triangle free, and so in the analogue with quantum theory they have contexts consisting of two measurements. Clearly, then, this cannot be accessible quantum mechanically, since choosing one measurement element in a two-outcome PVM or POVM uniquely defines the other element.
+
+%Because the Andr\'{a}sfai graphs are triangle-free, the maximum cliques are merely edges. This reduces the concept of a maximum-clique hitting-set to a covering of edges by vertices, a concept that is perhaps counter-intuitively known as a \emph{vertex cover} in the literature. The size of the minimal vertex cover of $\mathcal{G}$ is denoted $\tau(\mathcal{G})$.
+
+%Andr\'{a}sfai graphs $A_n$ have $\alpha(A_n)=n$, and $\tau(A_n)=2t-1$. Therefore, we can immediately obtain the following bound on $q(A_n)$:
+%\begin{equation}
+%q(A_n)\geq \frac{2n-1-n}{3n-1}=\frac{n-1}{3n-1},
+%\end{equation}
+%and so we have
+%\begin{equation}
+%\lim_{n\rightarrow\infty}q(A_n)\geq\frac13.
+%\end{equation}
+%Unfortunately, this bound is actually tight for the set of Andr\'{a}sfai graphs; we cannot do better by a consideration of the precise interplay between the maximum-clique hitting-sets and the independent sets.
+\begin{figure}
+\begin{center}
+\begin{tabular}{|c | c | c| c|c| }\hline
+Name & Transversal Size & Independence Number &FoM& Quantum? \\ \hline
+\makecell{Generic Quantum\\ Graph} & $\leq\left(1-\frac1d\right)^{d-1}\leq 0.\dot{4}$ & ?&?&\ding{51} \\\hline
+\makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
+%\makecell{Andr\'{a}sfai\\ Graphs} & $n-\frac{n+1}{3}$ & $\frac{n+1}{3}$&$\frac{1}{3}$& \ding{55} \\\hline
+\makecell{ABK Triangle-Free\\Graphs} & $n-C\sqrt{n\log n}$ & $C\sqrt{n\log n}$  & 1 &\ding{55}\\\hline
+\makecell{Disjoint Graph Union of \\ small KS Graphs} &\emph{e.g.} $\frac{5n}{18}$&\emph{e.g.} $\frac{4n}{18}$& $\geq\frac{1}{18}$&\ding{51} \\ \hline
+\end{tabular}
+\end{center}
+\caption{A table comparing the graph constructions in this paper. The quantities for the entry ``Disjoint Graph Union of small KS Graphs'' were calculated for multiple disjoint copies of Cabello's proof \cite{Cabe1997} of the Bell-Kochen-Specker theorem with 18 rays and 9 contexts.}
+\end{figure}
+\subsection{Triangle-Free Graphs}
+
+Many members of the family of triangle-free graphs are not quantumly accessible. However, they do allow us to prove a concrete bound on what values of $q(\mathcal{G})$ are achievable within the framework of generalised probabilistic theories. In these graphs, the maximum cliques are merely edges, and so each context consists of two measurement objects. Quantum mechanically, the only such graphs are uninteresting: the disjoint graph union of $K_2$ graphs, and these do not have enough structure to form a proof of the Bell-Kochen-Specker theorem. In such graphs, the concept of a maximum-clique hitting-set reduces to that of to a covering of edges by vertices, a concept introduced earlier as a \emph{vertex cover}. The size of the minimal vertex cover of $\mathcal{G}$ is denoted $\tau(\mathcal{G})$. This reduction of one of our quantities of interest to one better-studied in the literature allows us to make better use of already-known results.
+
+In the triangle-free case, we have a powerful relation between maximum-clique hitting-sets and independent sets; namely that they are graph complements of each other. A maximum-clique hitting-set, or vertex cover, is a set of vertices $T$ such that for every edge, at least one of that edge's vertices is in $T$. We can see, then, that the set $V-T$ must be independent, since if there were two vertices in $V-T$ connected by an edge, then neither of those vertices would be in $T$, a contradiction. Conversely, if we have an independent set $A$, then $V-A$ must be a vertex cover; if there were an edge with neither vertex in $V-A$, then both vertices are in $A$, a contradiction. This means that we can bound $q_a(\mathcal{G})$ as
+\begin{equation}
+q_a(\mathcal{G})\geq \min_\mathcal{G} |T| - \alpha(\mathcal{G}) = |V(\mathcal{G})|-2\alpha(\mathcal{G}).
+\end{equation}
+In other words, to be able to lower bound $q_a(\mathcal{G})$, we need only consider the independence number, $\alpha(\mathcal{G})$. We seek, therefore, triangle-free graphs with low independence number. We can invoke here a theorem due to Alon, Ben-Shimon and Krivelevich.\cite{Alon2010}
+\begin{thm}
+There exists a constant $C$ such that for all $n\in\mathbb{N}$ there exists a regular triangle-free graph $\mathcal{G}_n$, with $V(\mathcal{G}_n)=n$, and $\alpha(\mathcal{G}_n)\leq C\sqrt{n\log n}$.
+\end{thm}
+
+Hence, we have
+\begin{align}
+\lim_{n\rightarrow\infty}q(\mathcal{G}_n)&\geq\lim_{n\rightarrow\infty}\frac{n-C\sqrt{n\log n}}{n}\\
+&\geq 1-\lim_{n\rightarrow\infty}C\sqrt{\frac{\log n}{n}}=1.
+\end{align}
+So, we have $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\infty$. We see then that quantum mechanics does not display maximal contextuality as robustly, given this definition of robustness, as other possible GPTs. This could potentially have an impact on attempts to recreate quantum mechanics as a principle theory.
+
+\FloatBarrier
+\section{Classical Communication cost}
+
+
+
+\bibliography{/Users/andrewsimmons/Documents/Latex/Bib/bibliography}{}
+\bibliographystyle{plain}
+
+\end{document}
+
+Any 1 in the data table that cannot be extended to a deterministic grid forms part of a Hardy paradox, and locating all Hardy paradoxes can be done in $O(n^4)$, with $n$ being the greatest number of measurements available to either party \cite{Mans2011,SimmCC}. 
+
+For each such Hardy paradox, one of the involved contexts must be in a row or a column that has a contextual valuation, and if this condition is met for each Hardy paradox that a given 1 entry forms part of, the 1 entry can be extended to a (now contextual) deterministic grid. %Maybe add additional stuff here to make this clearer.
+
+The presence of absence of extra zero entries in a given instance Hardy paradox will change the character of which row and columns need to become contextual to give us the necessary flexibility to explain it. If, for example, we take the following table, the top left entry of which cannot be extended to a deterministic grid, then we note that if the measurement column has a context-dependent valuation, and the top right entry does not form part of a Hardy paradox, then this is sufficient to explain the paradox. However, the measurement row having a context-dependent valuation is not enough because of the placement of the zero in the bottom left.
+\begin{equation}
+\begin{array}{c| c c |}
+& & \\\hline
+&1&1 \\
+&0 &1 \\\hline
+\end{array}
+\end{equation}
+Let us for one moment leave aside the question of what happens when a single context is involved in two Hardy paradoxes.  Each of the four contexts that makes up the Hardy paradox will have criteria that must be met in order to explain the paradox. For the context containing the 1 entry that cannot be extended to a deterministic grid, the sufficient conditions are always satisfied by one of the following: ``the measurement row must be contextual", ``the measurement column must be contextual", or ``the measurement row and column must be contextual". The remaining contexts can always be satisfied by \emph{either} one of the following:``the measurement row must be contextual", or ``the measurement column must be contextual". We never require both the measurement column and row to vary, as this would be a violation of no-signalling.
+
+Letting $a^{(i)}_1$, $a^{(i)}_2$ be the two measurement rows, and $b^{(i)}_1$, $b^{(i)}_2$ the two measurement columns at the intersection of which we find the $i$\textsuperscript{th} Hardy paradox, we see that it gives rise to a set of conditions, at least one of which must be satisfied. We note that the conditions imposed by the context with the 1 entry that cannot be extended are a superset of the conditions imposed elsewhere, under our assumption that there are no nonlocal 1s in any of the contexts. Letting
+\begin{equation}
+%i\longrightarrow C_i=\left\{\left\{a_1^{(i)},b_1^{(i)}\right\},\left\{a_1^{(i)},b_2^{(i)}\right\},\left\{a_2^{(i)},b_1^{(i)}\right\},\left\{a_2^{(i)},b_2^{(i)}\right\}\right\}.
+C_i=\left\{C_i^a=\left\{a_1^{(i)},a_2^{(i)}\right\},C_i^b=\left\{b_1^{(i)},b_2^{(i)}\right\}\right\},
+\end{equation}
+let us consider the graph $\mathcal{G}$ with vertex set $\mathcal{V}=\left(\bigcup_i C_i^a\right) \cup \left(\bigcup_i C_i^b\right)$, and edge set $\mathcal{E}=\bigcup_i C_i$. We wish to find the smallest subset $D\subset V$, such that every edge meets a vertex in $D$. These are exactly the sets of row and column indices such that at least one measurement row, and at least one measurement column, from every Hardy paradox is included in the set, which allows the paradox to be averted. We note that our graph has exactly two connected components, corresponding to the row indices and column indices. This is exactly an instance of the {vertex cover problem}. It remains to show that we can embed a sufficiently large subset of instances of this problem for \textbf{NP}-completeness.
+
+We can consider a data table such that each Hardy paradox appears in two unique measurement rows that are not shared with any other instance of the Hardy paradox. Then, we clearly will need $\nicefrac{h}{2}$ row entries in $D$, where $h$ is the number of Hardy paradoxes. However, it is clear that in this situation any given Hardy paradox can involve any two measurement columns, and so the connected component relating to columns can be any arbitrary graph. We note that in this scenario, no one context is involved in two or more Hardy paradoxes. Since  \textsc{Vertex Cover} is \textbf{NP}-hard, so too, then, is $k$-\textsc{PN1}.  In addition, $k$-\textsc{PN1} is in \textbf{NP} since there are only polynomially many 1 entries in the grid and therefore a witness that is an explicit set of data tables that combine to the target table is of polynomial size. %This is not nearly as obvious once we allow contextuality- still true. Each component is a deterministic grid and each row/col that is contextual has a set of labels showing where the predictions deviate; only poly big.
+
+
+
