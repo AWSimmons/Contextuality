@@ -265,17 +265,18 @@ q_a(\mathcal{G})\geq \min |T|-\alpha(\mathcal{G}).
 \end{equation}
 We note that in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$, since for triangle-free graphs, this is equivalent to finding a vertex cover, which is \textbf{NP}-complete \cite{Polj1974}. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$ \cite{Gare1979}. 
 
-We will now demonstrate an upper bound on the quantity $q(\mathcal{G})$ for any quantum-mechanically accessible $\mathcal{G}$ in terms of the quantum dimension of the vectors that give rise to it. We will do this by bounding above the size of a maximum-clique hitting set for such a graph, which, since we ignore the subtrahend related to independence entirely, forms a trivial upper bound.
+We will now demonstrate an upper bound on the quantity $q(\mathcal{G})$ for any quantum-mechanically accessible $\mathcal{G}$ in terms of the quantum dimension of the vectors that give rise to it.
 \begin{thm}
-Any orthogonality graph induced by a set of vectors $\ket{\psi_i}$ in a $d$-dimensional Hilbert space has
+Any orthogonality graph $\mathcal{G}$ induced by a set of vectors $\ket{\psi_i}$ in a $d$-dimensional Hilbert space has
 \begin{equation}
-\min \left(\frac{|T|}{|V(\mathcal{G})|}\right) < \left(1-\frac1d\right)^{d-1}.
+q(\mathcal{G}) \leq \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}.
 \end{equation}
 \end{thm}
 \begin{proof}
-The proof proceeds by demonstrating the existence of a region of Hilbert space, such that any basis for that Hilbert space must have at least one basis element that lies within the region. Hence, the set of vectors from a finite set that lie in this region must intersect every basis that can be formed from that finite set.
+The proof proceeds by demonstrating the existence of a region of Hilbert space, such that any basis for that Hilbert space must have at least one basis element that lies within the region, as well as demonstrating a lower
+bound on the size of an independent set of vectors within that region.
 
-Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A closed complex hyperspherical cap subtending this angle will then necessarily capture at least one element from the basis.
+Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A closed complex hyperspherical cap subtending this angle will then necessarily capture at least one element from the basis, and so any set of vectors within such a hyperspherical cap $C$ construe a maximum-clique hitting-set, $T_C$.
 
 A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2\geq t$ for some $t\in\mathbb{R}$. The derivation of the volume of this annulus in $\mathbb{C}^d$ is given in [cite] and we reproduce it here:
 
@@ -284,43 +285,65 @@ Plugging in $t=0$, we get the volume for the entire hypersphere:
 \begin{equation}V_S=\frac{2\pi^n}{(d-1)!}\end{equation}
 And so the hyperspherical cap in which we are interested takes up $\nicefrac{V}{V_S}=(1-t)^{d-1}$ of the Hilbert space. Plugging in the value derived above for the necessary $t$ to be sure of capturing at least one element from each basis, we get the value
 \begin{equation}
-\frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}
+\frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}.
 \end{equation}
-It now remains to be proved that no matter the positions of the set of vectors $\{\psi\}$, there must be some place in which we can place this spherical cap such that we only intersect strictly less than $\left(1-\nicefrac1d \right)^{d-1}$ of them. 
+Clearly, the value of $q(\mathcal{G})$ for a quantum graph is upper bounded by the size of any maximum-clique hitting set, so if we can bound the minimum number of vectors we c must intersect with such a hyperspherical cap, this also constitutes a bound on the value $q(\mathcal{G})$. However, we would not expect this bound to be tight, since we have ignored the independent set subtrahend entirely. We would like to demonstrate an independent set within our maximum-clique hitting-set $T_C$, and therefore give a precise upper bound on the quantity $q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|$, giving an explicit construction procedure for a $T$ and $A\subset T$.
+
+We note that a hyperspherical cap containing the vectors $\ket{\phi}$ such that $\sprod{\psi}{\phi}^2> \nicefrac12$ cannot contain two orthogonal vectors as a simple application of the triangle inequality. We can place this smaller hyperspherical cap anywhere within the larger hyperspherical cap, and this will form an independent set $A$ that is a subset of $T_C$. For the rest of this proof, we will assume that the two spherical caps are centred on the same point; this will make no difference to the worst case scenario which forms the bound. The region of Hilbert space, then, in which vectors count towards the figure of merit, is a member of a two-parameter family of \emph{annuli} on the complex hypersphere, defined by
+\begin{equation}
+t_1\leq\sprod{\psi}{\phi}^2< t_2.
+\end{equation}
+Such an annulus takes up a proportion 
+\begin{equation}p(t_1,t_2)=\left(1-t_1 \right)^{d-1}-\left(1-t_2 \right)^{d-1}\end{equation}
+of the Hilbert space. Our construction has $t_1=\nicefrac1d$, and $t_2=\nicefrac12$, giving us a hyperspherical annulus defined by
+$\nicefrac1d\leq\sprod{\psi}{\phi}^2< \nicefrac12$.
+It now remains to be proved that no matter the positions of the set of vectors $\{\psi\}$, there must be some place in which we can place this annulus such that we only intersect strictly less than $p(t_1,t_2)$ of them. 
 
 Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^d$. We define a space $SU(d)\times S_\mathbb{C}^d$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^d$ is equipped with the uniform measure.
 
 At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$, where $\epsilon$ is taken to be sufficiently small compared to $d$.
 
-Let $C_p$ denote the closed hyperspherical cap, centred at $\ket{0}$, with a volume $V$ such that $\nicefrac{V}{V_S}=p$. We consider the following quantity:
+Let $A_{t_1,t_2}$ denote the hyperspherical annulus, $\{\ket{\phi}|t_1\leq\sprod{\psi}{\phi}^2< t_2\}$, centred at $\ket{0}$, with a volume $V$ such that $\nicefrac{V}{V_S}=p$. We consider the following quantity:
 \begin{equation}
-\oint_{SU(d)\times S_\mathbb{C}^d} \mathbbm{1}_{g.z\in C_p} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
+\oint_{SU(d)\times S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
 \end{equation}
 By Fubini's theorem, we have:
 \begin{align}
-\int_{SU(d)} \oint_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in C_p} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \oint_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in C_p} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
-\int_{SU(d)} h(g,p,\epsilon) \dif g  &= \sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in C_p} \dif g \dif z \label{eqn:1} \\
- &= p\sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
-&= p\left|\ket{\psi_i}\right|
+\int_{SU(d)} \oint_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \oint_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
+\int_{SU(d)} h(g,p,\epsilon) \dif g  &= \sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \dif g \dif z \label{eqn:1} \\
+ &= p(t_1,t_2)\sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+&= p(t_1,t_2)\left|\ket{\psi_i}\right|
 \end{align}
 
 
 
-In which equality holds between equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the spherical cap is twirled by the rotation group it becomes a constant function with value $p$. Now, we would like to interpret the left hand side as an average over the elements $g\in SU(d)$ of $h(g,p,\epsilon)$, the number of the $\ket{\psi_i}$ that intersect the spherical cap $g^{-1}C$. However, we note that since the bump functions are not exact delta functions, there is by necessity some over- or under-counting of the point density, depending on whether a bump function, centred inside the cap, has some of its measure outside the cap; or a bump function centred outside the cap has some of its measure within. We note that if we contract our spherical cap's extent by $\epsilon$, we cease to capture any of the measure of the bump functions outside the original spherical cap. This means that the expression now represents an underestimate of the exact count of points within the cap $g^{-1}C$. Contracting the spherical cap by $\epsilon$ of course has an effect on the proportion of the sphere taken up by the cap:
-\begin{equation}
-p(\epsilon)=\left(1-\frac{1}{d}-\epsilon\right)^{d-1}=p-\epsilon(d-1) p^{\frac{d-2}{d-1}} +o(\epsilon).
-\end{equation}
-We see then, since $\epsilon$ is taken to be small compared to $d$, that the left hand side of the equation with $p'=p+\epsilon$ can be taken to be a strict underestimate of the count of vertices inside a spherical cap taking up a proportion of the sphere $p$. By taking $\epsilon\rightarrow0$, this lower bound for the average becomes arbitrarily close to $p$. Hence, there is some position for the spherical cap $C$ such that it only intersects $p\left|\ket{\psi_i}\right|$ vectors even in the worst case.
+In which equality holds between equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the spherical cap is twirled by the rotation group it becomes a constant function with value $p(t_1,t_2)$. Now, we would like to interpret the left hand side as an average over the elements $g\in SU(d)$ of $h(g,p,\epsilon)$, the number of the $\ket{\psi_i}$ that intersect the annulus $g^{-1}A_{t_1,t_2}$. However, we note that since the bump functions are not exact delta functions, there is by necessity some over- or under-counting of the point density, depending on whether a bump function, centred inside the annulus, has some of its measure outside the annulus; or a bump function centred outside the annulus has some of its measure within. We note that if we extend our annulus's extent by $\epsilon$, we capture the entirety of the measure of the bump functions inside the original annulus. This means that the expression now represents an overestimate of the exact count of points within the annulus $g^{-1}A_{t_1,t_2}$. Contracting the annulus by $\epsilon$, so that we have $t_1\rightarrow t_1-\epsilon$ and $t_2\rightarrow t_2+\epsilon$,  has an effect on the proportion of the sphere taken up by the annulus:
+\begin{align}
+p(t_1-\epsilon,t_2+\epsilon)&=\left(1-t_1+\epsilon\right)^{d-1}-\left(1-t_2-\epsilon\right)^{d-1}\\
+&=(1-t_1)^{d-1}-(1-t_2)^{d-1}+(d-1)\epsilon\left((1-t_1)^{d-2}+(1-t_2)^{d-2}\right)+o(\epsilon).
+\end{align}
+We can consider this to be a strict overcount of the true number of points within the annulus. We therefore get, applying the relevant values for $t_1$ and $t_2$,
+\begin{align}
+q(\mathcal{G})&\leq \lim_{\epsilon\rightarrow0}p(t_1-\epsilon,t_2+\epsilon) \\
+&\leq \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}.
+\end{align}
 
 \end{proof} 
 \begin{cor}
-Any quantum mechanically accessible $\mathcal{G}$ has  $q(\mathcal{G})\leq\nicefrac49$.
+Any quantum mechanically accessible $\mathcal{G}$ has  $q(\mathcal{G})\leq\nicefrac{4251920575}{11019960576}\sim0.385838$.
 \end{cor}
 \begin{proof}
-We note that this quantity can easily be seen to be strictly decreasing with increased quantum dimension $d$. Since two-dimensional quantum systems cannot produce a proof of contextuality, the valuation of this quantity for $d=3$ sets an absolute upper bound for $\min_{T\subset G}|T|$ for quantum-mechanically accessible $\mathcal{G}$, which is $\nicefrac49$. Since $\min_{T\subset G}|T|\geq q(\mathcal{G})$, the result follows.
+Calculating the derivative of $ \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}$ with respect to $d$ shows that it takes a maxmimum between $d=9$ and $d=10$. Evaluation of the quantity at these points reveal the maximum to be at $d=9$, when we get $\left(1-\nicefrac19\right)^{8}-\nicefrac{1}{2^{8}}=\nicefrac{4251920575}{11019960576}$. This, then, forms a hard limit of $q(\mathcal{G})$ for any quantum mechanically achievable $\mathcal{G}$.
 \end{proof}
-As $d$ increases, the quantity $(1-\nicefrac1d)^{d-1}$ tends to $\nicefrac1e$. We note that this bound is explicitly not tight for $q(\mathcal{G})$, as we have ignored the subtrahend entirely. %In addition, we will present reason to believe that this bound is not tight for $|T(\mathcal{G}|$, and that it becomes less tight as $d$ becomes higher.
+We note that as the quantum dimension approaches infinity, we achieve a limiting value of $\nicefrac1e$, so quantum systems with very high dimension are viable candidates for providing robust contextuality scenarios. In Figure \ref{boundgraph}, we see the bound on $q(\mathcal{G})$ plotted as a function of $d$.
 
+\begin{figure}
+\begin{center}
+\includegraphics{boundgraph}
+\caption{A chart showing the value of the bound on $q(\mathcal{G})$ for quantum-mechanically accessible $\mathcal{G}$ as a function of the Hilbert space dimension $d$.}
+\label{boundgraph}
+\end{center}
+\end{figure}
 Above, it was shown that a spherical cap taking up a proportion of $(1-\nicefrac1d)^{d-1}$ of Hilbert space must capture at least one vector from every orthonormal basis. However, if for many bases this spherical cap captures more than one basis element, this might suggest that this spherical cap was not the most efficient way of choosing a vector from each basis. We note, though, that the exact geometry of the set of projectors will have a large effect on the efficiency of inefficiency of this constructrion. It is of note that an increase in the quantum dimension, while allowing for more complicated structures and interplay of the permitted projectors that, as we shall demonstrate, seems to allow for construction of quantum graphs with very small independence number, also has a dampening affect on the quantity $|T|$ since the bases themselves have more geometrical constraints.
 
 We note that while a spherical cap taking up a proportion $(1-\nicefrac1d)^{d-1}$ of the Hilbert space must contain at least one out of a basis of $d$ vectors, it can actually contain up to $d$ in the worst case. Below, we will see a specific example of a set of vectors providing a nonlocality scenario, in which \emph{every} projector is captured by a pessimally-chosen spherical cap position. In $d$-dimensional Hilbert space, a spherical cap of proportion $(1-\nicefrac1n)^{d-1}$ can capture $n$ vectors out of a basis. So for any chosen $n'$, as $d$ increases, we see that the fraction of the spherical cap in the construction that cannot capture $n'$ of a basis tends to 0. However, if we consider the fraction of the spherical cap that can capture a constant proportion of basis elements $c$, we get the following behaviour under increasing $d$:
@@ -389,4 +412,13 @@ So, we have $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\i
 
 \end{document}
 
+In which equality holds between equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the spherical cap is twirled by the rotation group it becomes a constant function with value $p(t_1,t_2)$. Now, we would like to interpret the left hand side as an average over the elements $g\in SU(d)$ of $h(g,p,\epsilon)$, the number of the $\ket{\psi_i}$ that intersect the annulus $g^{-1}A_{t_1,t_2}$. However, we note that since the bump functions are not exact delta functions, there is by necessity some over- or under-counting of the point density, depending on whether a bump function, centred inside the annulus, has some of its measure outside the annulus; or a bump function centred outside the annulus has some of its measure within. We note that if we contract our annulus's extent by $\epsilon$, we cease to capture any of the measure of the bump functions outside the original spherical annulus. This means that the expression now represents an underestimate of the exact count of points within the annulus $g^{-1}A_{t_1,t_2}$. Contracting the annulus by $\epsilon$, so that we have $t_1\rightarrow t_1+\epsilon$ and $t_2\rightarrow t_2-\epsilon$,  has an effect on the proportion of the sphere taken up by the annulus:
+\begin{align}
+p(t_1+\epsilon,t_2-\epsilon)&=\left(1-t_1-\epsilon\right)^{d-1}-\left(1-t_2+\epsilon\right)^{d-1}\\
+&=(1-t_1)^{d-1}-(1-t_2)^{d-1}-(d-1)\epsilon\left((1-t_1)^{d-2}+(1-t_2)^{d-2}\right)+o(\epsilon).
+\end{align}
+We can consider this to be a strict undercount of the true number of points within the annulus. We therefore get
+\begin{equation}
+q(\mathcal{G})\leq 
+\end{equation}
 
