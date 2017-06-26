@@ -40,11 +40,12 @@
 
 
 \begin{document}
-\title{Alternative metrics for contextuality}
+\title{How (maximally) contextual is quantum mechanics?}
 \author{Andrew W. Simmons}
 \address{Department of Physics, Imperial College London, SW7 2AZ.}
+\email{andrew@simmons.co.uk}
 \begin{abstract}
-Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of measurements on a quantum system must be considered to have context-dependent valuations as a fucntion of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other physical theories. Applying the connection between contextuality and nonlocality also allows us to define a metric on the nonlocality of a system, motivated by a quantum game in which two parties must detect whether or not they are in a local or nonlocal situation against a single adversary.  This metric of nonlocality can also be made to apply to possibilistic nonlocality, and calculating this valuation of nonlocality is shown to be computationally hard.
+Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of measurements on a quantum system must be considered to have context-dependent valuations as a fucntion of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other physical theories. Applying the connection between contextuality and nonlocality also allows us to define a metric on the nonlocality of a Bell scenario, motivated by a quantum game in which two parties must detect whether or not they are in a local or nonlocal situation against a single adversary.  This metric of nonlocality can also be made to apply to possibilistic nonlocality, and calculating this valuation of nonlocality is shown to be computationally hard.
 \end{abstract}
 \maketitle
 \section{Proofs of Bell-Kochen-Specker Contextuality}
@@ -95,146 +96,8 @@ We see that this scenario, then, has a nonlocal fraction strictly greater than t
 Calculation of the contextual fraction is computationally complex; indeed, determining whether it is nonzero is \textsc{NP-complete} for a 
 nontrivial two-party nonlocality scenario exactly when one party has access to measurements with three or more outcomes \cite{SimmCC}.
 
-We can define operationally-motivated metrics for nonlocality based on the variational distance between a given probability distribution and its closest local distribution, broken down into comparable contexts. For example, we could define the distance as being the statistical distinguishability of the distribution from the nearest local distribution, taking an average or a maximum over contexts. These correspond to operational situations where we pick contexts at random, and seek to distinguish the two distributions, or where we are allowed to choose a context in which the distributions are maximally different.
-
-\begin{equation}
-\delta_{\mbox{av}}(\mathcal{P})=\sup_{\mathcal{L}\in\mathscr{L}}\delta_1(\mathcal{P},\mathcal{L})=\frac{1}{2\left|\mathcal{C}\right|}\sup_{\mathcal{L}\in\mathscr{L}}\sum_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{L}(x)\right|
-\end{equation}
-
-\begin{equation}
-\delta_{\mbox{max}}(\mathcal{P})=\sup_{\mathcal{L}\in\mathscr{L}}\delta_2(\mathcal{P},\mathcal{L})=\frac{1}{2}\sup_{\mathcal{L}\in\mathscr{L}}\max_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{Q}(x)\right|
-\end{equation}
-
-For instance, the Hardy distribution shown above has the following distribution as its closest local distribution, no matter whether we take the maximal variation distance or average it over contexts:
-
-\begin{equation}\renewcommand{\arraystretch}{1.5}
-\begin{array}{c| c c | c c |} 
-&&&&\\\hline
-&\frac{3}{4} &\frac{1}{8}  &\frac{2}{3} & \frac{5}{24}\\
-&\frac{1}{12} &\frac{1}{24}  &0 &\frac{1}{8}\\ \hline
-&\frac{2}{3}&\frac{1}{24}&\frac{3}{8} &\frac{1}{3} \\
-&\frac{1}{6}&\frac{1}{8} &\frac{7}{24} &0 \\ \hline
-\end{array} \renewcommand{\arraystretch}{1}
-\end{equation}
-This gives rise to a distinguishability from local distributions of $\nicefrac{1}{24}$.
-These are sensible metrics for nonlocality. In particular, they have the following properties:
-
-\begin{thm}
-Both the average variation distance and maximum variation distance posess the following desirable properties for a nonlocality metric:
-\begin{enumerate} 
-\item They are non-increasing under local classical post-processing.
-\item They are constant under re-labelling of outcomes or outcome coarse-graining. This follows from basic statistics. Clearly two distributions can't be more distinguishable if we throw away information.
-\item They are linear under mixing with local distributions. Clearly obvious.
-\end{enumerate}
-\end{thm}
-
-\begin{proof}
-Do this later i guess.
-
-\end{proof}
-
-Note: nonlocality metrics are very well-studied. This must be coincident with something. maybe it's coincident with "maximum violation of a Bell inequality". It's sort of related to nonlocal fraction but as we have pointed out it can't be identical to it. "Robustness measure of nonlocality" often distance when mixing with pure noise.
-
-\section{Possibilistic Measures of Nonlocality}
-
-The sheaf-theoretic approach to nonlocality introduces the concept of "logical" contextuality/nonlocality by considering probability theories in semirings other than $\mathbb{R}_+$, for example the Boolean semiring. Doing so restores the concept of nonlocality as being defined by the violation of inequalities corresponding to facets of a local polytope. However, this setting poses a mathematical problem for our scheme: without additive inverses, we cannot proceed with our definitions as written. We also do not have access to division, which rules out other statistical distance measures such as the Kullback-Liebler divergence.
-
-Given that our semiring may not be extendable into a ring, in this case we must define our statistical distances relative to some penalty function that obeys the following properties:
-
-blehhh
-
-Proofs of maximal contextuality can be converted into proofs of maximal nonlocality by obvious thing. Can then talk about distance from local polytope as sensible measure. Same of Hardy contextuality and Hardy nonlocality.
-What does this end up meaning? Is this identical to the description by Winter?
-
-We saw that for a contextuality situation, a measure of the strength of a maximal contextuality scenario was the number of projectors whose values needed to depend on context . For a nonlocality scenario (which is of course inherently state-dependent), we have a choices in how we interpret this condition. We could count the minimum number of maximally-fine grained projectors whose outcomes depend on context, so if Alice measures in the basis $\{\ket{a_0},\ket{a_1}\dots\ket{a_n}\}$, and Bob measures in the basis $\{\ket{b_0},\ket{b_1}\dots\ket{b_n}\}$, we are counting projectors of the form $\ket{a_i}\ket{b_j}$ which have context-dependent outcomes. However, in many nonlocality scenarios, each of these fine-grained projectors may only occur in a single context, and so while this is the most obvious analogue to the maximal contextuality scenario described above, this metric does not capture the structure of the nonlocality problem.
-
-Perhaps a more fruitful approach is to consider how many of the projective measurements available to a single party must be found to have outcomes that depend on the context of which measurement choice is chosen by the other partner. A different generalisation is that we could count the minimum number of contexts that can deviate in their outcomes from a specified set of global valuations. We shall see that both of these are valid measures of possibilistic nonlocality, but have very differing properties with respect to how much nonlocality can be considered achievable by quantum mechanics, as well as the computational complexity of calculating each value.
-
-\begin{defn}[$k$-\textsc{PN1}]
-We define the decision problem $k$-\textsc{PN1} as follows; the input is a table of data as in \cite{Mans2011} and an integer $k$, and we ask the following question: is there an explanation of the table in which the number of projectors available to the two parties whose outcomes depend on context is less than or equal to $k$.
-\end{defn}
-\begin{thm}$k$-\textsc{PN1} is \textbf{NP}-complete when each party's measurements have exactly two outcomes.
-\end{thm}
-
-\begin{proof}
-The proof will be by reduction from \textsc{Vertex Cover}, whose definition, as given by Garey and Johnson \cite{Gare1979}, is as follows:
-\begin{defn}[\textsc{Vertex Cover}]
-\quad\\
-Instance: a graph $\mathcal{G}=(V,E)$ and a positive integer $k\leq V$.\\
-Question: is there a $V'\subset V$ such that $\left|V'\right|\leq k$ and for all $e\in E$, $V\cap e\neq\emptyset$.
-\end{defn}
-
-We will now construct a nonlocality scenario from a given instance of \textsc{Vertex Cover} such that there exists a vertex cover for $\mathcal{G}$ of size $k$ if and only if there exists an explanation of the nonlocality scenario in which the number of projectors with context-independent valuation is $k$. %+\left|E\right|
-
- Each of the four contexts that makes up the Hardy paradox will have criteria that must be met by a set of contextual rows and columns to be able to explain the paradox. For the context containing the 1 entry that cannot be extended to a deterministic grid, the sufficient conditions are always satisfied by one of the following: ``the measurement row must be contextual", ``the measurement column must be contextual", or ``the measurement row and column must be contextual". The remaining contexts can always be satisfied by \emph{either} one of the following:``the measurement row must be contextual", or ``the measurement column must be contextual". We never require both the measurement column and row to vary, as this would be a violation of no-signalling.
-
-Given a graph $\mathcal{G}=(V,E)$, we construct a nonlocality scenario in which there are $2\left|E\right|$ measurement rows and $\left|V\right|$ measurement columns, noting that since there are only $O(\left|V\right|^2)$ possible edges. Let us label the edges $e_i=\{v^i_1,v^i_2\}$, and for each edge, we place a Hardy paradox in the contexts at the intersections of the measurement rows labelled $2i$ and $2i+1$, and the measurement columns $v^i_1$, and $v^i_2$. Every other context should contain all 1-entries. The Hardy paradoxes we have placed may not be the only Hardy paradoxes in the scenario, due to ``interactions'' between the paradoxes that share measurement rows. %How important is this?
-
-Assume there is a vertex cover for $\mathcal{G}$ of size $k$, namely $K=\{v^K_1,v^K_2\dots v^K_k\}$, and then consider an explanation for the nonlocality scenario in which measurement columns indexed by $K$ are allowed to have outcomes that vary contextually. We will now show that this is a sufficient explanation for the nonlocality scenario.
-
-% Insert proof here but it's basically obvious
-
-We note that for such a scenario, a $k$ minimal for the graph is also a $k$ minimal for the nonlocality scenario: allowing any measurement row to vary contextually affects exactly one of the Hardy paradoxes introduced deliberately by the graph structure, while allowing a measurement column to vary contextually affects affects strictly more than one. Hence, if in a given explanation of the nonlocality scenario, there is a measurement row with a context-dependent outcome, we can replace it with one of the columns involved in the Hardy paradox that involves contexts on that row. By iterating this, we are left with an explanation in which only measurement columns, not rows, are required to vary contextually, which, by construction, is exactly a vertex cover for $\mathcal{G}$. Hence, the size of a minimal vertex cover for $\mathcal{G}$ and the minimal explanation for the nonlocality scenario are equal.
-
-We have exhibited a polynomial-time reduction from \textsc{Vertex Cover} to $k$-\textsc{PN1}. Since  \textsc{Vertex Cover} is \textbf{NP}-hard, so too, then, is $k$-\textsc{PN1}.  In addition, $k$-\textsc{PN1} is in \textbf{NP} since there are only polynomially many 1 entries in the grid and therefore a witness that is an explicit set of data tables that combine to the target table is of polynomial size.
-\end{proof}
-By this reduction from \textsc{Vertex Cover}, we find that unless \textbf{P}=\textbf{NP}, $k$-\textsc{PN1} is not approximable in polynomial time to a factor of better than 1.3606 \cite{Dinu04}, or better than 2 if the Unique Games conjecture holds \cite{Khot03}.
-
-The cases in which one party has a number of measurements greater than two can be seen to be \textbf{NP}-hard since they are already \textbf{NP}-hard for $k=0$ \cite{Abra2011,SimmCC}. This demonstrates another sense in which the case treated by Mansfield and Fritz \cite{Mans2011,Mans2016} is unique.
 
 
-
-\begin{defn}[$k$-\textsc{PN2}]
-We define the decision problem $k$-\textsc{PN2} as follows; the input is a table of data as in \cite{Mans2011} and an integer $k$, and we ask the following question: is there an explanation of the table in which the number of contexts in which outcomes are allowed to freely vary is less than or equal to $k$.
-\end{defn}
-\begin{thm}$k$-\textsc{PN2} is \textbf{NP}-complete when each party's measurements have exactly two outcomes.
-\end{thm}
-\begin{proof}
-The proof will proceed once again by reuction from \textsc{Vertex Cover}. Like in the constructions of Abramsky, Gottlob, and Kolaitis, we will in this instance use a data table that is symmetric on exchange of columns and rows.
-
-Given a graph, 
-Given a graph $\mathcal{G}=(V,E)$, we construct a nonlocality scenario in which there are $\left|V\right|$ measurement rows and columns. Each context at the intersection of the $n$\textsuperscript{th} measurement row and $n$\textsuperscript{th} measurement column is defined to be
-\begin{equation}
-\begin{array}{| c c |} 
-\hline
- 1& 1\\ 
- 1 & 0\\ \hline
-\end{array}\,,
-\end{equation}
-which we will refer to as a ``type '' context.
-For each edge, $e=\{v_1,v_2\}\in E$, we will define contexts located at the intersection of the $v_1$\textsuperscript{th} measurement row and the $v_2$\textsuperscript{th} measurement column and at the intersection of the $v_2$\textsuperscript{th} measurement row and the $v_1$\textsuperscript{th} measurement column to be
-\begin{equation}
-\begin{array}{| c c |} 
-\hline
- 0& 1\\ 
- 1 & 1\\ \hline
-\end{array}\,,
-\end{equation}
-which we will refer to as a ``type 2'' context. The remaining contexts will be 
-\begin{equation}
-\begin{array}{| c c |} 
-\hline
- 1& 1\\ 
- 1 & 1\\ \hline
-\end{array}\,,
-\end{equation}
-a ``type 0'' context. We note that for each edge $\{v_1,v_2\}$, we introduce four Hardy paradoxes, each involving the four contexts at $(v_1,v_1)$, $(v_1,v_2)$, $(v_2,v_1)$ and $(v_2,v_2)$. The nonlocal 1 entries are shown here in red:
-\begin{equation}
-\begin{array}{| c c |c c|} 
-\hline
- \textcolor{red}{1}& 1&0&1\\ 
- 1 & 0&1& \textcolor{red}{1}\\ \hline
- 0& 1& \textcolor{red}{1}&1\\ 
- 1 & \textcolor{red}{1}&1&0\\ \hline
-\end{array}\,.
-\end{equation}
-A Hardy paradox can only be formed when one of the following structures appears in a square pattern:
-
-
-Proof unfinished- this proof technique may not work
-
-
-\end{proof}
 
 \section{How robust can quantum maximal contextuality be?}
 
@@ -254,7 +117,7 @@ For a graph $\mathcal{G}=\{V,E\}$, a vertex subset $T\subset V$ is a \emph{maxim
 
 Clearly, the set of vertices associated with a set of vectors given either noncontextual or contextual ``1'' assignments is a Maximum-clique hitting set. This allows us to define our first figure-of-merit for a set of vectors forming a Kochen-Specker type proof of the Bell-Kochen-Specker theorem.
 
-\begin{equation}q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|\end{equation},
+\begin{equation}q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|,\end{equation}
 where $T$ is a maximum-clique hitting-set. We see that this is a graph-theoretic representation of the possibilistic figure-of-merit we posited above: we take a set $T$ of vectors which will recieve a ``1'' valuation, either contextually or noncontextually, and subtract from it the number of those vectors that can support a noncontextual valuation. It is therefore the number of vectors that must recieve a contextual valuation in any model for the scenario. However, we can note that it is possible to achieve an arbitrarily high value of $q_a$ just by taking an equal number of noninteracting copies of, for example, the Peres-Mermin magic square. In order that we might more directly compare this quantity between graphs of different sizes, we can consider its graph density:
 \begin{equation}
 q(\mathcal{G})=\frac{q_a(\mathcal{G})}{|V(\mathcal{G})|}.
@@ -266,7 +129,7 @@ q_a(\mathcal{G})\geq \min |T|-\alpha(\mathcal{G}).
 We note that in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$, since for triangle-free graphs, this is equivalent to finding a vertex cover, which is \textbf{NP}-complete \cite{Polj1974}. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$ \cite{Gare1979}. 
 
 We will now demonstrate an upper bound on the quantity $q(\mathcal{G})$ for any quantum-mechanically accessible $\mathcal{G}$ in terms of the quantum dimension of the vectors that give rise to it.
-\begin{thm}
+\begin{thm}\label{main}
 Any orthogonality graph $\mathcal{G}$ induced by a set of vectors $\ket{\psi_i}$ in a $d$-dimensional Hilbert space has
 \begin{equation}
 q(\mathcal{G}) \leq \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}.
@@ -303,7 +166,7 @@ Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^
 
 At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$, where $\epsilon$ is taken to be sufficiently small compared to $d$.
 
-Let $A_{t_1,t_2}$ denote the hyperspherical annulus, $\{\ket{\phi}|t_1\leq\sprod{\psi}{\phi}^2< t_2\}$, centred at $\ket{0}$, with a volume $V$ such that $\nicefrac{V}{V_S}=p$. We consider the following quantity:
+Let $A_{t_1,t_2}$ denote the hyperspherical annulus $\{\ket{\phi}\mid t_1\leq\sprod{0}{\phi}^2< t_2\}$. We consider the following quantity:
 \begin{equation}
 \oint_{SU(d)\times S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
 \end{equation}
@@ -371,7 +234,7 @@ The Hadamard states in dimension $d$ form what is known as the Hadamard graph. A
 \begin{center}
 \begin{tabular}{|c | c | c| c|c| }\hline
 Name & Transversal Size & Independence Number &FoM& Quantum? \\ \hline
-\makecell{Generic Quantum\\ Graph} & $\leq\left(1-\frac1d\right)^{d-1}\leq 0.\dot{4}$ & ?&?&\ding{51} \\\hline
+\makecell{Generic Quantum\\ Graph} & $\leq\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{1}{2^{d-1}}$&$\leq 0.385838$&\ding{51} \\\hline
 \makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
 %\makecell{Andr\'{a}sfai\\ Graphs} & $n-\frac{n+1}{3}$ & $\frac{n+1}{3}$&$\frac{1}{3}$& \ding{55} \\\hline
 \makecell{ABK Triangle-Free\\Graphs} & $n-C\sqrt{n\log n}$ & $C\sqrt{n\log n}$  & 1 &\ding{55}\\\hline
@@ -401,11 +264,155 @@ Hence, we have
 So, we have $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\infty$. We see then that quantum mechanics does not display maximal contextuality as robustly, given this definition of robustness, as other possible GPTs. This could potentially have an impact on attempts to recreate quantum mechanics as a principle theory.
 
 \FloatBarrier
+
+\section{Possibilistic Measures of Nonlocality}
+
+Put why this is the same as what we were doing before...
+
+We can define operationally-motivated metrics for nonlocality based on the variational distance between a given probability distribution and its closest local distribution, broken down into comparable contexts. For example, we could define the distance as being the statistical distinguishability of the distribution from the nearest local distribution, taking an average or a maximum over contexts. These correspond to operational situations where we pick contexts at random, and seek to distinguish the two distributions, or where we are allowed to choose a context in which the distributions are maximally different.
+
+\begin{equation}
+\delta_{\mbox{av}}(\mathcal{P})=\sup_{\mathcal{L}\in\mathscr{L}}\delta_1(\mathcal{P},\mathcal{L})=\frac{1}{2\left|\mathcal{C}\right|}\sup_{\mathcal{L}\in\mathscr{L}}\sum_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{L}(x)\right|
+\end{equation}
+
+\begin{equation}
+\delta_{\mbox{max}}(\mathcal{P})=\sup_{\mathcal{L}\in\mathscr{L}}\delta_2(\mathcal{P},\mathcal{L})=\frac{1}{2}\sup_{\mathcal{L}\in\mathscr{L}}\max_{C\in\mathcal{C}}\sum_{x\in C}\left|\mathcal{P}(x)-\mathcal{Q}(x)\right|
+\end{equation}
+
+For instance, the Hardy distribution shown above has the following distribution as its closest local distribution, no matter whether we take the maximal variation distance or average it over contexts:
+
+\begin{equation}\renewcommand{\arraystretch}{1.5}
+\begin{array}{c| c c | c c |} 
+&&&&\\\hline
+&\frac{3}{4} &\frac{1}{8}  &\frac{2}{3} & \frac{5}{24}\\
+&\frac{1}{12} &\frac{1}{24}  &0 &\frac{1}{8}\\ \hline
+&\frac{2}{3}&\frac{1}{24}&\frac{3}{8} &\frac{1}{3} \\
+&\frac{1}{6}&\frac{1}{8} &\frac{7}{24} &0 \\ \hline
+\end{array} \renewcommand{\arraystretch}{1}
+\end{equation}
+This gives rise to a distinguishability from local distributions of $\nicefrac{1}{24}$.
+These are sensible metrics for nonlocality. In particular, they have the following properties:
+
+\begin{thm}
+Both the average variation distance and maximum variation distance posess the following desirable properties for a nonlocality metric:
+\begin{enumerate} 
+\item They are non-increasing under local classical post-processing.
+\item They are constant under re-labelling of outcomes or outcome coarse-graining. This follows from basic statistics. Clearly two distributions can't be more distinguishable if we throw away information.
+\item They are linear under mixing with local distributions. Clearly obvious.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Do this later i guess.
+
+\end{proof}
+
+Note: nonlocality metrics are very well-studied. This must be coincident with something. maybe it's coincident with "maximum violation of a Bell inequality". It's sort of related to nonlocal fraction but as we have pointed out it can't be identical to it. "Robustness measure of nonlocality" often distance when mixing with pure noise.
+
+The sheaf-theoretic approach to nonlocality introduces the concept of "logical" contextuality/nonlocality by considering probability theories in semirings other than $\mathbb{R}_+$, for example the Boolean semiring. Doing so restores the concept of nonlocality as being defined by the violation of inequalities corresponding to facets of a local polytope. However, this setting poses a mathematical problem for our scheme: without additive inverses, we cannot proceed with our definitions as written. We also do not have access to division, which rules out other statistical distance measures such as the Kullback-Liebler divergence.
+
+Given that our semiring may not be extendable into a ring, in this case we must define our statistical distances relative to some penalty function that obeys the following properties:
+
+blehhh
+
+Proofs of maximal contextuality can be converted into proofs of maximal nonlocality by obvious thing. Can then talk about distance from local polytope as sensible measure. Same of Hardy contextuality and Hardy nonlocality.
+What does this end up meaning? Is this identical to the description by Winter?
+
+We saw that for a contextuality situation, a measure of the strength of a maximal contextuality scenario was the number of projectors whose values needed to depend on context . For a nonlocality scenario (which is of course inherently state-dependent), we have a choices in how we interpret this condition. We could count the minimum number of maximally-fine grained projectors whose outcomes depend on context, so if Alice measures in the basis $\{\ket{a_0},\ket{a_1}\dots\ket{a_n}\}$, and Bob measures in the basis $\{\ket{b_0},\ket{b_1}\dots\ket{b_n}\}$, we are counting projectors of the form $\ket{a_i}\ket{b_j}$ which have context-dependent outcomes. However, in many nonlocality scenarios, each of these fine-grained projectors may only occur in a single context, and so while this is the most obvious analogue to the maximal contextuality scenario described above, this metric does not capture the structure of the nonlocality problem.
+
+Perhaps a more fruitful approach is to consider how many of the projective measurements available to a single party must be found to have outcomes that depend on the context of which measurement choice is chosen by the other partner. A different generalisation is that we could count the minimum number of contexts that can deviate in their outcomes from a specified set of global valuations. We shall see that both of these are valid measures of possibilistic nonlocality, but have very differing properties with respect to how much nonlocality can be considered achievable by quantum mechanics, as well as the computational complexity of calculating each value.
+
+\begin{defn}[$k$-\textsc{PN1}]
+We define the decision problem $k$-\textsc{PN1} as follows; the input is a table of data as in \cite{Mans2011} and an integer $k$, and we ask the following question: is there an explanation of the table in which the number of projectors available to the two parties whose outcomes depend on context is less than or equal to $k$.
+\end{defn}
+\begin{thm}$k$-\textsc{PN1} is \textbf{NP}-complete when each party's measurements have exactly two outcomes.
+\end{thm}
+
+\begin{proof}
+The proof will be by reduction from \textsc{Vertex Cover}, whose definition, as given by Garey and Johnson \cite{Gare1979}, is as follows:
+\begin{defn}[\textsc{Vertex Cover}]
+\quad\\
+Instance: a graph $\mathcal{G}=(V,E)$ and a positive integer $k\leq V$.\\
+Question: is there a $V'\subset V$ such that $\left|V'\right|\leq k$ and for all $e\in E$, $V\cap e\neq\emptyset$.
+\end{defn}
+
+We will now construct a nonlocality scenario from a given instance of \textsc{Vertex Cover} such that there exists a vertex cover for $\mathcal{G}$ of size $k$ if and only if there exists an explanation of the nonlocality scenario in which the number of projectors with context-independent valuation is $k$. %+\left|E\right|
+
+ Each of the four contexts that makes up the Hardy paradox will have criteria that must be met by a set of contextual rows and columns to be able to explain the paradox. For the context containing the 1 entry that cannot be extended to a deterministic grid, the sufficient conditions are always satisfied by one of the following: ``the measurement row must be contextual", ``the measurement column must be contextual", or ``the measurement row and column must be contextual". The remaining contexts can always be satisfied by \emph{either} one of the following:``the measurement row must be contextual", or ``the measurement column must be contextual". We never require both the measurement column and row to vary, as this would be a violation of no-signalling.
+
+Given a graph $\mathcal{G}=(V,E)$, we construct a nonlocality scenario in which there are $2\left|E\right|$ measurement rows and $\left|V\right|$ measurement columns, noting that since there are only $O(\left|V\right|^2)$ possible edges. Let us label the edges $e_i=\{v^i_1,v^i_2\}$, and for each edge, we place a Hardy paradox in the contexts at the intersections of the measurement rows labelled $2i$ and $2i+1$, and the measurement columns $v^i_1$, and $v^i_2$. Every other context should contain all 1-entries. The Hardy paradoxes we have placed may not be the only Hardy paradoxes in the scenario, due to ``interactions'' between the paradoxes that share measurement rows. %How important is this?
+
+Assume there is a vertex cover for $\mathcal{G}$ of size $k$, namely $K=\{v^K_1,v^K_2\dots v^K_k\}$, and then consider an explanation for the nonlocality scenario in which measurement columns indexed by $K$ are allowed to have outcomes that vary contextually. We will now show that this is a sufficient explanation for the nonlocality scenario.
+
+% Insert proof here but it's basically obvious
+
+We note that for such a scenario, a $k$ minimal for the graph is also a $k$ minimal for the nonlocality scenario: allowing any measurement row to vary contextually affects exactly one of the Hardy paradoxes introduced deliberately by the graph structure, while allowing a measurement column to vary contextually affects affects strictly more than one. Hence, if in a given explanation of the nonlocality scenario, there is a measurement row with a context-dependent outcome, we can replace it with one of the columns involved in the Hardy paradox that involves contexts on that row. By iterating this, we are left with an explanation in which only measurement columns, not rows, are required to vary contextually, which, by construction, is exactly a vertex cover for $\mathcal{G}$. Hence, the size of a minimal vertex cover for $\mathcal{G}$ and the minimal explanation for the nonlocality scenario are equal.
+
+We have exhibited a polynomial-time reduction from \textsc{Vertex Cover} to $k$-\textsc{PN1}. Since  \textsc{Vertex Cover} is \textbf{NP}-hard, so too, then, is $k$-\textsc{PN1}.  In addition, $k$-\textsc{PN1} is in \textbf{NP} since there are only polynomially many 1 entries in the grid and therefore a witness that is an explicit set of data tables that combine to the target table is of polynomial size.
+\end{proof}
+By this reduction from \textsc{Vertex Cover}, we find that unless \textbf{P}=\textbf{NP}, $k$-\textsc{PN1} is not approximable in polynomial time to a factor of better than 1.3606 \cite{Dinu04}, or better than 2 if the Unique Games conjecture holds \cite{Khot03}.
+
+The cases in which one party has a number of measurements greater than two can be seen to be \textbf{NP}-hard since they are already \textbf{NP}-hard for $k=0$ \cite{Abra2011,SimmCC}. This demonstrates another sense in which the case treated by Mansfield and Fritz \cite{Mans2011,Mans2017} is unique.
+
+
+
+\begin{defn}[$k$-\textsc{PN2}]
+We define the decision problem $k$-\textsc{PN2} as follows; the input is a table of data as in \cite{Mans2011} and an integer $k$, and we ask the following question: is there an explanation of the table in which the number of contexts in which outcomes are allowed to freely vary is less than or equal to $k$.
+\end{defn}
+\begin{thm}$k$-\textsc{PN2} is \textbf{NP}-complete when each party's measurements have exactly two outcomes.
+\end{thm}
+\begin{proof}
+The proof will proceed once again by reuction from \textsc{Vertex Cover}. Like in the constructions of Abramsky, Gottlob, and Kolaitis, we will in this instance use a data table that is symmetric on exchange of columns and rows.
+
+Given a graph, 
+Given a graph $\mathcal{G}=(V,E)$, we construct a nonlocality scenario in which there are $\left|V\right|$ measurement rows and columns. Each context at the intersection of the $n$\textsuperscript{th} measurement row and $n$\textsuperscript{th} measurement column is defined to be
+\begin{equation}
+\begin{array}{| c c |} 
+\hline
+ 1& 1\\ 
+ 1 & 0\\ \hline
+\end{array}\,,
+\end{equation}
+which we will refer to as a ``type '' context.
+For each edge, $e=\{v_1,v_2\}\in E$, we will define contexts located at the intersection of the $v_1$\textsuperscript{th} measurement row and the $v_2$\textsuperscript{th} measurement column and at the intersection of the $v_2$\textsuperscript{th} measurement row and the $v_1$\textsuperscript{th} measurement column to be
+\begin{equation}
+\begin{array}{| c c |} 
+\hline
+ 0& 1\\ 
+ 1 & 1\\ \hline
+\end{array}\,,
+\end{equation}
+which we will refer to as a ``type 2'' context. The remaining contexts will be 
+\begin{equation}
+\begin{array}{| c c |} 
+\hline
+ 1& 1\\ 
+ 1 & 1\\ \hline
+\end{array}\,,
+\end{equation}
+a ``type 0'' context. We note that for each edge $\{v_1,v_2\}$, we introduce four Hardy paradoxes, each involving the four contexts at $(v_1,v_1)$, $(v_1,v_2)$, $(v_2,v_1)$ and $(v_2,v_2)$. The nonlocal 1 entries are shown here in red:
+\begin{equation}
+\begin{array}{| c c |c c|} 
+\hline
+ \textcolor{red}{1}& 1&0&1\\ 
+ 1 & 0&1& \textcolor{red}{1}\\ \hline
+ 0& 1& \textcolor{red}{1}&1\\ 
+ 1 & \textcolor{red}{1}&1&0\\ \hline
+\end{array}\,.
+\end{equation}
+A Hardy paradox can only be formed when one of the following structures appears in a square pattern:
+
+
+Proof unfinished- this proof technique may not work
+
+
+\end{proof}
+
 \section{Classical Communication cost}
 
 \section{Future Work}
-
-
+There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors. Repeating the derivation of Theorem \ref{main} over a real hypersphere rather than a complex hypersphere, in effect moving from the qubit case to the rebit case, shows that the spherical cap should be centered on a vector with at least some complex coefficients.
+ 
 
 \bibliography{/Users/andrewsimmons/Documents/Latex/Bib/bibliography}{}
 \bibliographystyle{plain}
