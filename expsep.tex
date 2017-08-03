@@ -172,19 +172,19 @@ of the Hilbert space. Our construction has $t_1=\nicefrac1d$, and $t_2=\nicefrac
 $\nicefrac1d\leq\sprod{\psi}{\phi}^2< \nicefrac12$.
 It now remains to be proved that no matter the positions of the set of vectors $\{\psi\}$, there must be some place in which we can place this annulus such that we only intersect strictly less than $p(t_1,t_2)$ of them. 
 
-Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^d$. We define a space $SU(d)\times S_\mathbb{C}^d$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^d$ is equipped with the uniform measure.
+Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^{d-1}$. We define a space $SU(d)\times S_\mathbb{C}^{d-1}$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^{d-1}$ is equipped with the uniform measure.
 
 At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$.
 
 Let $A_{t_1,t_2}$ denote the hyperspherical annulus $\{\ket{\phi}\mid t_1\leq\sprod{0}{\phi}^2\leq t_2\}$. We consider the following quantity:
 \begin{equation}
-\oint_{SU(d)\times S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
+\oint_{SU(d)\times S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
 \end{equation}
 By Fubini's theorem, we have:
 \begin{align}
-\int_{SU(d)} \int_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \int_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
-\int_{SU(d)} h(g,p,\epsilon) \dif g  &= \sum_i\int_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \dif g \dif z \label{eqn:1} \\
- &= p(t_1,t_2)\sum_i\int_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+\int_{SU(d)} \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \int_{S_\mathbb{C}^{d-1}} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
+\int_{SU(d)} h(g,p,\epsilon) \dif g  &= \sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \dif g \dif z \label{eqn:1} \\
+ &= p(t_1,t_2)\sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
 &= p(t_1,t_2)\left|\ket{\psi_i}\right|
 \end{align}
 
