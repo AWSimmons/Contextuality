@@ -45,12 +45,12 @@
 \address{Department of Physics, Imperial College London, SW7 2AZ.}
 \email{andrew@simmons.co.uk}
 \begin{abstract}
-Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of measurements on a quantum system must be considered to have context-dependent valuations as a fucntion of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other physical theories. Applying the connection between contextuality and nonlocality also allows us to define a metric on the nonlocality of a Bell scenario, motivated by a quantum game in which two parties must detect whether or not they are in a local or nonlocal situation against a single adversary.  This metric of nonlocality can also be made to apply to possibilistic nonlocality, and calculating this valuation of nonlocality is shown to be computationally hard.
+Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of rank-1 projective measurements on a quantum system must be considered to have context-dependent valuations as a function of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other possible physical theories. We also extend this result to projector-valued-measures with projectors of arbitrary rank.
 \end{abstract}
 \maketitle
-\section{Proofs of Bell-Kochen-Specker Contextuality}
+\section{Introduction}
 
-Historically, proofs of Bell-Kochen-Specker, or Maximal, contextuality have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety.  In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. We can think of these structures as exhibiting a kind of circular dependency.
+Historically, Kochen-Specker style proofs of contextuality, also known as strong or maximal contextuality, have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety.  In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. We can think of these structures as exhibiting a kind of circular dependency.
 
 We first need to define what we mean by different strengths of contextuality, following Abramsky and Brandenburger \cite{Abra2011}, as applied to this situation.
 
@@ -141,12 +141,8 @@ bound on the size of an independent set of vectors within that region.
 
 Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A closed complex hyperspherical cap subtending this angle will then necessarily capture at least one element from the basis, and so any set of vectors within such a hyperspherical cap $C$ construe a maximum-clique hitting-set, $T_C$.
 
-A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2\geq t$ for some $t\in\mathbb{R}$. The derivation of the volume of this annulus in $\mathbb{C}^d$ is given in [cite] and we reproduce it here:
+A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2\geq t$ for some $t\in\mathbb{R}$. Since columns of a Haar-random unitary matrix over $\mathbb{C}^d$ are uniformly random unit vectors, the volume $V$ of this hyperspherical cap as a proportion of that of the sphere is given by $1-F(t)$, where $F(t)$ is the cumulative distribution function of the squared  modulus of an entry in such a Haar-random unitary. This quantity is well known in the field of random matrix theory and it can be found, for example, as a special case of a result by \.{Z}yczkowski and Sommers \cite{Zycz2000}.
 
-\begin{equation}V=\frac{2\pi^n(1-t)^{d-1}}{(d-1)!}\end{equation}
-Plugging in $t=0$, we get the volume for the entire hypersphere:
-\begin{equation}V_S=\frac{2\pi^n}{(d-1)!}\end{equation}
-And so the hyperspherical cap in which we are interested takes up $\nicefrac{V}{V_S}=(1-t)^{d-1}$ of the Hilbert space. Plugging in the value derived above for the necessary $t$ to be sure of capturing at least one element from each basis, we get the value
 \begin{equation}
 \frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}.
 \end{equation}
