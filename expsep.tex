@@ -8,7 +8,9 @@
 \usepackage{bbm}
 \usepackage{wrapfig}
 \usepackage{amssymb}
+\usepackage{pgf,tikz}
 \usepackage{mathrsfs}
+\usetikzlibrary{arrows,decorations.pathreplacing,patterns}
 \usepackage{fullpage}
 \usepackage{color}
 \usepackage{makecell}
@@ -62,22 +64,20 @@ A collection of quantum measurement operators demonstrate \emph{Hardy contextual
 A collection of quantum measurement operators demonstrate \emph{maximal contextuality} if the existence of any noncontextual, outcome-deterministic ontic state in an ontological model for that situation would predict events being possible that should be impossible. %Wow that's a shit definition%.
 \end{defn}
 
-
+%reword these section
 
 Let us consider the 33-ray proof of the Bell-Kochen-Specker theorem due to Peres \cite{Pere1991}. Removing any one context from the structure, \emph{i.e.} not allowing, by some restriction, one basis to be commensurable, also removes all its contextuality. Is this surprising? It seems likely that Peres would deliberately have chosen a minimal example, that could not have anything taken away from it whilst still forming a proof of contextuality, which is a fair comment. However, removing a single context not only renders the structure unable to exhibit maximal contextuality, but \emph{renders it unable to exhibit Hardy contextuality as well}.
 
 That is to say, without introducting other structure to our consideration, we cannot think of this proof of noncontextuality as being a composite of proofs that each possibility is not noncontextually explainable\footnote{If we convert this proof into a proof of nonlocality (which is by nature, state-dependent rather than state-independent), then we can use the structure this gives us to prove something of this form. In this situation, we end up mostly %check%
-discarding parts of the restrictions stemming from relationships that exist between contexts rather than removing contexts themselves, in a way which retains operational significance. This is not possible in the contextuality scenario.}. There is no proper subset of the allowable contexts that would constitute a proof that any of its possibilities were contextual. This is somewhat surprising, since we might have expected some contextuality to remain in the system when we introduce a minor epistemic restriction-- the inability to measure one of the sixteen contexts that are quantum-mechanically available in the situation. This ``lynchpin'' property of the scenario can be thought of as reflecting the fact that the distribution is very close to noncontextual in the sense outlined by Winter \cite{Wint2014}. Only one context need be disrupted before the remainder has a classical explanation.
+discarding parts of the restrictions stemming from relationships that exist between contexts rather than removing contexts themselves, in a way which retains operational significance. This is not possible in the contextuality scenario.}. There is no proper subset of the allowable contexts that would constitute a proof that any of its possibilities were contextual. This is somewhat surprising, since we might have expected some contextuality to remain in the system when we introduce a minor epistemic restriction-- the inability to measure one of the sixteen contexts that are quantum-mechanically available in the situation. This ``lynchpin'' property of the scenario can be thought of as reflecting the fact that the distribution is very close to noncontextual in the sense outlined by Winter \cite{Wint2014}, or can be thought of as a proof's susceptibility to a Meyer-Clifton-Kent type objection.
 
-By taking $n$ rotated copies the vectors used in Peres's proof, we can construct a noncontextuality scenario in which $\nicefrac{n}{33}$ of the contexts need to be disrupted in order for the statistics to be explained noncontextually.
-
-In this paper, we will investigate how we can use these ideas as alternative metrics for the contextuality displayed by a particular operational scenario, with a focus on possibilistic cases. First, we will consider the case of nonlocality, and demonstrate hardness results for computing how nonlocal, given this definition, a no-signalling scenario is. Then, moving to the more general contextuality scenario, we will investigate within a graph-theoretic framework how robust, in this sense, different Kochen-Specker sets are; and set a bound on how robust any quantum scenario can be. We will demonstrate that it is possible that other physical theories can be more contextual, given this definition, than quantum mechanics. We can consider this as a stronger analogue than the observation that a PR-box is more nonlocal with respect to the CHSH inequality than any quantum-mechanically accessible scenario.
+In this paper, we will use graph-theoretic methods as a computational tool to investigate how robust, in this sense, different Kochen-Specker sets are; we will also set a bound on how robust any quantum scenario can be. We will demonstrate that it is possible that other physical theories can be more contextual, given this definition, than quantum mechanics. We can consider this as a stronger analogue than the observation that a PR-box is more nonlocal with respect to the CHSH inequality than any quantum-mechanically accessible scenario.
 
 
 
-\section{Alternative definitions of contextuality as contextuality measures}
+\section{Measures of contextuality}
 
-One metric for contextuality that has appeared in the literature \cite{Abra2011, DeSi2015}, is the \emph{contextual fraction}, in which we consider our probability distribution to be a convex mixture between a noncontextual theory and a contextual one. This notion is what prompts the term ``maximal contextuality''; if a scenario is maximally contextual then it has a contextual fraction that is the highest possible: 1. Other metrics have also been explored; one important one, possessing operational meaning, is \emph{negativity} (find cite). These definitions have their own strengths and weaknesses. Both are independent of re-labelling the measurement effects, but contextual fraction has no apparent operational relevance, and negativity is defined relative to a specific choice of frame, with no known procedure for its minimisation.
+One metric for contextuality is the \emph{contextual fraction},\cite{Abra2017} in which we consider our probability distribution to be a convex mixture between a noncontextual theory and a contextual one. This notion is what prompts the term ``maximal contextuality''; if a scenario is maximally contextual then it has a contextual fraction that is the highest possible, \emph{viz} 1. Other metrics have also been explored; one important one, possessing operational meaning, is \emph{negativity} (find cite). These definitions have their own strengths and weaknesses. Both are independent of re-labelling the measurement effects, but the contextual fraction is hard to calculate when the number of corners of the noncontextual polytope is large, which is true in many natural situations, and negativity is defined relative to a specific choice of frame, with no known procedure for its minimisation. There is a natural motivation, then, for a measure of contextuality that can distinguish different contextual fraction 1 scenarios.
 
 Let us consider the case of nonlocality. Operationally, our scenario is represented by some sort of data table, such as the one below:
 
@@ -90,24 +90,24 @@ Let us consider the case of nonlocality. Operationally, our scenario is represen
 \ket{1}&\frac{1}{6}&\frac{1}{6} &\frac{1}{3} &0 \\ \hline
 \end{array} \renewcommand{\arraystretch}{1}
 \end{equation}
-This is a table of probability outcomes for a nonlocality experiment on the state $\nicefrac{1}{\sqrt{3}}\left(\ket{00}+\ket{01}+\ket{11}\right)$, and it demonstrates Hardy nonlocality. The $\ket{-}\ket{-}$ outcome possibility cannot be accounted for within a local hidden variable model; and such this model has a \emph{paradoxical probability}, the maximum probability over contexts of exhibiting a nonlocal possibility, of $\nicefrac{1}{12}$. The maximum for any Hardy paradox, a table exhibiting these exact possibilities, is given by $\nicefrac{5\sqrt{5}-11}{2}$. (This nonlocal possibility is also sometimes called the EPR2 decomposition).
+This is a table of probability outcomes for a nonlocality experiment on the state $\nicefrac{1}{\sqrt{3}}\left(\ket{00}+\ket{01}+\ket{11}\right)$, and it demonstrates Hardy nonlocality. The $\ket{-}\ket{-}$ outcome possibility cannot be accounted for within a local hidden variable model; and such this model has a \emph{paradoxical probability}, the maximum probability over contexts of exhibiting a nonlocal possibility, of $\nicefrac{1}{12}$. The maximum for any Hardy paradox, a table exhibiting these exact possibilities, is given by $\nicefrac{5\sqrt{5}-11}{2}$ This nonlocal possibility is also sometimes called the EPR2 decomposition.
 
 We see that this scenario, then, has a nonlocal fraction strictly greater than the paradoxical probability; were we able to find a data table corresponding to a deterministic hidden variable, and subtract it from the given data table in a way that respected no-signalling and accounted for the probability of the nonlocal possibility, then the possibility would not be nonlocal in the first place!
 Calculation of the contextual fraction is computationally complex; indeed, determining whether it is nonzero is \textsc{NP-complete} for a 
 nontrivial two-party nonlocality scenario exactly when one party has access to measurements with three or more outcomes \cite{SimmCC}.
 
-
+%This whole section should probably be merged elsewhere....
 
 
 \section{How robust can quantum maximal contextuality be?}
 
-Consider the orthogonality graph $\mathcal{G}$ of a maximal nonlocality scenario, in which we identify projectors with vertices, and two vertices $g_1$, $g_2$, identified with $\ket{\psi_1}$, $\ket{\psi_2}$ are joined by an edge iff $\braket{\psi_1}{\psi_2}=0$. Following Renner and Wolf \cite{Renn2004}, we will restrict our attention to outcome assignments in which we do not ever assign a ``1'' valuation to two orthogonal vectors; this is known as a \emph{weak Kochen-Specker set}. A weak Kochen-Specker set can be extended to a full Kochen-Specker set with the addition of $O(|\ket{\psi_i}|^2d)$ extra vectors, or we can consider the incomplete bases as being completed by additional projectors, whose valuations are allowed to be contextual as they are outside the scope of our scenario. An \emph{independent set} is a subset of vertices, none of which are joined by an edge. Any noncontextual assignment of ``1''s, then, will form an independent set since we cannot have two orthogonal vectors, \emph{i.e.} vertices joined by an edge in our set of vectors which are noncontextually given ``1'' assignments. The size of the largest independent set of a graph $\mathcal{G}$ is denoted $\alpha(\mathcal{G})$ and is called the \emph{independence number}. Another important graph concept is that of a clique:%can put some good motivation for this approach here- in most graph-based KS proofs the coarse-grained projectors are effectively allowed to vary contextually in their assignment 
+Consider the orthogonality graph $\mathcal{G}$ of a maximal nonlocality scenario, in which we identify projectors with vertices, and two vertices $g_1$, $g_2$, identified with $\ket{\psi_1}$, $\ket{\psi_2}$ are joined by an edge iff $\braket{\psi_1}{\psi_2}=0$. Following Renner and Wolf \cite{Renn2004}, we will restrict our attention to outcome assignments in which we do not ever assign a ``1'' valuation to two orthogonal vectors; this is known as a \emph{weak Kochen-Specker set}. A weak Kochen-Specker set can be extended to a full Kochen-Specker set with the addition of $O(|\ket{\psi_i}|^2d)$ extra vectors, or we can consider the incomplete bases as being completed by additional projectors, whose valuations are allowed to be contextual as they are outside the scope of our scenario. In fact, this distinction will not be crucial for any of the main results; it does however make certain definitions conceptually clearer. An \emph{independent set} is a subset of vertices, none of which are joined by an edge. Any noncontextual assignment of ``1''s, then, will form an independent set since we cannot have two orthogonal vectors, (which correspond to two vertices joined by an edge) in our set of vectors which are noncontextually given ``1'' assignments. The size of the largest independent set of a graph $\mathcal{G}$ is denoted $\alpha(\mathcal{G})$ and is called the \emph{independence number}. Another important concept will be that of a clique:%can put some good motivation for this approach here- in most graph-based KS proofs the coarse-grained projectors are effectively allowed to vary contextually in their assignment 
 
 \begin{defn}[Clique]
-For a graph $\mathcal{G}=\{V,E\}$, a vertex subset $C\subset V$ is a \emph{Clique} if the subgraph induced from $\mathcal{G}$ on $C$ is \emph{complete}, that is,  every vertex in $C$ is connected to every other.
+For a graph $\mathcal{G}=\{V,E\}$, vertex subset $C\subset V$ is a \emph{Clique} if the subgraph induced from $\mathcal{G}$ on $C$ is \emph{complete}, that is, every vertex in $C$ is connected to every other; and $C$ is inclusion-maximal.
 \end{defn}
 
-We say that a clique is \emph{maximal} if it cannot be extended by including one more vertex, and that it is a \emph{maximum clique} if there is no clique in $\mathcal{G}$ with more vertices. The size of a maximum clique in $\mathcal{G}$ is denoted $\omega(\mathcal{G})$, and so we note that for a $d$-dimensional quantum system, as long as the set of vectors we can measure includes at least one basis, we will have $\omega(\mathcal{G})=d$. In a complete hidden variable model for a scenario, we require that in every context, there be at least one vector that can take a ``1'' value either contextually or noncontextually. This motivates the following definition:
+We say that a clique is a \emph{maximum clique} if there is no clique in $\mathcal{G}$ with more vertices. The size of a maximum clique in $\mathcal{G}$ is denoted $\omega(\mathcal{G})$, and so we note that for a $d$-dimensional quantum system, as long as the set of vectors we can measure includes at least one basis, we will have $\omega(\mathcal{G})=d$. In a hidden variable model for a scenario, we require that in every context, there be at least one vector that can take a ``1'' value either contextually or noncontextually. This motivates the following definition:
 
 
 
@@ -136,8 +136,7 @@ q(\mathcal{G}) \leq \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}.
 \end{equation}
 \end{thm}
 \begin{proof}
-The proof proceeds by demonstrating the existence of a region of Hilbert space, such that any basis for that Hilbert space must have at least one basis element that lies within the region, as well as demonstrating a lower
-bound on the size of an independent set of vectors within that region.
+The proof proceeds by demonstrating an explicit procedure for finding a $T$ and an $A\subset T$, of upper bounded size for any $\{\ket{\psi_i}\}$. That is, a procuedure with bounded worst-case performance.
 
 Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A closed complex hyperspherical cap subtending this angle will then necessarily capture at least one element from the basis, and so any set of vectors within such a hyperspherical cap $C$ construe a maximum-clique hitting-set, $T_C$.
 
@@ -146,12 +145,27 @@ A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be 
 \begin{equation}
 \frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}.
 \end{equation}
-Clearly, the value of $q(\mathcal{G})$ for a quantum graph is upper bounded by the size of any maximum-clique hitting set, so if we can bound the minimum number of vectors we c must intersect with such a hyperspherical cap, this also constitutes a bound on the value $q(\mathcal{G})$. However, we would not expect this bound to be tight, since we have ignored the independent set subtrahend entirely. We would like to demonstrate an independent set within our maximum-clique hitting-set $T_C$, and therefore give a precise upper bound on the quantity $q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|$, giving an explicit construction procedure for a $T$ and $A\subset T$.
+Clearly, the value of $q(\mathcal{G})$ for a quantum graph is upper bounded by the size of any maximum-clique hitting set, so if we can bound the minimum number of vectors we c must intersect with such a hyperspherical cap, this also constitutes a bound on the value $q(\mathcal{G})$. However, we would not expect this bound to be tight, since we have ignored the independent set subtrahend entirely. We would like to demonstrate an independent set within our maximum-clique hitting-set $T_C$, and therefore give a better upper bound on the quantity $q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|$, giving an explicit construction procedure for a $T$ and $A\subset T$.
 
-We note that a hyperspherical cap containing the vectors $\ket{\phi}$ such that $\sprod{\psi}{\phi}^2> \nicefrac12$ cannot contain two orthogonal vectors as a simple application of the triangle inequality. We can place this smaller hyperspherical cap anywhere within the larger hyperspherical cap, and this will form an independent set $A$ that is a subset of $T_C$. For the rest of this proof, we will assume that the two hyperspherical caps are centred on the same point; this will make no difference to the worst case scenario which forms the bound. The region of Hilbert space, then, in which vectors count towards the figure of merit, is a member of a two-parameter family of \emph{annuli} on the complex hypersphere, defined by
+We note that a hyperspherical cap containing the vectors $\ket{\phi}$ such that $\sprod{\psi}{\phi}^2> \nicefrac12$ cannot contain two orthogonal vectors as a simple application of the triangle inequality. We can place this smaller hyperspherical cap anywhere within the larger hyperspherical cap, and this will form an independent set $A$ that is a subset of $T_C$. For the rest of this proof, we will assume that the two hyperspherical caps are centred on the same point; this will make no difference to the worst case scenario which forms the bound. The region of Hilbert space, then, in which vectors count towards the figure of merit, is a member of a two-parameter family of \emph{annuli} on the complex hypersphere, illustrated in Figure \ref{annulus} and defined by
 \begin{equation}
-t_1\leq\sprod{\psi}{\phi}^2< t_2.
+t_1\leq\sprod{\psi}{\phi}^2\leq t_2.
 \end{equation}
+\begin{figure}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.0cm,y=2.0cm]
+\clip(-1.2,-1.2) rectangle (1.4,1.2);
+\draw(0.,0.) circle (2.cm);
+\draw (-0.98408,0.173648)-- (0.98408,0.17365);
+\draw (-0.649967502437297,0.7599620028497625)-- (0.6499675024372968,0.7599620028497626);
+\draw [decorate,decoration={brace,amplitude=2pt,mirror},xshift=0pt,yshift=0pt] (1.1,0.7599620028497626) -- (1.1,1) node [black,midway,xshift=0.3cm,yshift=0.0cm] {1} ;
+\draw [decorate,decoration={brace,amplitude=2pt,mirror},xshift=0pt,yshift=0pt] (1.1,0.173648) -- (1.1,0.7599620028497626) node [black,midway,xshift=0.3cm,yshift=0.0cm] {C} ;
+\draw [decorate,decoration={brace,amplitude=2pt,mirror},xshift=0pt,yshift=0pt] (1.1,-1) -- (1.1,0.173648) node [black,midway,xshift=0.3cm,yshift=0.0cm] {0} ;
+\path[clip] (0,0) circle (1);
+\fill[draw=black, pattern=dots] (-0.98408,0.173648)--(-0.98408,0.7599620028497626)--(0.98408,0.7599620028497626)--(0.98408,0.173648) -- cycle;
+\end{tikzpicture}
+\caption{An illustration of how this construction splits up the Hilbert space into different regions, that can be associated with projectors given noncontextual 1-assignments, contextual projectors, and projectors given noncontextual 0-assignments.}
+\label{annulus}
+\end{figure}
 Such an annulus takes up a proportion 
 \begin{equation}p(t_1,t_2)=\left(1-t_1 \right)^{d-1}-\left(1-t_2 \right)^{d-1}\end{equation}
 of the Hilbert space. Our construction has $t_1=\nicefrac1d$, and $t_2=\nicefrac12$, giving us a hyperspherical annulus defined by
@@ -160,17 +174,17 @@ It now remains to be proved that no matter the positions of the set of vectors $
 
 Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^d$. We define a space $SU(d)\times S_\mathbb{C}^d$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^d$ is equipped with the uniform measure.
 
-At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$, where $\epsilon$ is taken to be sufficiently small compared to $d$.
+At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$.
 
-Let $A_{t_1,t_2}$ denote the hyperspherical annulus $\{\ket{\phi}\mid t_1\leq\sprod{0}{\phi}^2< t_2\}$. We consider the following quantity:
+Let $A_{t_1,t_2}$ denote the hyperspherical annulus $\{\ket{\phi}\mid t_1\leq\sprod{0}{\phi}^2\leq t_2\}$. We consider the following quantity:
 \begin{equation}
 \oint_{SU(d)\times S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f_\ket{\psi_i}(z) \dif g\dif z.
 \end{equation}
 By Fubini's theorem, we have:
 \begin{align}
-\int_{SU(d)} \oint_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \oint_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
-\int_{SU(d)} h(g,p,\epsilon) \dif g  &= \sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \dif g \dif z \label{eqn:1} \\
- &= p(t_1,t_2)\sum_i\oint_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+\int_{SU(d)} \int_{S_\mathbb{C}^d} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \int_{S_\mathbb{C}^d} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
+\int_{SU(d)} h(g,p,\epsilon) \dif g  &= \sum_i\int_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \dif g \dif z \label{eqn:1} \\
+ &= p(t_1,t_2)\sum_i\int_{S_\mathbb{C}^d}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
 &= p(t_1,t_2)\left|\ket{\psi_i}\right|
 \end{align}
 
@@ -211,6 +225,7 @@ We note that while a spherical cap taking up a proportion $(1-\nicefrac1d)^{d-1}
 \end{equation}
 This might imply that the quality of the bound does not degrade as the dimension increases.%Think about this some more.
 
+%Comment on real case: orthogonal matrices rather than unitaries.
 
 \subsection{Hadamard States and the Hadamard Graph}
 
@@ -241,7 +256,7 @@ Name & Transversal Size & Independence Number &FoM& Quantum? \\ \hline
 \end{figure}
 \subsection{Triangle-Free Graphs}
 
-Many members of the family of triangle-free graphs are not quantumly accessible. However, they do allow us to prove a concrete bound on what values of $q(\mathcal{G})$ are achievable within the framework of generalised probabilistic theories. In these graphs, the maximum cliques are merely edges, and so each context consists of two measurement objects. Quantum mechanically, the only such graphs are uninteresting: the disjoint graph union of $K_2$ graphs, and these do not have enough structure to form a proof of the Bell-Kochen-Specker theorem. In such graphs, the concept of a maximum-clique hitting-set reduces to that of to a covering of edges by vertices, a concept introduced earlier as a \emph{vertex cover}. The size of the minimal vertex cover of $\mathcal{G}$ is denoted $\tau(\mathcal{G})$. This reduction of one of our quantities of interest to one better-studied in the literature allows us to make better use of already-known results.
+Many members of the family of triangle-free graphs are not quantumly accessible. However, they do allow us to prove a concrete bound on what values of $q(\mathcal{G})$ are achievable within the framework of generalised probabilistic theories. In these graphs, the maximum cliques are merely edges, and so each context consists of two measurement objects. Quantum mechanically, the only such graphs are uninteresting: the disjoint graph union of $K_2$ graphs, and these do not have enough structure to form a proof of the Bell-Kochen-Specker theorem. In such graphs, the concept of a maximum-clique hitting-set reduces to that of to a covering of edges by vertices, known as a \emph{vertex cover}. The size of the minimal vertex cover of $\mathcal{G}$ is denoted $\tau(\mathcal{G})$. This reduction of one of our figure-of-merit allows us to make use of a bound derived for Ramsey type problems.
 
 In the triangle-free case, we have a powerful relation between maximum-clique hitting-sets and independent sets; namely that they are graph complements of each other. A maximum-clique hitting-set, or vertex cover, is a set of vertices $T$ such that for every edge, at least one of that edge's vertices is in $T$. We can see, then, that the set $V-T$ must be independent, since if there were two vertices in $V-T$ connected by an edge, then neither of those vertices would be in $T$, a contradiction. Conversely, if we have an independent set $A$, then $V-A$ must be a vertex cover; if there were an edge with neither vertex in $V-A$, then both vertices are in $A$, a contradiction. This means that we can bound $q_a(\mathcal{G})$ as
 \begin{equation}
@@ -257,7 +272,7 @@ Hence, we have
 \lim_{n\rightarrow\infty}q(\mathcal{G}_n)&\geq\lim_{n\rightarrow\infty}\frac{n-2C\sqrt{n\log n}}{n}\\
 &\geq 1-2C\lim_{n\rightarrow\infty}\sqrt{\frac{\log n}{n}}=1.
 \end{align}
-So, we have $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\infty$. We see then that quantum mechanics does not display maximal contextuality as robustly, given this definition of robustness, as other possible GPTs. This could potentially have an impact on attempts to recreate quantum mechanics as a principle theory.
+Therefore, $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\infty$. We see then that quantum mechanics does not display maximal contextuality as robustly, given this definition of robustness, as other possible GPTs. This could potentially have an impact on attempts to recreate quantum mechanics as a principle theory.
 
 \FloatBarrier
 
@@ -266,8 +281,10 @@ So, we have $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\i
 We now extend the result to apply to projective valued measures including projectors of rank greater than 1.
 
 \section{Future Work}
-There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors. Repeating the derivation of Theorem \ref{main} over a real hypersphere rather than a complex hypersphere, in effect moving from the qubit case to the rebit case, shows that the spherical cap should be centered on a vector with at least some complex coefficients.
- 
+There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors.
+
+\section{Acknowledgements}
+I am grateful to Terry Rudolph, Shane Mansfield, Rui Soares-Barbosa, Angela Karanjai and Baskaran Sripathmanathan for their helpful discussions which have guided this project. I acknowledge support from EPSRC, via the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
 
 \bibliography{/Users/andrewsimmons/Documents/Latex/Bib/bibliography}{}
 \bibliographystyle{plain}
@@ -275,3 +292,12 @@ There is a large gulf between the best-known realisation of a quantum-mechanical
 \end{document}
 
 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.0cm,y=2.0cm]
+\clip(-1.2,-1.2) rectangle (1.2,1.2);
+\draw(0.,0.) circle (2.cm);
+\draw (-0.98408,0.173648)-- (0.98408,0.17365);
+\draw (-0.649967502437297,0.7599620028497625)-- (0.6499675024372968,0.7599620028497626);
+\draw (-0.1,0.99) node[anchor=north west] {1};
+\draw (-0.12,0.58) node[anchor=north west] {C};
+\draw (-0.1,-0.25) node[anchor=north west] {0};
+\end{tikzpicture}
