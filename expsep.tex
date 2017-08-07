@@ -169,7 +169,7 @@ t_1\leq\sprod{\psi}{\phi}^2\leq t_2.
 Such an annulus takes up a proportion 
 \begin{equation}p(t_1,t_2)=\left(1-t_1 \right)^{d-1}-\left(1-t_2 \right)^{d-1}\end{equation}
 of the Hilbert space. Our construction has $t_1=\nicefrac1d$, and $t_2=\nicefrac12$, giving us a hyperspherical annulus defined by
-$\nicefrac1d\leq\sprod{\psi}{\phi}^2< \nicefrac12$.
+$\nicefrac1d\leq\sprod{\psi}{\phi}^2\leq \nicefrac12$.
 It now remains to be proved that no matter the positions of the set of vectors $\{\psi\}$, there must be some place in which we can place this annulus such that we only intersect strictly less than $p(t_1,t_2)$ of them. 
 
 Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^{d-1}$. We define a space $SU(d)\times S_\mathbb{C}^{d-1}$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^{d-1}$ is equipped with the uniform measure.
@@ -177,19 +177,33 @@ Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^
 At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$.
 
 Let $A_{t_1,t_2}$ denote the hyperspherical annulus $\{\ket{\phi}\mid t_1\leq\sprod{0}{\phi}^2\leq t_2\}$. By Fubini's theorem, we have:
+\begin{equation}
+\int_{SU(d)} \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g = \int_{S_\mathbb{C}^{d-1}} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z
+\end{equation}
+
+
+
+% &\leq p(t_1-\epsilon,t_2+\epsilon)\sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+%&\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|
+%\end{align}
+
+We note that if we extend our annulus's extent by $\epsilon$, so that we have $t_1\rightarrow t_1-\epsilon$ and $t_2\rightarrow t_2+\epsilon$, we capture the entirety of the measure of the bump functions inside the original annulus. Hence, for all $g\in SU(d)$ we have $\left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right|\leq \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z $, and so we have
+\begin{equation}
+\int_{SU(d)} \left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right| \dif g \leq \int_{S_\mathbb{C}^{d-1}} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z,
+\end{equation}
+
+Rearranging:
+\begin{equation}
+\int_{SU(d)} \left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right| \dif g \leq \sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \dif g \dif z \label{eqn:1} 
+\end{equation}
+
+Twirling the indicator function $ \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}}$ with respect to the Haar measure over $SU(n)$ reduces it to a constant function with value $p(t_1-\epsilon,t_2+\epsilon)$, the proportion of the Hilbert space taken up by the annulus.
+
 \begin{align}
-\int_{SU(d)} \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \int_{S_\mathbb{C}^{d-1}} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
-\int_{SU(d)} \left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right| \dif g  &\leq \sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \dif g \dif z \label{eqn:1} \\
- &\leq p(t_1-\epsilon,t_2+\epsilon)\sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+\int_{SU(d)} \left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right| \dif g &\leq p(t_1-\epsilon,t_2+\epsilon)\sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2}\\
 &\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|
 \end{align}
-
-We note that if we extend our annulus's extent by $\epsilon$, so that we have $t_1\rightarrow t_1-\epsilon$ and $t_2\rightarrow t_2+\epsilon$, we capture the entirety of the measure of the bump functions inside the original annulus. This means that the expression now represents an overestimate of the exact count of points within the annulus $g^{-1}A_{t_1,t_2}$, hence $\int_{SU(d)} \left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right| \dif g\leq \int_{SU(d)} \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g$. Extending the annulus by $\epsilon$ has the following effect on the proportion of the sphere taken up by the annulus:
-\begin{align}
-p(t_1-\epsilon,t_2+\epsilon)&=\left(1-t_1+\epsilon\right)^{d-1}-\left(1-t_2-\epsilon\right)^{d-1}\\
-&=(1-t_1)^{d-1}-(1-t_2)^{d-1}+(d-1)\epsilon\left((1-t_1)^{d-2}+(1-t_2)^{d-2}\right)+o(\epsilon).
-\end{align}
-Equality holds between the right hand sides of equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the annulus is twirled by the Haar measure over the rotation group $SU(d)$ it becomes a constant function with value $p(t_1,t_2)$. Since the left hand side of Equation \ref{eqn:1} represents an average over the rotation group, there must be some $g\in SU(d)$ such that $\left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right|\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|$, and this is true for all $\epsilon$. Therefore:
+Since the left hand side of Equation \ref{eqn:2} represents an average over the rotation group, there must be some $g\in SU(d)$ such that $\left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right|\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|$, and this is true for all $\epsilon$. Therefore:
 \begin{align}
 q(\mathcal{G})&\leq \lim_{\epsilon\rightarrow0}p(t_1-\epsilon,t_2+\epsilon) \\
 &\leq \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}.
@@ -263,8 +277,8 @@ There exists a constant $c$ such that for all $n\in\mathbb{N}$ there exists a re
 
 Hence, we have
 \begin{align}
-\lim_{n\rightarrow\infty}q(\mathcal{G}_n)&\geq\lim_{n\rightarrow\infty}\frac{n-2C\sqrt{n\log n}}{n}\\
-&\geq 1-2C\lim_{n\rightarrow\infty}\sqrt{\frac{\log n}{n}}=1.
+\lim_{n\rightarrow\infty}q(\mathcal{G}_n)&\geq\lim_{n\rightarrow\infty}\frac{n-2c\sqrt{n\log n}}{n}\\
+&\geq 1-2c\lim_{n\rightarrow\infty}\sqrt{\frac{\log n}{n}}=1.
 \end{align}
 Therefore, $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\infty$. We see then that quantum mechanics does not display maximal contextuality as robustly, given this definition of robustness, as other possible GPTs. This could potentially have an impact on attempts to recreate quantum mechanics as a principle theory.
 
@@ -310,3 +324,22 @@ I am grateful to Terry Rudolph, Shane Mansfield, Rui Soares-Barbosa, Angela Kara
 \draw (-0.12,0.58) node[anchor=north west] {C};
 \draw (-0.1,-0.25) node[anchor=north west] {0};
 \end{tikzpicture}
+
+
+\begin{align}
+\int_{SU(d)} \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g &= \int_{S_\mathbb{C}^{d-1}} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z \\
+\int_{SU(d)} \left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right| \dif g  &\leq \sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \int_{SU(d)} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \dif g \dif z \label{eqn:1} \\
+ &\leq p(t_1-\epsilon,t_2+\epsilon)\sum_i\int_{S_\mathbb{C}^{d-1}}f^\epsilon_\ket{\psi_i}(z)  \dif z \label{eqn:2} \\
+&\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|
+\end{align}
+
+We note that if we extend our annulus's extent by $\epsilon$, so that we have $t_1\rightarrow t_1-\epsilon$ and $t_2\rightarrow t_2+\epsilon$, we capture the entirety of the measure of the bump functions inside the original annulus. This means that the expression now represents an overestimate of the exact count of points within the annulus $g^{-1}A_{t_1,t_2}$, hence $\int_{SU(d)} \left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right| \dif g\leq \int_{SU(d)} \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1-\epsilon,t_2+\epsilon}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g$. Extending the annulus by $\epsilon$ has the following effect on the proportion of the sphere taken up by the annulus:
+\begin{align}
+p(t_1-\epsilon,t_2+\epsilon)&=\left(1-t_1+\epsilon\right)^{d-1}-\left(1-t_2-\epsilon\right)^{d-1}\\
+&=(1-t_1)^{d-1}-(1-t_2)^{d-1}+(d-1)\epsilon\left((1-t_1)^{d-2}+(1-t_2)^{d-2}\right)+o(\epsilon).
+\end{align}
+Equality holds between the right hand sides of equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the annulus is twirled by the Haar measure over the rotation group $SU(d)$ it becomes a constant function with value $p(t_1,t_2)$. Since the left hand side of Equation \ref{eqn:1} represents an average over the rotation group, there must be some $g\in SU(d)$ such that $\left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right|\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|$, and this is true for all $\epsilon$. Therefore:
+\begin{align}
+q(\mathcal{G})&\leq \lim_{\epsilon\rightarrow0}p(t_1-\epsilon,t_2+\epsilon) \\
+&\leq \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}.
+\end{align}
