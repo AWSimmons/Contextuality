@@ -32,6 +32,11 @@ Michael~R. Garey and David~S. Johnson.
   NP-completeness}.
 \newblock W.H. Freeman and Company, 1979.
 
+\bibitem{Kerm2011}
+Jouni Kerman.
+\newblock A closed-form approximation for the median of the beta distribution.
+\newblock arXiv:1111.0433, November 2011.
+
 \bibitem{Pere1991}
 A.~Peres.
 \newblock Two simple proofs of the {K}ochen-{S}pecker theorem.

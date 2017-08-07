@@ -306,7 +306,7 @@ The challenge, then, is to characterise which projectors $P$ must be given a con
 In a scenario in which the available measurements are rank-$r$ projectors $\{P_i\}$, peformed on a quantum system of dimension $d$, then at most $(I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r))|\{P_i\}|$ are given a contextual valuation, where $I_x(\alpha,\beta)$ is the \emph{regularised incomplete beta function}.
 \end{thm}
 \begin{proof}
-The proof proceeds similarly to the proof of Theorem \ref{main}
+The proof proceeds similarly to the proof of Theorem \ref{main}. We will identify an annulus within the space of rank-$r$ projectors on $\mathcal{H}_d$ which can be associated with contextual valuations, and then use its volume in proportion to that of the overall Hilbert space to form a bound on how many must be given contextual valuations.
 \begin{lem}
 Under the extension of a valuation of rank-1 projectors given by the annulus method from Theorem \ref{main} centred on $\ket{\phi}$, a rank-$r$ projector $P_r$ is contextual only if $\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12$.
 \end{lem}%Maybe reword to explicitly use f, g above.
@@ -318,7 +318,7 @@ Next, we consider the case that $\tr(P_r\ketbra{\phi})=\nicefrac{r}{d}-\epsilon<
 \begin{equation}
 \frac{P_r\ket\phi}{\bra\phi P_r \ket\phi}=\sum_{i=0}^{r-1}\left(\sqrt{\frac1d-\frac{\epsilon}{r}}\right)\ket{i}
 \end{equation}
-This concludes the proof.
+Each of these elements in the decomposition would recieve a noncontextual 0 valuation, so $P_r$ inherits a 0 valuation. This concludes the proof.
 \end{proof}
 
 Using the result of the lemma, we can apply a proof method identical to that in \ref{main} if we can calculate the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$.
@@ -346,6 +346,21 @@ where $I_x(\alpha,\beta)$ is the regularised incomplete beta function, as claime
 For any choice of $d$, $r$, the proportion of projectors requiring a contextual valuation is always less than \nicefrac12.
 \end{cor}
 \begin{proof}
+We have for any $d$, $r$, that the proportion of projectors requiring a contextual valuation is bounded above by $I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r)$. We wish, then, to bound this quantity above by $\nicefrac12$.
+
+Since $I_x(\alpha,\beta)$ is the cumulative distribution function for a random variable with distribution $\mbox{Beta}(\alpha,\beta)$, a trivial upper bound for this quantity is given by
+\begin{equation}
+I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r)\leq 1-I_{\nicefrac{r}{d}}(r,d-r).
+\end{equation}
+In fact, we will see below that for large $d$, this is a reasonable approximation. We wish, then, to lower bound the value of $I_{\nicefrac{r}{d}}(r,d-r)$. The mean-median-mode inequality \cite{Kerm2011} for the Beta distribution with $\alpha\leq\beta$, which is met here since $r$ must be a nontrivial factor of $d$, is given by
+\begin{equation}
+\frac{\alpha-1}{\alpha+\beta-2}\leq m(\alpha,\beta)\leq\frac{a}{a+b},
+\end{equation}
+where $m(\alpha,\beta)$ represents the median of a random variable with a $\mbox{Beta}(\alpha,\beta)$ distribution. This is an equality only when $\alpha=\beta$; since this corresponds to a trivial contextuality scenario, we will ignore it. Importantly, we have
+\begin{equation}
+m(r,d-r)<\frac{r}{d}.
+\end{equation}
+Hence, $I_{\nicefrac{r}{d}}(r,d-r)>I_{m(r,d-r)}(r,d-r)=\nicefrac12$, and the result follows.
 
 \end{proof}
 
@@ -354,7 +369,7 @@ For any choice of $d$, $r$, the proportion of projectors requiring a contextual 
 There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors. %Talk about Angela's forthcoming work
 
 \section{Acknowledgements}
-I am grateful to Terry Rudolph, Shane Mansfield, Rui Soares-Barbosa, Angela Karanjai and Baskaran Sripathmanathan for their helpful discussions which have guided this project. I acknowledge support from EPSRC, via the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
+I am grateful to Terry Rudolph, Angela Xu, Angela Karanjai and Baskaran Sripathmanathan for their helpful discussions which have guided this project. I acknowledge support from EPSRC, via the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
 
 \bibliography{/Users/andrewsimmons/Documents/Latex/Bib/bibliography}{}
 \bibliographystyle{plain}
