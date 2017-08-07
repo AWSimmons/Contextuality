@@ -1,0 +1,70 @@
+\begin{thebibliography}{10}
+
+\bibitem{Abra2011}
+S.~Abramsky and A.~Brandenburger.
+\newblock The sheaf-theoretic structure of non-locality and contextuality.
+\newblock {\em New Journal of Physics}, 13:113036, 2011.
+
+\bibitem{Abra2017}
+Samson Abramsky, Rui~Soares Barbosa, and Shane Mansfield.
+\newblock The contextual fraction as a measure of contextuality.
+\newblock arXiv:1705.07918.
+
+\bibitem{Alon2010}
+Noga Alon, Sonny Ben-Shimon, and Michael Krivelevich.
+\newblock A note on regular {R}amsey graphs.
+\newblock {\em Journal of Graph Theory}, 64(3):244--249, 2010.
+
+\bibitem{Berm2016}
+J.~Bermejo-Vega, N.~Delfosse, D.~E. Browne, C.~Okay, and R.~Raussendorf.
+\newblock Contextuality as a resource for qubit quantum computation.
+\newblock arXiv:1610.08529.
+
+\bibitem{Cabe1997}
+Ad{\'a}n Cabello.
+\newblock {\em A Proof with 18 Vectors of the Bell-Kochen-Specker Theorem},
+  pages 59--62.
+\newblock Springer Netherlands, Dordrecht, 1997.
+
+\bibitem{Gare1979}
+Michael~R. Garey and David~S. Johnson.
+\newblock {\em Computers and Intractability; a guide to the theory of
+  NP-completeness}.
+\newblock W.H. Freeman and Company, 1979.
+
+\bibitem{Pere1991}
+A.~Peres.
+\newblock Two simple proofs of the {K}ochen-{S}pecker theorem.
+\newblock {\em J. Phys. A: Math Gen}, 24:175--178, 1991.
+
+\bibitem{Polj1974}
+Svatopluk Poljak.
+\newblock A note on stable sets and colorings of graphs.
+\newblock {\em Commentationes Mathematica Universitatis Carolinae},
+  15(2):307--309, 1974.
+
+\bibitem{Renn2004}
+R.~Renner and S.~Wolf.
+\newblock Quantum pseudo-telepathy and the {K}ochen-{S}pecker theorem.
+\newblock In {\em International Symposium on Information Theory, 2004. ISIT
+  2004. Proceedings.}, pages 322--322, June 2004.
+
+\bibitem{SimmCC}
+A.~W. Simmons.
+\newblock On the computational complexity of detecting possibilistic locality.
+\newblock arXiv:1609.05550 [quant-ph].
+
+\bibitem{Wint2014}
+A.~Winter.
+\newblock What does an experimental test of quantum contextuality prove or
+  disprove?
+\newblock {\em Journal of Physics A: Mathematical and Theoretical}, 47:424031,
+  2014.
+
+\bibitem{Zycz2000}
+Karol Zyczkowski and Hans-J{\"u}rgen Sommers.
+\newblock Truncations of random unitary matrices.
+\newblock {\em Journal of Physics A: Mathematical and General}, 33(10):2045,
+  2000.
+
+\end{thebibliography}

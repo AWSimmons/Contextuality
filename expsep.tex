@@ -189,7 +189,7 @@ We note that if we extend our annulus's extent by $\epsilon$, so that we have $t
 p(t_1-\epsilon,t_2+\epsilon)&=\left(1-t_1+\epsilon\right)^{d-1}-\left(1-t_2-\epsilon\right)^{d-1}\\
 &=(1-t_1)^{d-1}-(1-t_2)^{d-1}+(d-1)\epsilon\left((1-t_1)^{d-2}+(1-t_2)^{d-2}\right)+o(\epsilon).
 \end{align}
-Equality holds between the right hand sides of equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the annulus is twirled over the Haar measure over the rotation group $SU(d)$ it becomes a constant function with value $p(t_1,t_2)$. Since the left hand side of Equation \ref{eqn:1} represents an average over the rotation group, there must be some $g\in SU(d)$ such that $\left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right|\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|$, and this is true for all $\epsilon$. Therefore:
+Equality holds between the right hand sides of equations \ref{eqn:1} and \ref{eqn:2} since as the indicator function for the annulus is twirled by the Haar measure over the rotation group $SU(d)$ it becomes a constant function with value $p(t_1,t_2)$. Since the left hand side of Equation \ref{eqn:1} represents an average over the rotation group, there must be some $g\in SU(d)$ such that $\left|\left\{\ket{\psi_i} \middle| \ket{\psi_i} \in g^{-1}A_{t_1,t_2}\right\}\right|\leq p(t_1-\epsilon,t_2+\epsilon)\left|\ket{\psi_i}\right|$, and this is true for all $\epsilon$. Therefore:
 \begin{align}
 q(\mathcal{G})&\leq \lim_{\epsilon\rightarrow0}p(t_1-\epsilon,t_2+\epsilon) \\
 &\leq \left(1-\frac1d\right)^{d-1}-\frac{1}{2^{d-1}}.
@@ -223,7 +223,7 @@ This might imply that the quality of the bound does not degrade as the dimension
 
 \subsection{Hadamard States and the Hadamard Graph}
 
-In quantum dimension $d$, consider following family of states indexed by bitstrings $\vec{x}\in\{0,1\}^d$:
+In quantum dimension $d$, consider the family of states indexed by bitstrings $\vec{x}\in\{0,1\}^d$:
 \begin{equation}
 \mathcal{H}_d=\left\{ \ket{\psi_{\vec{x}}}:\ket{\psi_{\vec{x}}} = \frac{1}{\sqrt{d}}\sum_{i=0}^{d-1}(-1)^{x_i}\ket{i}  \right\}.
 \end{equation}
@@ -242,7 +242,7 @@ Name & Transversal Size & Independence Number &FoM& Quantum? \\ \hline
 \makecell{Generic Quantum\\ Graph} & $\leq\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{1}{2^{d-1}}$&$\leq 0.385838$&\ding{51} \\\hline
 \makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
 %\makecell{Andr\'{a}sfai\\ Graphs} & $n-\frac{n+1}{3}$ & $\frac{n+1}{3}$&$\frac{1}{3}$& \ding{55} \\\hline
-\makecell{ABK Triangle-Free\\Graphs} & $n-C\sqrt{n\log n}$ & $C\sqrt{n\log n}$  & 1 &\ding{55}\\\hline
+\makecell{ABK Triangle-Free\\Graphs} & $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & 1 &\ding{55}\\\hline
 \makecell{Disjoint Graph Union of \\ small KS Graphs} &\emph{e.g.} $\frac{5n}{18}$&\emph{e.g.} $\frac{4n}{18}$& $\geq\frac{1}{18}$&\ding{51} \\ \hline
 \end{tabular}
 \end{center}
@@ -258,7 +258,7 @@ q_a(\mathcal{G})\geq \min_\mathcal{G} |T| - \alpha(\mathcal{G}) = |V(\mathcal{G}
 \end{equation}
 In other words, to be able to lower bound $q_a(\mathcal{G})$, we need only consider the independence number, $\alpha(\mathcal{G})$. We seek, therefore, triangle-free graphs with low independence number. We can invoke here a theorem due to Alon, Ben-Shimon and Krivelevich.\cite{Alon2010}
 \begin{thm}
-There exists a constant $C$ such that for all $n\in\mathbb{N}$ there exists a regular triangle-free graph $\mathcal{G}_n$, with $V(\mathcal{G}_n)=n$, and $\alpha(\mathcal{G}_n)\leq C\sqrt{n\log n}$.
+There exists a constant $c$ such that for all $n\in\mathbb{N}$ there exists a regular triangle-free graph $\mathcal{G}_n$, with $V(\mathcal{G}_n)=n$, and $\alpha(\mathcal{G}_n)\leq c\sqrt{n\log n}$.
 \end{thm}
 
 Hence, we have
@@ -272,7 +272,22 @@ Therefore, $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\in
 
 \section{Higher-rank PVMs}
 
-We now extend the result to apply to projective valued measures including projectors of rank greater than 1.
+We now extend the result to apply to projective valued measures including projectors of rank greater than 1. We will allow a rank-$k$ projector $P$ to ``inherit'' a labelling as a function of the assignments to some $\left\{\ket{\psi_P^{(i)}}\right\}$, forming specially chosen decomposition of $P$ as $P=\sum_i \ketbra{\psi_P^{(i)}}$.
+
+Given a variable assignment to states $f:\mathcal{H}_d\rightarrow \{0,C,1\}$, we can define a variable assignment to all projection operators on $\mathcal{H}_d$, $g:\mathcal{P}(\mathcal{H}_d)\rightarrow \{0,C,1\}$ by the following:
+
+\begin{equation}
+g(P)=\begin{cases}
+0\quad \mbox{if } \exists \left\{\psi_P^{(i)}\right\}, \>P=\sum_i \ketbra{\psi_P^{(i)}}, \>f\left(\ket{\psi_P^{(i)}}\right)=0\>\forall i,\\
+1\quad \mbox{elif } \exists \left\{\psi_P^{(i)}\right\}, \>P=\sum_i \ketbra{\psi_P^{(i)}}, \>f\left(\ket{\psi_P^{(i)}}\right)\in\{0,1\}\>\forall i, \\
+C\quad \mbox{o/w.}
+\end{cases}
+\end{equation}
+
+The motivation for this notion of value inheritance is as follows: in any context containing $P$, we can consider replacing it with one of its maximally fine-grained decompositions. Since the assignment of values to this rank-1 decomposition of $P$ is necessarily consistent with the restrictions of the scenario, we can consider coarse-graining by post-processing which must also be consistent. Hence, as long as there exists some decomposition of $P$ into rank-1 projectors, each of which is assigned a noncontextual valuation, then $P$ can inherit a noncontextual valuation. However if there must be a contextual vector in any such decomposition, we must treat $P$ as having a contextual valuation.
+
+The challenge, then, is to characterise which projectors $P$ must be given a contextual valuation under this schema, and then prove a bound analogous to that of Theorem \ref{main}.
+
 
 \section{Future Work}
 There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors.
