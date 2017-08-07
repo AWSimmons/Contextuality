@@ -301,18 +301,27 @@ The motivation for this notion of value inheritance is as follows: in any contex
 
 The challenge, then, is to characterise which projectors $P$ must be given a contextual valuation under this schema, and then prove a bound analogous to that of Theorem \ref{main}.
 
-\begin{lem}
-Under the extension of a valuation of rank-1 projectors given by the annulus method from Theorem \ref{main} centred on $\ket{\phi}$, a rank-$r$ projector $P_r$ is contextual if and only if $\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12$.
-\end{lem}%Maybe reword to explicitly use f, g above.
-\begin{proof}
-
-\end{proof}
 
 \begin{thm}
-In a scenario in which the available measurements are rank-$r$ projectors $\{P_i\}$, peformed on a quantum system of dimension $d$, then at most XXXXXX are given a contextual valuation.
+In a scenario in which the available measurements are rank-$r$ projectors $\{P_i\}$, peformed on a quantum system of dimension $d$, then at most $(I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r))|\{P_i\}|$ are given a contextual valuation, where $I_x(\alpha,\beta)$ is the \emph{regularised incomplete beta function}.
 \end{thm}
 \begin{proof}
-We can apply a proof method identical to that in \ref{main} if we can calculate the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$.
+The proof proceeds similarly to the proof of Theorem \ref{main}
+\begin{lem}
+Under the extension of a valuation of rank-1 projectors given by the annulus method from Theorem \ref{main} centred on $\ket{\phi}$, a rank-$r$ projector $P_r$ is contextual only if $\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12$.
+\end{lem}%Maybe reword to explicitly use f, g above.
+\begin{proof}[Proof of Lemma]
+
+First, consider the case that $\tr(P_r\ketbra{\phi})>\nicefrac12$. We could equivalently write this as $\bra{\phi}P_r\ket\phi=\bra{\phi}P_rP_r\ket\phi>\nicefrac12$. We note that $P_r\ket\phi$ is a vector in the subspace defined by the eigenvalue-1 eigenspace of $P_r$. As such, we can find a basis for $P_r$ that includes $P_r\ket\phi$, up to a normalisation constant. By design, each of these other basis elements $\ket{i}$ will have $\braket{i}{\phi}=\bra{i}P_r\ket{\phi}=0$. Hence, this corresponds to a decomposition of $P_r$ in which every vector would be given either a $1$ or a $0$ valuation, and so $P_r$ inherits a $1$ valuation.
+
+Next, we consider the case that $\tr(P_r\ketbra{\phi})=\nicefrac{r}{d}-\epsilon<\nicefrac{r}{d}$. We wish to decompose $P_r$ in such a way that each of the elements $\ket{i}$ of the decomposition have $\sprod{i}{\phi}<\nicefrac1d$. Again, we consider the vector $P_r\ket\phi$ and choose a basis for the 1-eigenspace of $P_r$ so that we have
+\begin{equation}
+\frac{P_r\ket\phi}{\bra\phi P_r \ket\phi}=\sum_{i=0}^{r-1}\left(\sqrt{\frac1d-\frac{\epsilon}{r}}\right)\ket{i}
+\end{equation}
+This concludes the proof.
+\end{proof}
+
+Using the result of the lemma, we can apply a proof method identical to that in \ref{main} if we can calculate the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$.
 
 As before, entries of a uniformly random unit vector in $\mathbb{C}^d$ have the same distribution as the entries of a column in a Haar-random $d\times d$ unitary matrix. Applying a result of Zyczkowski and Sommers \cite{Zycz2000}, if $U$ is a Haar-random $d\times d$ unitary, then defining $Y=\sqrt{\sum_{k=1}^r\left|U_{k,1}\right|^2}$, we have
 \begin{equation}
@@ -322,7 +331,7 @@ where $P_{d,r}(y)$ is the probability density function for the random variable $
 \begin{equation}
 c_{d,r}=\frac{2}{B\left(r,d-r\right)}=\frac{2\Gamma(d)}{\Gamma(r)\Gamma(d-r)},
 \end{equation}
-in which $B$ is the Euler Beta function. Performing a change of variables, then, in which $T=Y^2$, we get:
+in which $B$ is the Euler Beta function. Performing a change of variables, then, in which $T=Y^2$, we get: 
 \begin{align}
 P^T_{d,r}(t)&=\left|\frac{\dif}{\dif t}\left(\sqrt{t}\right)\right|P^Y_{d,r}\left(\sqrt{t}\right)\\
 &=\frac{t^{r-1}\left(1-t\right)^{d-r-1}}{B(r,d-r)}
@@ -331,8 +340,16 @@ This is exactly a Beta distribution with shape parameters $\alpha=r$ and $\beta=
 \begin{equation}
 I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r),
 \end{equation}
-where $I_x(\alpha,\beta)$ is the \emph{regularised incomplete beta function}.
+where $I_x(\alpha,\beta)$ is the regularised incomplete beta function, as claimed.
 \end{proof}
+\begin{cor}
+For any choice of $d$, $r$, the proportion of projectors requiring a contextual valuation is always less than \nicefrac12.
+\end{cor}
+\begin{proof}
+
+\end{proof}
+
+
 \section{Future Work}
 There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors. %Talk about Angela's forthcoming work
 
