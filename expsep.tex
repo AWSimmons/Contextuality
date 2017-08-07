@@ -140,7 +140,7 @@ The proof proceeds by demonstrating an explicit procedure for finding a $T$ and 
 
 Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take this to be the standard basis for the set. By symmetry concerns, the quantity $\min_i \left|\braket{\psi}{i}\right|$ is maximised (albeit nonuniquely) by $\ket{\psi}=d^{\nicefrac{-1}{2}}\sum_i\ket{i}$. This puts an upper bound on the size of the largest hyperspherical angle that can separate an arbitarary vector from its closest basis element. A closed complex hyperspherical cap subtending this angle will then necessarily capture at least one element from the basis, and so any set of vectors within such a hyperspherical cap $C$ construe a maximum-clique hitting-set, $T_C$.
 
-A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2\geq t$ for some $t\in\mathbb{R}$. Since columns of a Haar-random unitary matrix over $\mathbb{C}^d$ are uniformly random unit vectors, the volume $V$ of this hyperspherical cap as a proportion of that of the sphere is given by $1-F(t)$, where $F(t)$ is the cumulative distribution function of the squared  modulus of an entry in such a Haar-random unitary. This quantity is well known in the field of random matrix theory and it can be found, for example, as a special case of a result by \.{Z}yczkowski and Sommers \cite{Zycz2000}.
+A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2\geq t$ for some $t\in\mathbb{R}$. Since columns of a Haar-random unitary matrix over $\mathbb{C}^d$ are uniformly random unit vectors, the volume $V$ of this hyperspherical cap as a proportion of that of the sphere is given by $1-F(t)$, where $F(t)$ is the cumulative distribution function of the squared  modulus of an entry in such a Haar-random unitary. This quantity is well known in the field of random matrix theory and it can be found, for example, as a special case of a result by \.{Z}yczkowski and Sommers \cite{Zycz2000}, and will be demonstrated in Section \ref{highrank}.
 
 \begin{equation}
 \frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}.
@@ -175,7 +175,6 @@ It now remains to be proved that no matter the positions of the set of vectors $
 Consider the canonical action of $SU(d)$ on the unit hypersphere in $\mathbb{C}^d$, which we shall denote $S_\mathbb{C}^{d-1}$. We define a space $SU(d)\times S_\mathbb{C}^{d-1}$, where $SU(d)$ is equipped with the Haar measure, and $S_\mathbb{C}^{d-1}$ is equipped with the uniform measure.
 
 At each $\ket{\psi_i}$, we place a bump function $f^\epsilon_\ket{\psi_i}$ with unit integral and support only within a disc of radius $\epsilon$ around $\ket{\psi_i}$.
-
 Let $A_{t_1,t_2}$ denote the hyperspherical annulus $\{\ket{\phi}\mid t_1\leq\sprod{0}{\phi}^2\leq t_2\}$. By Fubini's theorem, we have:
 \begin{equation}
 \int_{SU(d)} \int_{S_\mathbb{C}^{d-1}} \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif z \dif g = \int_{S_\mathbb{C}^{d-1}} \int_{SU(d)}  \mathbbm{1}_{g.z\in A_{t_1,t_2}} \sum_i f^\epsilon_\ket{\psi_i}(z) \dif g \dif z
@@ -284,9 +283,9 @@ Therefore, $q(\mathcal{G}_n)=1$ is approachable in the limit of $n\rightarrow\in
 
 \FloatBarrier
 
-\section{Higher-rank PVMs}
+\section{Higher-rank PVMs}\label{highrank}
 
-We now extend the result to apply to projective valued measures including projectors of rank greater than 1. We will allow a rank-$k$ projector $P$ to ``inherit'' a labelling as a function of the assignments to some $\left\{\ket{\psi_P^{(i)}}\right\}$, forming specially chosen decomposition of $P$ as $P=\sum_i \ketbra{\psi_P^{(i)}}$.
+We now extend the result to apply to projective valued measures including projectors of rank greater than 1, although we are still considering the case in which contexts are made up of a set of projectors which sum to the identity, rather than the more general case of a set of commuting projectors. We will allow a rank-$k$ projector $P$ to ``inherit'' a labelling as a function of the assignments to some $\left\{\ket{\psi_P^{(i)}}\right\}$, forming specially chosen decomposition of $P$ as $P=\sum_i \ketbra{\psi_P^{(i)}}$.
 
 Given a variable assignment to states $f:\mathcal{H}_d\rightarrow \{0,C,1\}$, we can define a variable assignment to all projection operators on $\mathcal{H}_d$, $g:\mathcal{P}(\mathcal{H}_d)\rightarrow \{0,C,1\}$ by the following:
 
@@ -298,13 +297,44 @@ C\quad \mbox{o/w.}
 \end{cases}
 \end{equation}
 
-The motivation for this notion of value inheritance is as follows: in any context containing $P$, we can consider replacing it with one of its maximally fine-grained decompositions. Since the assignment of values to this rank-1 decomposition of $P$ is necessarily consistent with the restrictions of the scenario, we can consider coarse-graining by post-processing which must also be consistent. Hence, as long as there exists some decomposition of $P$ into rank-1 projectors, each of which is assigned a noncontextual valuation, then $P$ can inherit a noncontextual valuation. However if there must be a contextual vector in any such decomposition, we must treat $P$ as having a contextual valuation.
+The motivation for this notion of value inheritance is as follows: in any context containing $P$, we can consider replacing it with one of its maximally fine-grained decompositions. Since the assignment of values to this rank-1 decomposition of $P$ is necessarily consistent with the restrictions of the scenario, we can consider a post-processing that consists of a coarse-graining of those fine-grained results, ``forgetting'' which one of them occurred. This process must also be consistent. Hence, as long as there exists some decomposition of $P$ into rank-1 projectors, each of which is assigned a noncontextual valuation, then $P$ can inherit a noncontextual valuation. However if there must be a contextual vector in any such decomposition, we must treat $P$ as having a contextual valuation.
 
 The challenge, then, is to characterise which projectors $P$ must be given a contextual valuation under this schema, and then prove a bound analogous to that of Theorem \ref{main}.
 
+\begin{lem}
+Under the extension of a valuation of rank-1 projectors given by the annulus method from Theorem \ref{main} centred on $\ket{\phi}$, a rank-$r$ projector $P_r$ is contextual if and only if $\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12$.
+\end{lem}%Maybe reword to explicitly use f, g above.
+\begin{proof}
 
+\end{proof}
+
+\begin{thm}
+In a scenario in which the available measurements are rank-$r$ projectors $\{P_i\}$, peformed on a quantum system of dimension $d$, then at most XXXXXX are given a contextual valuation.
+\end{thm}
+\begin{proof}
+We can apply a proof method identical to that in \ref{main} if we can calculate the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$.
+
+As before, entries of a uniformly random unit vector in $\mathbb{C}^d$ have the same distribution as the entries of a column in a Haar-random $d\times d$ unitary matrix. Applying a result of Zyczkowski and Sommers \cite{Zycz2000}, if $U$ is a Haar-random $d\times d$ unitary, then defining $Y=\sqrt{\sum_{k=1}^r\left|U_{k,1}\right|^2}$, we have
+\begin{equation}
+P^Y_{d,r}(y)=c_{d,r}y^{2r-1}(1-y^2)^{d-r-1},
+\end{equation}
+where $P_{d,r}(y)$ is the probability density function for the random variable $Y$, and
+\begin{equation}
+c_{d,r}=\frac{2}{B\left(r,d-r\right)}=\frac{2\Gamma(d)}{\Gamma(r)\Gamma(d-r)},
+\end{equation}
+in which $B$ is the Euler Beta function. Performing a change of variables, then, in which $T=Y^2$, we get:
+\begin{align}
+P^T_{d,r}(t)&=\left|\frac{\dif}{\dif t}\left(\sqrt{t}\right)\right|P^Y_{d,r}\left(\sqrt{t}\right)\\
+&=\frac{t^{r-1}\left(1-t\right)^{d-r-1}}{B(r,d-r)}
+\end{align}
+This is exactly a Beta distribution with shape parameters $\alpha=r$ and $\beta=d-r$; we have derived that $T\sim\mbox{Beta}(r,d-r)$. We note taking $r=1$, and integrating, we recover our earlier result used in Theorem \ref{main}. Hence, the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$ is given by
+\begin{equation}
+I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r),
+\end{equation}
+where $I_x(\alpha,\beta)$ is the \emph{regularised incomplete beta function}.
+\end{proof}
 \section{Future Work}
-There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors.
+There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors. %Talk about Angela's forthcoming work
 
 \section{Acknowledgements}
 I am grateful to Terry Rudolph, Shane Mansfield, Rui Soares-Barbosa, Angela Karanjai and Baskaran Sripathmanathan for their helpful discussions which have guided this project. I acknowledge support from EPSRC, via the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
