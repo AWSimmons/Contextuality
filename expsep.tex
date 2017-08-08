@@ -47,7 +47,7 @@
 \address{Department of Physics, Imperial College London, SW7 2AZ.}
 \email{andrew@simmons.co.uk}
 \begin{abstract}
-Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of rank-1 projective measurements on a quantum system must be considered to have context-dependent valuations as a function of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other possible physical theories. We also extend this result to projector-valued-measures with projectors of arbitrary rank.
+Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of rank-1 projective measurements on a quantum system must be considered to have context-dependent valuations as a function of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other possible physical theories. We also extend this result to projector-valued-measures with projectors of arbitrary, regular, rank.
 \end{abstract}
 \maketitle
 \section{Introduction}
@@ -61,28 +61,8 @@ That is to say, without introducting other structure to our consideration, we ca
 
 In this paper, we will use graph-theoretic methods as a computational tool to investigate how robust, in this sense, different Kochen-Specker sets are; we will also set a bound on how robust any quantum scenario can be. We will demonstrate that it is possible that other physical theories can be more contextual, given this definition, than quantum mechanics. We can consider this as a stronger analogue than the observation that a PR-box is more nonlocal with respect to the CHSH inequality than any quantum-mechanically accessible scenario.
 
+One metric for contextuality is the \emph{contextual fraction},\cite{Abra2017} in which we consider our probability distribution to be a convex mixture between a noncontextual theory and a contextual one. This notion is what prompts the term ``maximal contextuality''; if a scenario is maximally contextual then it has a contextual fraction that is the highest possible, \emph{viz} 1. It is independent of re-labelling the measurement effects, but the contextual fraction is hard to calculate when the number of corners of the noncontextual polytope is large, which is true in many natural situations such as in nonlocality scenarios in which one party has access to measurements with three or more outcomes \cite{SimmCC}. There is a natural motivation for a complementary measure of contextuality that can distinguish different contextual fraction 1 scenarios.
 
-
-\section{Measures of contextuality}
-
-One metric for contextuality is the \emph{contextual fraction},\cite{Abra2017} in which we consider our probability distribution to be a convex mixture between a noncontextual theory and a contextual one. This notion is what prompts the term ``maximal contextuality''; if a scenario is maximally contextual then it has a contextual fraction that is the highest possible, \emph{viz} 1. Other metrics have also been explored; one important one, possessing operational meaning, is \emph{negativity} (find cite). These definitions have their own strengths and weaknesses. Both are independent of re-labelling the measurement effects, but the contextual fraction is hard to calculate when the number of corners of the noncontextual polytope is large, which is true in many natural situations, and negativity is defined relative to a specific choice of frame, with no known procedure for its minimisation. There is a natural motivation, then, for a measure of contextuality that can distinguish different contextual fraction 1 scenarios.
-
-Let us consider the case of nonlocality. Operationally, our scenario is represented by some sort of data table, such as the one below:
-
-\begin{equation}\renewcommand{\arraystretch}{1.5}
-\begin{array}{c| c c | c c |} \renewcommand{\arraystretch}{1.5}
-&\ket{+}&\ket{-}&\ket{0}&\ket{1}\\\hline
-\ket{+}&\frac{3}{4} &\frac{1}{12}  &\frac{2}{3} & \frac{1}{6}\\
-\ket{-}&\frac{1}{12} &\frac{1}{12}  &0 &\frac{1}{6}\\ \hline
-\ket{0}&\frac{2}{3}&0&\frac{1}{3} &\frac{1}{3} \\
-\ket{1}&\frac{1}{6}&\frac{1}{6} &\frac{1}{3} &0 \\ \hline
-\end{array} \renewcommand{\arraystretch}{1}
-\end{equation}
-This is a table of probability outcomes for a nonlocality experiment on the state $\nicefrac{1}{\sqrt{3}}\left(\ket{00}+\ket{01}+\ket{11}\right)$, and it demonstrates Hardy nonlocality. The $\ket{-}\ket{-}$ outcome possibility cannot be accounted for within a local hidden variable model; and such this model has a \emph{paradoxical probability}, the maximum probability over contexts of exhibiting a nonlocal possibility, of $\nicefrac{1}{12}$. The maximum for any Hardy paradox, a table exhibiting these exact possibilities, is given by $\nicefrac{5\sqrt{5}-11}{2}$ This nonlocal possibility is also sometimes called the EPR2 decomposition.
-
-We see that this scenario, then, has a nonlocal fraction strictly greater than the paradoxical probability; were we able to find a data table corresponding to a deterministic hidden variable, and subtract it from the given data table in a way that respected no-signalling and accounted for the probability of the nonlocal possibility, then the possibility would not be nonlocal in the first place!
-Calculation of the contextual fraction is computationally complex; indeed, determining whether it is nonzero is \textsc{NP-complete} for a 
-nontrivial two-party nonlocality scenario exactly when one party has access to measurements with three or more outcomes \cite{SimmCC}.
 
 %This whole section should probably be merged elsewhere....
 
@@ -340,7 +320,7 @@ Since $I_x(\alpha,\beta)$ is the cumulative distribution function for a random v
 \begin{equation}
 I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r)< 1-I_{\nicefrac{r}{d}}(r,d-r).
 \end{equation}
-In fact for large $d$, this is a reasonable approximation, since we can apply Chebyshev's inequality to show that $I_{\nicefrac{1}{2}}(r,d-r)\geq1-O(d^{-2})$ when $\nicefrac{r}{d}$ is kept constant. We wish, then, to lower bound the value of $I_{\nicefrac{r}{d}}(r,d-r)$. The mean-median-mode inequality \cite{Kerm2011} for the Beta distribution with $\alpha\leq\beta$, which is met here since $r$ must be a nontrivial factor of $d$, is given by
+In fact for large $d$, this is a reasonable approximation, since we can apply Chebyshev's inequality to show that $I_{\nicefrac{1}{2}}(r,d-r)\geq1-O(d^{-2})$. We wish, then, to lower bound the value of $I_{\nicefrac{r}{d}}(r,d-r)$. The mean-median-mode inequality \cite{Kerm2011} for the Beta distribution with $\alpha\leq\beta$, which is met here since $r$ must be a nontrivial factor of $d$, is given by
 \begin{equation}
 \frac{\alpha-1}{\alpha+\beta-2}\leq m(\alpha,\beta)\leq\frac{a}{a+b},
 \end{equation}
