@@ -52,24 +52,12 @@ Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of pro
 \maketitle
 \section{Introduction}
 
-Historically, Kochen-Specker style proofs of contextuality, also known as strong or maximal contextuality, have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety.  In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. We can think of these structures as exhibiting a kind of circular dependency.
+The Bell-Kochen-Specker theorem tells us that there exist sets of projectors $\{\ket{\psi_i}\}$, such that it is impossible to assign to each of them a valuation of 0 or 1 in a context-independent way, and have there be exactly one 1-valued projector in every PVM context. This motivates the following question: how many such projectors \emph{can} we give a noncontextual valuation to, and how many projectors must be considered to have context-dependent valuations?
 
-We first need to define what we mean by different strengths of contextuality, following Abramsky and Brandenburger \cite{Abra2011}, as applied to this situation.
+Historically, Kochen-Specker style proofs of contextuality, also known as strong or maximal contextuality, have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety.  In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. For such proofs, then, since removing one context is sufficient to remove all contextuality, certainly allowing a projector to vary in its value assignment by context will. 
+For example, the 33-ray proof of the Bell-Kochen-Specker theorem due to Peres \cite{Pere1991}. Removing any one context from the structure, \emph{i.e.} not allowing, by some restriction, one basis to be commensurable, also removes all its contextuality. Is this surprising? It seems likely that Peres would deliberately have chosen a minimal example, that could not have anything taken away from it whilst still forming a proof of contextuality, which is a fair comment. However, removing a single context not only renders the structure unable to exhibit maximal contextuality, but \emph{renders it unable to exhibit Hardy contextuality as well}.
 
-\begin{defn}[Hardy Contextuality]
-A collection of quantum measurement operators demonstrate \emph{Hardy contextuality} if there is a possible outcome that cannot be explained within a noncontextual, outcome-deterministic ontological model without that model also predicting that some outcomes are possible when they should be impossible.
-\end{defn}
-
-\begin{defn}[Maximal Contextuality]
-A collection of quantum measurement operators demonstrate \emph{maximal contextuality} if the existence of any noncontextual, outcome-deterministic ontic state in an ontological model for that situation would predict events being possible that should be impossible. %Wow that's a shit definition%.
-\end{defn}
-
-%reword these section
-
-Let us consider the 33-ray proof of the Bell-Kochen-Specker theorem due to Peres \cite{Pere1991}. Removing any one context from the structure, \emph{i.e.} not allowing, by some restriction, one basis to be commensurable, also removes all its contextuality. Is this surprising? It seems likely that Peres would deliberately have chosen a minimal example, that could not have anything taken away from it whilst still forming a proof of contextuality, which is a fair comment. However, removing a single context not only renders the structure unable to exhibit maximal contextuality, but \emph{renders it unable to exhibit Hardy contextuality as well}.
-
-That is to say, without introducting other structure to our consideration, we cannot think of this proof of noncontextuality as being a composite of proofs that each possibility is not noncontextually explainable\footnote{If we convert this proof into a proof of nonlocality (which is by nature, state-dependent rather than state-independent), then we can use the structure this gives us to prove something of this form. In this situation, we end up mostly %check%
-discarding parts of the restrictions stemming from relationships that exist between contexts rather than removing contexts themselves, in a way which retains operational significance. This is not possible in the contextuality scenario.}. There is no proper subset of the allowable contexts that would constitute a proof that any of its possibilities were contextual. This is somewhat surprising, since we might have expected some contextuality to remain in the system when we introduce a minor epistemic restriction-- the inability to measure one of the sixteen contexts that are quantum-mechanically available in the situation. This ``lynchpin'' property of the scenario can be thought of as reflecting the fact that the distribution is very close to noncontextual in the sense outlined by Winter \cite{Wint2014}, or can be thought of as a proof's susceptibility to a Meyer-Clifton-Kent type objection.
+That is to say, without introducting other structure to our consideration, we cannot think of this proof of noncontextuality as being a composite of proofs that each possibility is not noncontextually explainable There is no proper subset of the allowable contexts that would constitute a proof that any of its possibilities were contextual. This is somewhat surprising, since we might have expected some contextuality to remain in the system when we introduce a minor epistemic restriction-- the inability to measure one of the sixteen contexts that are quantum-mechanically available in the situation. This ``lynchpin'' property of the scenario can be thought of as reflecting the fact that the distribution is very close to noncontextual in the sense outlined by Winter \cite{Wint2014}, or can be thought of as a proof's susceptibility to a Meyer-Clifton-Kent type objection.
 
 In this paper, we will use graph-theoretic methods as a computational tool to investigate how robust, in this sense, different Kochen-Specker sets are; we will also set a bound on how robust any quantum scenario can be. We will demonstrate that it is possible that other physical theories can be more contextual, given this definition, than quantum mechanics. We can consider this as a stronger analogue than the observation that a PR-box is more nonlocal with respect to the CHSH inequality than any quantum-mechanically accessible scenario.
 
@@ -143,7 +131,7 @@ Consider a basis for $\mathcal{H}_d$. Without loss of generality, we can take th
 A closed complex hyperspherical cap centered at $\ket{\psi}$ in question can be thought of as the set of vectors $\ket{\phi}\in\mathcal{H}_d$ such that $\sprod{\psi}{\phi}^2\geq t$ for some $t\in\mathbb{R}$. Since columns of a Haar-random unitary matrix over $\mathbb{C}^d$ are uniformly random unit vectors, the volume $V$ of this hyperspherical cap as a proportion of that of the sphere is given by $1-F(t)$, where $F(t)$ is the cumulative distribution function of the squared  modulus of an entry in such a Haar-random unitary. This quantity is well known in the field of random matrix theory and it can be found, for example, as a special case of a result by \.{Z}yczkowski and Sommers \cite{Zycz2000}, and will be demonstrated in Section \ref{highrank}.
 
 \begin{equation}
-\frac{V}{V_S}=\left(1-\frac1d \right)^{d-1}.
+\frac{V}{V_S}=\left(1-t \right)^{d-1}.
 \end{equation}
 Clearly, the value of $q(\mathcal{G})$ for a quantum graph is upper bounded by the size of any maximum-clique hitting set, so if we can bound the minimum number of vectors we c must intersect with such a hyperspherical cap, this also constitutes a bound on the value $q(\mathcal{G})$. However, we would not expect this bound to be tight, since we have ignored the independent set subtrahend entirely. We would like to demonstrate an independent set within our maximum-clique hitting-set $T_C$, and therefore give a better upper bound on the quantity $q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|$, giving an explicit construction procedure for a $T$ and $A\subset T$.
 
@@ -308,7 +296,7 @@ In a scenario in which the available measurements are rank-$r$ projectors $\{P_i
 \begin{proof}
 The proof proceeds similarly to the proof of Theorem \ref{main}. We will identify an annulus within the space of rank-$r$ projectors on $\mathcal{H}_d$ which can be associated with contextual valuations, and then use its volume in proportion to that of the overall Hilbert space to form a bound on how many must be given contextual valuations.
 \begin{lem}
-Under the extension of a valuation of rank-1 projectors given by the annulus method from Theorem \ref{main} centred on $\ket{\phi}$, a rank-$r$ projector $P_r$ is contextual only if $\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12$.
+Under the extension of a valuation of rank-1 projectors given by the annulus method from Theorem \ref{main} centred on $\ket{\phi}$, a rank-$r$ projector $P_r$ is contextual only if $\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})\leq\nicefrac12$.
 \end{lem}%Maybe reword to explicitly use f, g above.
 \begin{proof}[Proof of Lemma]
 
@@ -316,14 +304,14 @@ First, consider the case that $\tr(P_r\ketbra{\phi})>\nicefrac12$. We could equi
 
 Next, we consider the case that $\tr(P_r\ketbra{\phi})=\nicefrac{r}{d}-\epsilon<\nicefrac{r}{d}$. We wish to decompose $P_r$ in such a way that each of the elements $\ket{i}$ of the decomposition have $\sprod{i}{\phi}<\nicefrac1d$. Again, we consider the vector $P_r\ket\phi$ and choose a basis for the 1-eigenspace of $P_r$ so that we have
 \begin{equation}
-\frac{P_r\ket\phi}{\bra\phi P_r \ket\phi}=\sum_{i=0}^{r-1}\left(\sqrt{\frac1d-\frac{\epsilon}{r}}\right)\ket{i}
+P_r\ket\phi=\sum_{i=0}^{r-1}\left(\sqrt{\frac1d-\frac{\epsilon}{r}}\right)\ket{i}.
 \end{equation}
 Each of these elements in the decomposition would recieve a noncontextual 0 valuation, so $P_r$ inherits a 0 valuation. This concludes the proof.
 \end{proof}
 
 Using the result of the lemma, we can apply a proof method identical to that in \ref{main} if we can calculate the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$.
 
-As before, entries of a uniformly random unit vector in $\mathbb{C}^d$ have the same distribution as the entries of a column in a Haar-random $d\times d$ unitary matrix. Applying a result of Zyczkowski and Sommers \cite{Zycz2000}, if $U$ is a Haar-random $d\times d$ unitary, then defining $Y=\sqrt{\sum_{k=1}^r\left|U_{k,1}\right|^2}$, we have
+As before, entries of a uniformly random unit vector in $\mathbb{C}^d$ have the same distribution as the entries of a column in a Haar-random $d\times d$ unitary matrix. Applying a result of \.{Z}yczkowski and Sommers \cite{Zycz2000}, if $U$ is a Haar-random $d\times d$ unitary, then defining $Y=\sqrt{\sum_{k=1}^r\left|U_{k,1}\right|^2}$, we have
 \begin{equation}
 P^Y_{d,r}(y)=c_{d,r}y^{2r-1}(1-y^2)^{d-r-1},
 \end{equation}
@@ -336,11 +324,11 @@ in which $B$ is the Euler Beta function. Performing a change of variables, then,
 P^T_{d,r}(t)&=\left|\frac{\dif}{\dif t}\left(\sqrt{t}\right)\right|P^Y_{d,r}\left(\sqrt{t}\right)\\
 &=\frac{t^{r-1}\left(1-t\right)^{d-r-1}}{B(r,d-r)}
 \end{align}
-This is exactly a Beta distribution with shape parameters $\alpha=r$ and $\beta=d-r$; we have derived that $T\sim\mbox{Beta}(r,d-r)$. We note taking $r=1$, and integrating, we recover our earlier result used in Theorem \ref{main}. Hence, the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$ is given by
+This is exactly a Beta distribution with shape parameters $\alpha=r$ and $\beta=d-r$; we have derived that $T\sim\mbox{Beta}(r,d-r)$. We note taking $r=1$, and integrating, we recover our earlier result used in Theorem \ref{main}. Since the CDF for a Beta distributed random variable is given by the regularised incomplete beta function, $I_x(\alpha,\beta)$, the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})\leq\nicefrac12\right\}$ is given by
 \begin{equation}
-I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r),
+I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r).
 \end{equation}
-where $I_x(\alpha,\beta)$ is the regularised incomplete beta function, as claimed.
+To complete the proof we once again apply the argument from Fubini's theorem used in the proof of Theorem \ref{main}.
 \end{proof}
 \begin{cor}
 For any choice of $d$, $r$, the proportion of projectors requiring a contextual valuation is always less than \nicefrac12.
@@ -350,17 +338,17 @@ We have for any $d$, $r$, that the proportion of projectors requiring a contextu
 
 Since $I_x(\alpha,\beta)$ is the cumulative distribution function for a random variable with distribution $\mbox{Beta}(\alpha,\beta)$, a trivial upper bound for this quantity is given by
 \begin{equation}
-I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r)\leq 1-I_{\nicefrac{r}{d}}(r,d-r).
+I_{\nicefrac{1}{2}}(r,d-r)-I_{\nicefrac{r}{d}}(r,d-r)< 1-I_{\nicefrac{r}{d}}(r,d-r).
 \end{equation}
-In fact, we will see below that for large $d$, this is a reasonable approximation. We wish, then, to lower bound the value of $I_{\nicefrac{r}{d}}(r,d-r)$. The mean-median-mode inequality \cite{Kerm2011} for the Beta distribution with $\alpha\leq\beta$, which is met here since $r$ must be a nontrivial factor of $d$, is given by
+In fact for large $d$, this is a reasonable approximation, since we can apply Chebyshev's inequality to show that $I_{\nicefrac{1}{2}}(r,d-r)\geq1-O(d^{-2})$ when $\nicefrac{r}{d}$ is kept constant. We wish, then, to lower bound the value of $I_{\nicefrac{r}{d}}(r,d-r)$. The mean-median-mode inequality \cite{Kerm2011} for the Beta distribution with $\alpha\leq\beta$, which is met here since $r$ must be a nontrivial factor of $d$, is given by
 \begin{equation}
 \frac{\alpha-1}{\alpha+\beta-2}\leq m(\alpha,\beta)\leq\frac{a}{a+b},
 \end{equation}
-where $m(\alpha,\beta)$ represents the median of a random variable with a $\mbox{Beta}(\alpha,\beta)$ distribution. This is an equality only when $\alpha=\beta$; since this corresponds to a trivial contextuality scenario, we will ignore it. Importantly, we have
+where $m(\alpha,\beta)$ represents the median of a random variable with a $\mbox{Beta}(\alpha,\beta)$ distribution. This is an equality only when $\alpha=\beta$; although this corresponds to a trivial contextuality scenario. Importantly, we have
 \begin{equation}
-m(r,d-r)<\frac{r}{d}.
+m(r,d-r)\leq\frac{r}{d}.
 \end{equation}
-Hence, $I_{\nicefrac{r}{d}}(r,d-r)>I_{m(r,d-r)}(r,d-r)=\nicefrac12$, and the result follows.
+Hence by the monotonicity of $I_x(\alpha,\beta)$, we have $I_{\nicefrac{r}{d}}(r,d-r)\geq I_{m(r,d-r)}(r,d-r)=\nicefrac12$, and the result follows.
 
 \end{proof}
 

@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Abra2011}
-S.~Abramsky and A.~Brandenburger.
-\newblock The sheaf-theoretic structure of non-locality and contextuality.
-\newblock {\em New Journal of Physics}, 13:113036, 2011.
-
 \bibitem{Abra2017}
 Samson Abramsky, Rui~Soares Barbosa, and Shane Mansfield.
 \newblock The contextual fraction as a measure of contextuality.
@@ -67,7 +62,7 @@ A.~Winter.
   2014.
 
 \bibitem{Zycz2000}
-Karol Zyczkowski and Hans-J{\"u}rgen Sommers.
+Karol \.{Z}yczkowski and Hans-J{\"u}rgen Sommers.
 \newblock Truncations of random unitary matrices.
 \newblock {\em Journal of Physics A: Mathematical and General}, 33(10):2045,
   2000.
