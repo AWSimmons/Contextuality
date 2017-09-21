@@ -10,7 +10,7 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     96562,       2834]
+NotebookDataLength[     96532,       2834]
 NotebookOptionsPosition[     81873,       2497]
 NotebookOutlinePosition[     82229,       2513]
 CellTagsIndexPosition[     82186,       2510]
@@ -2522,7 +2522,7 @@ Cell[2351, 81, 465, 12, 32, "Input", "ExpressionUUID" -> \
 "2e2949c8-e92b-435e-852e-cc3dee429d27"],
 Cell[2819, 95, 202, 4, 32, "Input", "ExpressionUUID" -> \
 "9e93aa33-c418-4923-8729-66a21f6d026d"],
-Cell[3024, 101, 6838, 190, 117, InheritFromParent, "ExpressionUUID" -> \
+Cell[3024, 101, 6838, 190, 117, "Input", "ExpressionUUID" -> \
 "6847df17-3fc2-46e6-aeb0-812ce3eb302f"],
 Cell[CellGroupData[{
 Cell[9887, 295, 860, 26, 32, "Input", "ExpressionUUID" -> \
@@ -2668,7 +2668,7 @@ Cell[43710, 1303, 425, 11, 32, "Input", "ExpressionUUID" -> \
 Cell[44138, 1316, 147, 4, 32, "Output", "ExpressionUUID" -> \
 "d62fd7f1-778c-4872-ac8e-249a91647463"]
 }, Open  ]],
-Cell[44300, 1323, 152, 3, 32, InheritFromParent, "ExpressionUUID" -> \
+Cell[44300, 1323, 152, 3, 32, "Input", "ExpressionUUID" -> \
 "5f374129-1ebf-4e93-8eb2-dfef46967755"],
 Cell[CellGroupData[{
 Cell[44477, 1330, 348, 9, 32, "Input", "ExpressionUUID" -> \
@@ -2754,7 +2754,7 @@ Cell[62663, 1869, 475, 13, 32, "Input", "ExpressionUUID" -> \
 Cell[63141, 1884, 296, 8, 32, "Output", "ExpressionUUID" -> \
 "8bca59c4-e839-444c-b953-b3221be04cc0"]
 }, Open  ]],
-Cell[63452, 1895, 152, 3, 32, InheritFromParent, "ExpressionUUID" -> \
+Cell[63452, 1895, 152, 3, 32, "Input", "ExpressionUUID" -> \
 "da0c3564-a693-4b0b-a732-973c4dd73715"],
 Cell[63607, 1900, 971, 28, 32, "Input", "ExpressionUUID" -> \
 "46e25dce-1c0a-4639-91e2-f56755ae7467"],

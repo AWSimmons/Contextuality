@@ -10,16 +10,16 @@ Noga Alon, Sonny Ben-Shimon, and Michael Krivelevich.
 \newblock A note on regular {R}amsey graphs.
 \newblock {\em Journal of Graph Theory}, 64(3):244--249, 2010.
 
+\bibitem{Aren2011}
+Felix Arends, Jo{\"e}l Ouaknine, and Charles~W. Wampler.
+\newblock {\em On Searching for Small Kochen-Specker Vector Systems}, pages
+  23--34.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2011.
+
 \bibitem{Berm2016}
 J.~Bermejo-Vega, N.~Delfosse, D.~E. Browne, C.~Okay, and R.~Raussendorf.
 \newblock Contextuality as a resource for qubit quantum computation.
 \newblock arXiv:1610.08529.
-
-\bibitem{Cabe1997}
-Ad{\'a}n Cabello.
-\newblock {\em A Proof with 18 Vectors of the Bell-Kochen-Specker Theorem},
-  pages 59--62.
-\newblock Springer Netherlands, Dordrecht, 1997.
 
 \bibitem{Fran1987}
 Peter Frankl and Vojt\u{e}ch R\"{o}dl.
@@ -41,11 +41,6 @@ Jouni Kerman.
 \newblock A closed-form approximation for the median of the beta distribution.
 \newblock arXiv:1111.0433, November 2011.
 
-\bibitem{Pere1991}
-A.~Peres.
-\newblock Two simple proofs of the {K}ochen-{S}pecker theorem.
-\newblock {\em J. Phys. A: Math Gen}, 24:175--178, 1991.
-
 \bibitem{Polj1974}
 Svatopluk Poljak.
 \newblock A note on stable sets and colorings of graphs.
@@ -62,13 +57,6 @@ R.~Renner and S.~Wolf.
 A.~W. Simmons.
 \newblock On the computational complexity of detecting possibilistic locality.
 \newblock arXiv:1609.05550 [quant-ph].
-
-\bibitem{Wint2014}
-A.~Winter.
-\newblock What does an experimental test of quantum contextuality prove or
-  disprove?
-\newblock {\em Journal of Physics A: Mathematical and Theoretical}, 47:424031,
-  2014.
 
 \bibitem{Zycz2000}
 Karol \.{Z}yczkowski and Hans-J{\"u}rgen Sommers.
