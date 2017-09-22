@@ -47,16 +47,14 @@
 \address{Department of Physics, Imperial College London, SW7 2AZ.}
 \email{andrew@simmons.co.uk}
 \begin{abstract}
-Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of rank-1 projective measurements on a quantum system must be considered to have context-dependent valuations as a function of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other possible physical theories. Attempts to find quantum mechanical scenarios that yield a high value of this figure-of-merit can be thought of as generalisations or extensions of the search for small Kochen-Specker sets. We also extend this result to projector-valued-measures with projectors of arbitrary, regular, rank.
+Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of projectors have the property that at least one of them must have a value assignment that depends on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of rank-1 projective measurements on a quantum system must be considered to have context-dependent valuations as a function of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other possible physical theories. Attempts to find quantum mechanical scenarios that yield a high value of this figure-of-merit can be thought of as generalisations or extensions of the search for small Kochen-Specker sets. We also extend this result to projector-valued-measures with projectors of arbitrary equal rank.
 \end{abstract}
 \maketitle
 \section{Introduction}
 
 The Bell-Kochen-Specker theorem tells us that there exist sets of projectors onto states $\{\ket{\psi_i}\}$, such that it is impossible to assign to each of them a valuation of 0 or 1 in a context-independent way, and have there be exactly one 1-valued projector in every PVM context. We might ask the following question: under an assumption of outcome-definiteness, how many such projectors \emph{can} we give a noncontextual valuation to, and how many projectors (or more robustly, what \emph{fraction} of projectors, must be considered to have context-dependent valuations? This fraction is the key figure-of[-merit that will be explored in this paper.
 
-Historically, Kochen-Specker style proofs of contextuality, also known as strong or maximal contextuality, have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety. In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. For such proofs, then, since removing one context is sufficient to remove all contextuality, certainly allowing a projector to vary in its value assignment by context will.
-
-Since the original paper by Kochen and Specker, there has been intereset in trying to find examples of small Kochen-Specker sets \cite{Aren2011}. When only a single projector need be considered to take a contextual valuation, finding a small such set is the only way of attaining a higher fraction of contextual projectors. The figure-of-merit introduced above, then, can be seen as a generalisation or successor to the search for small Kochen-Specker sets.
+Historically, Kochen-Specker style proofs of contextuality, also known as strong or maximal contextuality, have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety. In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. For such proofs, then, since removing one context is sufficient to remove all contextuality, certainly allowing a projector to vary in its value assignment by context will. This minimalism is partially motivated by the fact that since the original paper by Kochen and Specker, there has been interest in trying to find examples of small Kochen-Specker sets \cite{Aren2011}. When only a single projector need be considered to take a contextual valuation, finding a small such set is the only way of attaining a higher fraction of contextual projectors. The figure-of-merit introduced above, then, can be seen as a generalisation or successor to the search for small Kochen-Specker sets.
 
 In this paper, we will use graph-theoretic methods as a computational tool to investigate how robust, in this sense, quantum-mechanically accessible Kochen-Specker proofs can be. We will demonstrate that it is possible that other physical theories can be more contextual, given this definition, than quantum mechanics. We can consider this as a stronger analogue than the observation that a PR-box is more nonlocal with respect to the CHSH inequality than any quantum-mechanically accessible scenario.
 
@@ -218,8 +216,8 @@ Name & Transversal Size & Independence Number &FoM& Quantum? \\ \hline
 \makecell{Generic Quantum\\ Graph} & $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$&\ding{51} \\\hline
 \makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e+O(2^{-d})$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
 %\makecell{Andr\'{a}sfai\\ Graphs} & $n-\frac{n+1}{3}$ & $\frac{n+1}{3}$&$\frac{1}{3}$& \ding{55} \\\hline
-\makecell{ABK Triangle-Free\\Graphs} & $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & 1 &\ding{55}\\\hline
-\makecell{Disjoint Graph Union of \\  rotated $E_8$ root systems} &$\leq 22$& $\frac{n}{15}$& $\frac{7}{60}$&\ding{51} \\ \hline
+\makecell{ABK Triangle-Free\\Graphs} & $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & $1-O\left(\frac{\log n}{n}\right) $&\ding{55}\\\hline
+\makecell{Disjoint Graph Union of \\  rotated $E_8$ root systems} &$\leq 22$& $\frac{n}{15}$& $0.11\dot{6}$&\ding{51} \\ \hline
 \end{tabular}
 \end{center}
 \caption{A table comparing the graph constructions in this paper. The $E_8$ root system forms a KS proof using 120 rays and 2025 contexts, and the quantities related to it were calculated using a proof by exhaustion.}
@@ -232,7 +230,7 @@ In the triangle-free case, we have a powerful relation between maximum-clique hi
 \begin{equation}
 q_a(\mathcal{G})\geq \min_\mathcal{G} |T| - \alpha(\mathcal{G}) = |V(\mathcal{G})|-2\alpha(\mathcal{G}).
 \end{equation}
-In other words, to be able to lower bound $q_a(\mathcal{G})$, we need only consider the independence number, $\alpha(\mathcal{G})$. We seek, therefore, triangle-free graphs with low independence number. We can invoke here a theorem due to Alon, Ben-Shimon and Krivelevich.\cite{Alon2010}
+In other words, to be able to lower bound $q_a(\mathcal{G})$, we need only consider the independence number, $\alpha(\mathcal{G})$. We seek, therefore, triangle-free graphs with low independence number. We can invoke here a theorem due to Alon, Ben-Shimon and Krivelevich \cite{Alon2010}.
 \begin{thm}
 There exists a constant $c$ such that for all $n\in\mathbb{N}$ there exists a regular triangle-free graph $\mathcal{G}_n$, with $V(\mathcal{G}_n)=n$, and $\alpha(\mathcal{G}_n)\leq c\sqrt{n\log n}$.
 \end{thm}
