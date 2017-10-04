@@ -21,11 +21,6 @@ J.~Bermejo-Vega, N.~Delfosse, D.~E. Browne, C.~Okay, and R.~Raussendorf.
 \newblock Contextuality as a resource for qubit quantum computation.
 \newblock arXiv:1610.08529.
 
-\bibitem{Fran1987}
-Peter Frankl and Vojt\u{e}ch R\"{o}dl.
-\newblock Forbidden intersections.
-\newblock {\em Trans. Amer. Math. Soc}, 300:259--286, 1987.
-
 \bibitem{Gare1979}
 Michael~R. Garey and David~S. Johnson.
 \newblock {\em Computers and Intractability; a guide to the theory of
@@ -57,6 +52,17 @@ R.~Renner and S.~Wolf.
 A.~W. Simmons.
 \newblock On the computational complexity of detecting possibilistic locality.
 \newblock arXiv:1609.05550 [quant-ph].
+
+\bibitem{Soif2008}
+Alexander Soifer.
+\newblock {\em The Mathematical Coloring Book: Mathematics of Coloring and the
+  Colorful Life of its Creators}.
+\newblock Springer, 2008.
+
+\bibitem{Wits1974}
+Hans~S. Witsenhausen.
+\newblock Spherical sets without orthogonal point pairs.
+\newblock {\em American Mathematical Monthly}, pages 1101--1102, 1974.
 
 \bibitem{Zycz2000}
 Karol \.{Z}yczkowski and Hans-J{\"u}rgen Sommers.
