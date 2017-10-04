@@ -198,29 +198,25 @@ In fact such an annulus can in the worst case can contain every vector from a ba
 This might imply that the quality of the bound does not degrade as the dimension increases.%Think about this some more.
 
 %Comment on real case: orthogonal matrices rather than unitaries.
-
-\subsection{Hadamard States and the Hadamard Graph}
-
-In quantum dimension $d$, consider the family of states indexed by bitstrings $\vec{x}\in\{0,1\}^d$:
-\begin{equation}
-\mathcal{H}_d=\left\{ \ket{\psi_{\vec{x}}}:\ket{\psi_{\vec{x}}} = \frac{1}{\sqrt{d}}\sum_{i=0}^{d-1}(-1)^{x_i}\ket{i}  \right\}.
-\end{equation}
-These are called \emph{Hadamard states}. In dimensions $d=2^n$, they form bases which we will call \emph{Hadamard bases}.
-
-The orthogonality graph of Hadamard states in dimension $d$ is known as a \emph{Hadamard graph}. An application of the Frankl-R\"{o}dl theorem \cite{Fran1987} tells us that we can bound the independence density of the Hadamard graph by $2de^{-cd}$ for a positive constant $c$, since the Hadamard graph is a Frankl-R\"{o}dl graph with distance parameter 0. It is known that there exist Hadamard bases in dimensions $d=2^k$, but it is not known that Hadamard bases exist in general in all dimensions $d=4k$, suggesting that Hadamard bases have a complicated structure, and that even enumerating the Hadamard bases may not even be in \textbf{P}, since the number of vectors in our set is exponential in $d$. As such, the question of what the value of $\min|T|$  is for such graphs is open and is likely to be a difficult question. The Hadamard graphs illustrate a tension in trying to optimise $q(\mathcal{G})$. They are so well connected that they have an exponentially small independence density, so few vectors can receive a noncontextual assignment of 1, but this same connectedness means that allowing a single vector's valuation to vary contextually ``fixes'' many contexts.
+%The Hadamard graphs illustrate a tension in trying to optimise $q(\mathcal{G})$. They are so well connected that they have an exponentially small independence density, so few vectors can receive a noncontextual assignment of 1, but this same connectedness means that allowing a single vector's valuation to vary contextually ``fixes'' many contexts.
 
 \begin{figure}
 \begin{center}
 \begin{tabular}{|c | c | c| c|c| }\hline
-Name & Transversal Size & Independence Number &FoM& Quantum? \\ \hline
-\makecell{Generic Quantum\\ Graph} & $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$&\ding{51} \\\hline
-\makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e+O(2^{-d})$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
-%\makecell{Andr\'{a}sfai\\ Graphs} & $n-\frac{n+1}{3}$ & $\frac{n+1}{3}$&$\frac{1}{3}$& \ding{55} \\\hline
-\makecell{ABK Triangle-Free\\Graphs} & $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & $1-O\left(\frac{\log n}{n}\right) $&\ding{55}\\\hline
-\makecell{Disjoint Graph Union of \\  rotated $E_8$ root systems} &$\leq 22$& $\frac{n}{15}$& $0.11\dot{6}$&\ding{51} \\ \hline
+Name &  Quantum Dimension&Transversal Size & Independence Number & FoM\\ \hline
+\makecell{ABK Triangle-Free\\Graphs} &\ding{55}& $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & $1-O\left(\frac{\log n}{n}\right) $\\\hline
+\makecell{Generic Quantum\\ Graph} &\ding{51}& $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$ \\\hline
+%\makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e+O(2^{-d})$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
+\makecell{$E_8$ root \\ system} &8&$\leq \frac{11n}{60}$& $\frac{n}{15}$& $0.11\dot{6}$ \\ \hline
+\makecell{Two-Qubit Stabiliser \\ Quantum Mechanics} &4&  $\frac{3n}{10}$& $ \frac{n}{5}$&0.1\\\hline
+\makecell{Peres-Mermin \\ Magic Square} &4& $ \frac{7n}{24}$& $\frac{5n}{24}$ &$0.08\dot{3}$\\\hline
+\makecell{Cabello's 18-ray \\  proof} &4&$\frac{5n}{18}$&$\frac{4n}{18}$& $0.0\dot{5}$ \\\hline
+\makecell{Peres's 33-ray \\  proof} &3&$\frac{13n}{33}$&$\frac{12n}{33}$& $0.\dot{0}\dot{3}$ \\\hline
+
+
 \end{tabular}
 \end{center}
-\caption{A table comparing the graph constructions in this paper. The $E_8$ root system forms a KS proof using 120 rays and 2025 contexts, and the quantities related to it were calculated using a proof by exhaustion.}
+\caption{A table comparing the graph constructions in this paper; each concrete example represents the graph union of multiple noninteracting copies of the KS proof. Two-qubit stabiliser quantum mechanics forms a KS proof using 60 rays and 105 contexts; the $E_8$ root system forms a KS proof using 120 rays and 2025 contexts. The quantities related to each were calculated using a proof by exhaustion.}
 \end{figure}
 \subsection{Triangle-Free Graphs}
 
