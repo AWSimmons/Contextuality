@@ -91,7 +91,12 @@ We now have a graph-theoretic formulation of our quantity of interest. What valu
 \begin{equation}
 q_a(\mathcal{G})\geq \min |T|-\alpha(\mathcal{G}).
 \end{equation}
-We note that in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$, since for triangle-free graphs, this is equivalent to finding a vertex cover, which is \textbf{NP}-complete \cite{Polj1974}. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$ \cite{Gare1979}. This suggests that calculation of this quantity may be computationally difficult.
+We note that in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$, since for triangle-free graphs, this is equivalent to finding a vertex cover, which is \textbf{NP}-complete \cite{Polj1974}. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$ \cite{Gare1979}. This suggests that calculation of this quantity may be computationally difficult. A tension exists in trying to optimise $q(\mathcal{G})$. Particularly well-connected graphs may achieve an exponentially small independence density-- this is true for a few of the families of graphs considered in this paper-- so few vectors can receive a noncontextual assignment of 1, but this same connectedness means that allowing a single vector's valuation to vary contextually ``fixes'' many contexts.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{33rayHighlights}
+\caption{Three images illustrating the calculation of the figure of merit. The first is the orthogonality graph for the 33-ray proof of the Kochen-Specker theorem by Peres \cite{Pere1991}. Highlighted in the second in red is a maximal independent set, that represents a maximal assignment of noncontextual 1-valuations. In fact, only a single context lacks a 1-valued vector, visible in the centre of the graph. Highlighted in the third in blue is a projector that can be given a contextual valuation in order that every context contain a ray assigned either a 1 or a contextual valuation; it will take a 1 valuation in the ``central'' context, and a 0 in all others.}
+\end{figure}
 
 We will now demonstrate an upper bound on the quantity $q(\mathcal{G})$ for any quantum-mechanically accessible $\mathcal{G}$ in terms of the quantum dimension of the vectors that give rise to it.
 \begin{thm}\label{main}
@@ -198,25 +203,25 @@ In fact such an annulus can in the worst case can contain every vector from a ba
 This might imply that the quality of the bound does not degrade as the dimension increases.%Think about this some more.
 
 %Comment on real case: orthogonal matrices rather than unitaries.
-%The Hadamard graphs illustrate a tension in trying to optimise $q(\mathcal{G})$. They are so well connected that they have an exponentially small independence density, so few vectors can receive a noncontextual assignment of 1, but this same connectedness means that allowing a single vector's valuation to vary contextually ``fixes'' many contexts.
+%The Hadamard graphs 
 
 \begin{figure}
 \begin{center}
 \begin{tabular}{|c | c | c| c|c| }\hline
 Name &  Quantum Dimension&Transversal Size & Independence Number & FoM\\ \hline
-\makecell{ABK Triangle-Free\\Graphs} &\ding{55}& $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & $1-O\left(\frac{\log n}{n}\right) $\\\hline
-\makecell{Generic Quantum\\ Graph} &\ding{51}& $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$ \\\hline
+\makecell{ABK Triangle-Free\\Graphs \cite{Alon2010}} &\ding{55}& $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & $1-O\left(\frac{\log n}{n}\right) $\\\hline
+\makecell{Quantum Upper\\ Bound} &\ding{51}& $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$ \\\hline
 %\makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e+O(2^{-d})$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
 \makecell{$E_8$ root \\ system} &8&$\leq \frac{11n}{60}$& $\frac{n}{15}$& $0.11\dot{6}$ \\ \hline
 \makecell{Two-Qubit Stabiliser \\ Quantum Mechanics} &4&  $\frac{3n}{10}$& $ \frac{n}{5}$&0.1\\\hline
-\makecell{Peres-Mermin \\ Magic Square} &4& $ \frac{7n}{24}$& $\frac{5n}{24}$ &$0.08\dot{3}$\\\hline
-\makecell{Cabello's 18-ray \\  proof} &4&$\frac{5n}{18}$&$\frac{4n}{18}$& $0.0\dot{5}$ \\\hline
-\makecell{Peres's 33-ray \\  proof} &3&$\frac{13n}{33}$&$\frac{12n}{33}$& $0.\dot{0}\dot{3}$ \\\hline
+\makecell{Peres-Mermin \\ Magic Square \cite{Pere1991}} &4& $ \frac{7n}{24}$& $\frac{5n}{24}$ &$0.08\dot{3}$\\\hline
+\makecell{Cabello's 18-ray \\  proof \cite{Cabe1997}} &4&$\frac{5n}{18}$&$\frac{4n}{18}$& $0.0\dot{5}$ \\\hline
+\makecell{Peres's 33-ray \\  proof \cite{Pere1991}} &3&$\frac{9n}{33}$&$\frac{12n}{33}$& $0.\dot{0}\dot{3}$ \\\hline
 
 
 \end{tabular}
 \end{center}
-\caption{A table comparing the graph constructions in this paper; each concrete example represents the graph union of multiple noninteracting copies of the KS proof. Two-qubit stabiliser quantum mechanics forms a KS proof using 60 rays and 105 contexts; the $E_8$ root system forms a KS proof using 120 rays and 2025 contexts. The quantities related to each were calculated using a proof by exhaustion.}
+\caption{A table comparing the graph constructions in this paper; each concrete example represents the graph union of multiple noninteracting copies of the KS proof. Two-qubit stabiliser quantum mechanics forms a KS proof using 60 rays and 105 contexts; the $E_8$ root system forms a KS proof using 120 rays and 2025 contexts. The quantities related to each were calculated using a proof by exhaustion. It is perhaps of note that the lower bound of the size of a traversal less the independence number forms a trivial bound only for Peres's 33-ray proof, and in fact is optimal for Cabello's 18-ray proof and the Peres-Mermin magic square.}
 \end{figure}
 \subsection{Triangle-Free Graphs}
 
@@ -323,12 +328,14 @@ Hence by the monotonicity of $I_x(\alpha,\beta)$, we have $I_{\nicefrac{r}{d}}(r
 
 
 \section{Future Work}
-There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof, compared to the bounds on the robustness of such a proof that we have derived in this article. As mentioned above, it is possible that the Hadamard states could prove to be a powerful tool, but the structure of Hadamard bases is very complex. Finding a lower bound for the size of quantum-mechanically accessible maximum-clique vertex covers, when combined with the exponentially small independence fraction obtained by the Hadamard graph would consitute a potentially strong lower bound for the maximum $q(\mathcal{G})$ for quantum-mechanically accessible graphs. Alternatively, it may be that for special cases of $d$, for example $d=2^n$, the structure of the Hadamard bases becomes tractable enough for an explicit lower bound to be demonstrated. Another interesting study that could be performed with the Hadamard graphs could be to try and optimise where to place the hyperspherical cap used in our construction; in the worst case, due to the structure of Hadamard graphs, it intersects every one of the Hadamard vectors. In this paper, we considered contexts formed of projective matrices that sum to the identity. Recently, attention has been drawn to an analagous problem defined for sets of mutually commuting Hermitian matrices, and so an extension of variant of this result in that case would be helpful for bounding the amount of classical memory needed for an unbiased weak simulation of quantum subtheories \cite{Kara2017}. %Talk about Angela's forthcoming work
+There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof and the bounds on the robustness of such a proof that we have derived in this article. However, it may be that to prove a tighter bound on what is quantum-mechanically possible in a way similar to that of this paper is mathematically difficult; this is because the method requires that we find a set that is independent, regardless of the specific structure of the set of vectors in question. This impies bounds on the independence number all contextuality scenarios, and also the contextuality scenario that includes every quantum state. This problem, to choose the largest set of points on a hypersphere such that no two points in the set are orthogonal, is essentially a problem known as Witsenhausen's problem \cite{Wits1974}. For Witsenhausen's problem, it is conjectured \cite{DeCo2015} that the spherical-cap configuration used in this proof is in fact optimal, although this is not even known for the original three-real-dimensional case considered by Kochen and Specker. In turn, the solution to Witsenhausen's problem implies lower bounds for the Hadwiger-Nelson problem \cite{DeCo2015}: the number of colours needed to colour Euclidean spaces if no two points distance 1 away from each other can have the same colour. The solution to this problem is thought to depend on the specific model of ZF set theory adopted \cite{Soif2008}.
+
+ In this paper, we considered contexts formed of projective matrices that sum to the identity. Recently, attention has been drawn to an analagous problem defined for sets of mutually commuting Hermitian matrices, and so an extension of variant of this result in that case would be helpful for bounding the amount of classical memory needed for an unbiased weak simulation of quantum subtheories \cite{Kara2017}. %Talk about Angela's forthcoming work
 
 \section{Acknowledgements}
 Special thanks to Mordecai Waegell, who suggested using the $E_8$ root system to demonstrate a lower bound on what values of the figure of merit in Section \ref{sec:main} were quantum-mechanically accessible, as well as his help calculating this lower bound.
 Special thanks also to Terry Rudolph for asking this question in the first place.
-I am grateful to Angela Xu, Angela Karanjai, Mordecai Waegell and Baskaran Sripathmanathan for their helpful discussions which have guided this project. I acknowledge support from EPSRC, \emph{via} the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
+I am grateful to Angela Xu, Angela Karanjai and Baskaran Sripathmanathan for their helpful discussions which have guided this project. I acknowledge support from EPSRC, \emph{via} the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
 
 \bibliography{/Users/andrewsimmons/Documents/Latex/Bib/bibliography}{}
 \bibliographystyle{plain}

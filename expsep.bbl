@@ -21,6 +21,18 @@ J.~Bermejo-Vega, N.~Delfosse, D.~E. Browne, C.~Okay, and R.~Raussendorf.
 \newblock Contextuality as a resource for qubit quantum computation.
 \newblock arXiv:1610.08529.
 
+\bibitem{Cabe1997}
+Ad{\'a}n Cabello.
+\newblock {\em A Proof with 18 Vectors of the Bell-Kochen-Specker Theorem},
+  pages 59--62.
+\newblock Springer Netherlands, Dordrecht, 1997.
+
+\bibitem{DeCo2015}
+E.~DeCorte and O.~Pikhurko.
+\newblock Spherical sets avoiding a prescribed set of angles.
+\newblock {\em International Mathematics Research Notices}, (20):6096--6117,
+  2016.
+
 \bibitem{Gare1979}
 Michael~R. Garey and David~S. Johnson.
 \newblock {\em Computers and Intractability; a guide to the theory of
@@ -35,6 +47,11 @@ Angela Karanjai.
 Jouni Kerman.
 \newblock A closed-form approximation for the median of the beta distribution.
 \newblock arXiv:1111.0433, November 2011.
+
+\bibitem{Pere1991}
+A.~Peres.
+\newblock Two simple proofs of the {K}ochen-{S}pecker theorem.
+\newblock {\em J. Phys. A: Math Gen}, 24:175--178, 1991.
 
 \bibitem{Polj1974}
 Svatopluk Poljak.
