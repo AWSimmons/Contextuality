@@ -82,14 +82,14 @@ For a graph $\mathcal{G}=\{V,E\}$, a vertex subset $T\subset V$ is a \emph{maxim
 
 In any contextual hidden-variable model, the set of vertices associated with a set of vectors given either noncontextual or contextual ``1'' assignments is a Maximum-clique hitting set, since every context needs an outcome. This allows us to define our first figure-of-merit for a set of vectors forming a Kochen-Specker type proof of the Bell-Kochen-Specker theorem.
 
-\begin{equation}q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|,\end{equation}
-where $T$ is a maximum-clique hitting-set. We see that this is a graph-theoretic representation of the figure-of-merit we posited above: we take a set $T$ of vectors which will recieve a ``1'' valuation, either contextually or noncontextually, and subtract from it the number of those vectors that can support a noncontextual valuation. This quantity then represents the number of vectors that must recieve a contextual valuation in any model for the scenario. However, we can note that it is possible to achieve an arbitrarily high value of $q_a$ just by taking an equal number of noninteracting copies of, for example, the Peres-Mermin magic square. In order that we might more directly compare this quantity between graphs of different sizes, we can consider its graph density:
+\begin{equation}q_s(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|,\end{equation}
+where $T$ is a maximum-clique hitting-set. We see that this is a graph-theoretic representation of the figure-of-merit we posited above: we take a set $T$ of vectors which will recieve a ``1'' valuation, either contextually or noncontextually, and subtract from it the number of those vectors that can support a noncontextual valuation. This quantity then represents the number of vectors that must recieve a contextual valuation in any model for the scenario. However, we can note that it is possible to achieve an arbitrarily high value of $q_s$ just by taking an equal number of noninteracting copies of, for example, the Peres-Mermin magic square. In order that we might more directly compare this quantity between graphs of different sizes, we can consider its graph density:
 \begin{equation}
-q(\mathcal{G})=\frac{q_a(\mathcal{G})}{|V(\mathcal{G})|}.
+q(\mathcal{G})=\frac{q_s(\mathcal{G})}{|V(\mathcal{G})|}.
 \end{equation}
 We now have a graph-theoretic formulation of our quantity of interest. What values of this quantity are obtainable, either by quantum-mechanically realisable scenarios, or in general probabilistic theories? We note the following trivial lower bound:
 \begin{equation}
-q_a(\mathcal{G})\geq \min |T|-\alpha(\mathcal{G}).
+q_s(\mathcal{G})\geq \min |T|-\alpha(\mathcal{G}).
 \end{equation}
 We note that in general, it is \textbf{NP}-complete to calculate the value of $\min |T|$ if we know $\omega(\mathcal{G})$, since for triangle-free graphs, this is equivalent to finding a vertex cover, which is \textbf{NP}-complete \cite{Polj1974}. Also, it is \textbf{NP}-complete to calculate $\alpha(\mathcal{G})$ \cite{Gare1979}. This suggests that calculation of this quantity may be computationally difficult. A tension exists in trying to optimise $q(\mathcal{G})$. Particularly well-connected graphs may achieve an exponentially small independence density-- this is true for a few of the families of graphs considered in this paper-- so few vectors can receive a noncontextual assignment of 1, but this same connectedness means that allowing a single vector's valuation to vary contextually ``fixes'' many contexts.
 
@@ -115,16 +115,16 @@ Since columns of a Haar-random unitary matrix over $\mathbb{C}^d$ are uniformly 
 \begin{equation}
 \frac{V}{V_S}=\left(1-t \right)^{d-1}.
 \end{equation}
-Clearly, the value of $q(\mathcal{G})$ for a quantum graph is upper bounded by the size of any maximum-clique hitting set, so if we can bound the minimum number of vectors we must intersect with such a hyperspherical cap, this also constitutes a bound on the value $q(\mathcal{G})$. However, we would not expect this bound to be tight, since we have ignored the independent set subtrahend entirely. We would like to demonstrate an independent set within our maximum-clique hitting-set $T_C$, and therefore give a better upper bound on the quantity $q_a(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|$, giving an explicit construction procedure for a $T$ and $A\subset T$.
+Clearly, the value of $q(\mathcal{G})$ for a quantum graph is upper bounded by the size of any maximum-clique hitting set, so if we can bound the minimum number of vectors we must intersect with such a hyperspherical cap, this also constitutes a bound on the value $q(\mathcal{G})$. However, we would not expect this bound to be tight, since we have ignored the independent set subtrahend entirely. We would like to demonstrate an independent set within our maximum-clique hitting-set $T_C$, and therefore give a better upper bound on the quantity $q_s(\mathcal{G})=\min_T \min_{A\subset T} |T|-|A|$, giving an explicit construction procedure for a $T$ and $A\subset T$.
 
 We note that a hyperspherical cap containing the vectors $\ket{\phi}$ such that $\sprod{\psi}{\phi}^2> \nicefrac12$ cannot contain two orthogonal vectors as a simple application of the triangle inequality. We can place this smaller hyperspherical cap anywhere within the larger hyperspherical cap, and this will form an independent set $A$ that is a subset of $T_C$. For the rest of this proof, we will assume that the two hyperspherical caps are centred on the same point; this will make no difference to the worst case scenario which forms the bound. The region of Hilbert space, then, in which vectors count towards the figure of merit, is a member of a two-parameter family of \emph{annuli} on the complex hypersphere, illustrated in Figure \ref{annulus} and defined by
 \begin{equation}
 t_1\leq\sprod{\psi}{\phi}^2\leq t_2.
 \end{equation}
 \begin{figure}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.0cm,y=2.0cm]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.5cm,y=2.5cm]
 \clip(-1.2,-1.2) rectangle (1.4,1.2);
-\draw(0.,0.) circle (2.cm);
+\draw(0.,0.) circle (2.5cm);
 \draw (-0.98408,0.173648)-- (0.98408,0.17365);
 \draw (-0.649967502437297,0.7599620028497625)-- (0.6499675024372968,0.7599620028497626);
 \draw [decorate,decoration={brace,amplitude=2pt,mirror},xshift=0pt,yshift=0pt] (1.1,0.7599620028497626) -- (1.1,1) node [black,midway,xshift=0.3cm,yshift=0.0cm] {1} ;
@@ -189,7 +189,7 @@ We note that as the quantum dimension approaches infinity, we achieve a limiting
 
 \begin{figure}
 \begin{center}
-\includegraphics{boundgraph}
+\includegraphics[width=0.5\textwidth]{boundgraph}
 \caption{A chart showing the value of the bound on $q(\mathcal{G})$ for quantum-mechanically accessible $\mathcal{G}$ as a function of the Hilbert space dimension $d$.}
 \label{boundgraph}
 \end{center}
@@ -210,7 +210,7 @@ This might imply that the quality of the bound does not degrade as the dimension
 \begin{tabular}{|c | c | c| c|c| }\hline
 Name &  Quantum Dimension&Transversal Size & Independence Number & FoM\\ \hline
 \makecell{ABK Triangle-Free\\Graphs \cite{Alon2010}} &\ding{55}& $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & $1-O\left(\frac{\log n}{n}\right) $\\\hline
-\makecell{Quantum Upper\\ Bound} &\ding{51}& $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$ \\\hline
+\makecell{Quantum Upper\\ Bound} &$d$& $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$ \\\hline
 %\makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e+O(2^{-d})$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
 \makecell{$E_8$ root \\ system} &8&$\leq \frac{11n}{60}$& $\frac{n}{15}$& $0.11\dot{6}$ \\ \hline
 \makecell{Two-Qubit Stabiliser \\ Quantum Mechanics} &4&  $\frac{3n}{10}$& $ \frac{n}{5}$&0.1\\\hline
@@ -225,13 +225,13 @@ Name &  Quantum Dimension&Transversal Size & Independence Number & FoM\\ \hline
 \end{figure}
 \subsection{Triangle-Free Graphs}
 
-In triangle-free graphs, the maximum cliques are merely edges, and so each context consists of two measurement objects. Quantum mechanically, the only such graphs are uninteresting: the disjoint graph union of $K_2$ graphs, and these do not have enough structure to form a proof of the Bell-Kochen-Specker theorem; each projective measurements appears in only a single context. Many such graphs, then, are not quantum-mechanically accessible. However, they do allow us to prove a concrete bound on what values of $q(\mathcal{G})$ are achievable within the framework of generalised probabilistic theories. In such graphs, the concept of a maximum-clique hitting-set reduces to that of a covering of edges by vertices, known as a \emph{vertex cover}. The size of the minimal vertex cover of $\mathcal{G}$ is denoted $\tau(\mathcal{G})$. This reduction of our figure-of-merit allows us to make use of a bound derived for Ramsey type problems.
+In triangle-free graphs, the maximum cliques are merely edges, and so each context consists of two measurement objects. Quantum mechanically, the only such graphs are uninteresting: the disjoint graph union of $K_2$ graphs. These do not have enough structure to form a proof of the Bell-Kochen-Specker theorem; this reflects the fact that each projector appears in only a single context. Many such graphs, then, are not quantum-mechanically accessible. However, they do allow us to prove a concrete bound on what values of $q(\mathcal{G})$ are achievable within the framework of generalised probabilistic theories. In such graphs, the concept of a maximum-clique hitting-set reduces to that of a covering of edges by vertices, known as a \emph{vertex cover}. The size of the minimal vertex cover of $\mathcal{G}$ is denoted $\tau(\mathcal{G})$. This reduction of our figure-of-merit allows us to make use of a bound derived for Ramsey type problems.
 
-In the triangle-free case, we have a powerful relation between maximum-clique hitting-sets and independent sets; namely that they are graph complements of each other. A maximum-clique hitting-set, or vertex cover, is a set of vertices $T$ such that for every edge, at least one of that edge's vertices is in $T$. We can see, then, that the set $V-T$ must be independent, since if there were two vertices in $V-T$ connected by an edge, then neither of those vertices would be in $T$, a contradiction. Conversely, if we have an independent set $A$, then $V-A$ must be a vertex cover; if there were an edge with neither vertex in $V-A$, then both vertices are in $A$, a contradiction. This means that we can bound $q_a(\mathcal{G})$ as
+In the triangle-free case, we have a powerful relation between maximum-clique hitting-sets and independent sets; namely that they are graph complements of each other. A maximum-clique hitting-set, or vertex cover, is a set of vertices $T$ such that for every edge, at least one of that edge's vertices is in $T$. We can see, then, that the set $V-T$ must be independent, since if there were two vertices in $V-T$ connected by an edge, then neither of those vertices would be in $T$, a contradiction. Conversely, if we have an independent set $A$, then $V-A$ must be a vertex cover; if there were an edge with neither vertex in $V-A$, then both vertices are in $A$, a contradiction. This means that we can bound $q_s(\mathcal{G})$ as
 \begin{equation}
-q_a(\mathcal{G})\geq \min_\mathcal{G} |T| - \alpha(\mathcal{G}) = |V(\mathcal{G})|-2\alpha(\mathcal{G}).
+q_s(\mathcal{G})\geq \min_\mathcal{G} |T| - \alpha(\mathcal{G}) = |V(\mathcal{G})|-2\alpha(\mathcal{G}).
 \end{equation}
-In other words, to be able to lower bound $q_a(\mathcal{G})$, we need only consider the independence number, $\alpha(\mathcal{G})$. We seek, therefore, triangle-free graphs with low independence number. We can invoke here a theorem due to Alon, Ben-Shimon and Krivelevich \cite{Alon2010}.
+In other words, to be able to lower bound $q_s(\mathcal{G})$, we need only consider the independence number, $\alpha(\mathcal{G})$. We seek, therefore, triangle-free graphs with low independence number. We can invoke here a theorem due to Alon, Ben-Shimon and Krivelevich \cite{Alon2010}.
 \begin{thm}
 There exists a constant $c$ such that for all $n\in\mathbb{N}$ there exists a regular triangle-free graph $\mathcal{G}_n$, with $V(\mathcal{G}_n)=n$, and $\alpha(\mathcal{G}_n)\leq c\sqrt{n\log n}$.
 \end{thm}
@@ -283,17 +283,17 @@ P_r\ket\phi=\sum_{i=0}^{r-1}\left(\sqrt{\frac1d-\frac{\epsilon}{r}}\right)\ket{i
 Each of these elements in the decomposition would recieve a noncontextual 0 valuation, so $P_r$ inherits a 0 valuation. This concludes the proof.
 \end{proof}
 
-Using the result of the lemma, we can apply a proof method identical to that in \ref{main} if we can calculate the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$.
+Using the result of the lemma, we can apply a proof method identical to that in Theorem \ref{main} if we can calculate the proportion of the Hilbert space taken up by the set $\left\{P_r\middle|\nicefrac{r}{d}\leq \tr(P_r\ketbra{\phi})<\nicefrac12\right\}$.
 
 As before, entries of a uniformly random unit vector in $\mathbb{C}^d$ have the same distribution as the entries of a column in a Haar-random $d\times d$ unitary matrix. Applying a result of \.{Z}yczkowski and Sommers \cite{Zycz2000}, if $U$ is a Haar-random $d\times d$ unitary, then defining $Y=\sqrt{\sum_{k=1}^r\left|U_{k,1}\right|^2}$, we have
 \begin{equation}
 P^Y_{d,r}(y)=c_{d,r}y^{2r-1}(1-y^2)^{d-r-1},
 \end{equation}
-where $P_{d,r}(y)$ is the probability density function for the random variable $Y$, and
+where $P^Y_{d,r}(y)$ is the probability density function for the random variable $Y$, and
 \begin{equation}
 c_{d,r}=\frac{2}{B\left(r,d-r\right)}=\frac{2\Gamma(d)}{\Gamma(r)\Gamma(d-r)},
 \end{equation}
-in which $B$ is the Euler beta function. Performing a change of variables, then, in which $T=Y^2$, we get: 
+in which $B$ is the Euler beta function. and $\Gamma$ is the gamma function. Performing a change of variables, then, in which $T=Y^2$, we get: 
 \begin{align}
 P^T_{d,r}(t)&=\left|\frac{\dif}{\dif t}\left(\sqrt{t}\right)\right|P^Y_{d,r}\left(\sqrt{t}\right)\\
 &=\frac{t^{r-1}\left(1-t\right)^{d-r-1}}{B(r,d-r)}
@@ -328,12 +328,12 @@ Hence by the monotonicity of $I_x(\alpha,\beta)$, we have $I_{\nicefrac{r}{d}}(r
 
 
 \section{Future Work}
-There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof and the bounds on the robustness of such a proof that we have derived in this article. However, it may be that to prove a tighter bound on what is quantum-mechanically possible in a way similar to that of this paper is mathematically difficult; this is because the method requires that we find a set that is independent, regardless of the specific structure of the set of vectors in question. This impies bounds on the independence number all contextuality scenarios, and also the contextuality scenario that includes every quantum state. This problem, to choose the largest set of points on a hypersphere such that no two points in the set are orthogonal, is essentially a problem known as Witsenhausen's problem \cite{Wits1974}. For Witsenhausen's problem, it is conjectured \cite{DeCo2015} that the spherical-cap configuration used in this proof is in fact optimal, although this is not even known for the original three-real-dimensional case considered by Kochen and Specker. In turn, the solution to Witsenhausen's problem implies lower bounds for the Hadwiger-Nelson problem \cite{DeCo2015}: the number of colours needed to colour Euclidean spaces if no two points distance 1 away from each other can have the same colour. The solution to this problem is thought to depend on the specific model of ZF set theory adopted \cite{Soif2008}.
+There is a large gulf between the best-known realisation of a quantum-mechanically accessible BKS proof and the bounds on the robustness of such a proof that we have derived in this article. However, it may be that to prove a tighter bound on what is quantum-mechanically possible in a way similar to that of this paper is mathematically difficult; this is because the method requires that we find a set that is independent, regardless of the specific structure of the set of vectors in question. This impies bounds on the independence number of the associated orthogonality graph for all finite contextuality scenarios, and by extension also the contextuality scenario that includes every quantum state. This problem, to choose the largest set of points on a hypersphere such that no two points in the set are orthogonal, is essentially a problem known as Witsenhausen's problem \cite{Wits1974}. For Witsenhausen's problem, it is conjectured \cite{DeCo2015} by Gil Kalai that the spherical-cap configuration used in this proof is in fact optimal, although this is not even known for the original three-real-dimensional case considered by Kochen and Specker. In turn, the solution to Witsenhausen's problem implies lower bounds for the Hadwiger-Nelson problem \cite{DeCo2015}: the number of colours needed to colour Euclidean spaces if no two points distance 1 away from each other can have the same colour. The solution to this problem is thought to depend on the specific model of ZF set theory adopted \cite{Soif2008}.
 
  In this paper, we considered contexts formed of projective matrices that sum to the identity. Recently, attention has been drawn to an analagous problem defined for sets of mutually commuting Hermitian matrices, and so an extension of variant of this result in that case would be helpful for bounding the amount of classical memory needed for an unbiased weak simulation of quantum subtheories \cite{Kara2017}. %Talk about Angela's forthcoming work
 
 \section{Acknowledgements}
-Special thanks to Mordecai Waegell, who suggested using the $E_8$ root system to demonstrate a lower bound on what values of the figure of merit in Section \ref{sec:main} were quantum-mechanically accessible, as well as his help calculating this lower bound.
+Special thanks to Mordecai Waegell, who suggested using the $E_8$ root system and two-qubit stabiliser quantum mechanics to demonstrate lower bounds on what values of the figure of merit in Section \ref{sec:main} were quantum-mechanically accessible, as well as his help calculating this lower bound.
 Special thanks also to Terry Rudolph for asking this question in the first place.
 I am grateful to Angela Xu, Angela Karanjai and Baskaran Sripathmanathan for their helpful discussions which have guided this project. I acknowledge support from EPSRC, \emph{via} the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
 
