@@ -52,7 +52,7 @@ Proofs of Bell-Kochen-Specker contextuality demonstrate that certain sets of pro
 \maketitle
 \section{Introduction}
 
-The Bell-Kochen-Specker theorem tells us that there exist sets of projectors onto states $\{\ket{\psi_i}\}$, such that it is impossible to assign to each of them a valuation of 0 or 1 in a context-independent way, and have there be exactly one 1-valued projector in every PVM context. We might ask the following question: under an assumption of outcome-definiteness, how many such projectors \emph{can} we give a noncontextual valuation to, and how many projectors (or more robustly, what \emph{fraction} of projectors, must be considered to have context-dependent valuations? This fraction is the key figure-of[-merit that will be explored in this paper.
+The Bell-Kochen-Specker theorem tells us that there exist sets of projectors onto states $\{\ket{\psi_i}\}$, such that it is impossible to assign to each of them a valuation of 0 or 1 in a context-independent way, and have there be exactly one 1-valued projector in every PVM context. We might ask the following question: under an assumption of outcome-definiteness, how many such projectors \emph{can} we give a noncontextual valuation to, and how many projectors (or more robustly, what \emph{fraction} of projectors, must be considered to have context-dependent valuations? This fraction is the key figure-of-merit that will be explored in this paper.
 
 Historically, Kochen-Specker style proofs of contextuality, also known as strong or maximal contextuality, have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety. In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. For such proofs, then, since removing one context is sufficient to remove all contextuality, certainly allowing a projector to vary in its value assignment by context will. This minimalism is partially motivated by the fact that since the original paper by Kochen and Specker, there has been interest in trying to find examples of small Kochen-Specker sets \cite{Aren2011}. When only a single projector need be considered to take a contextual valuation, finding a small such set is the only way of attaining a higher fraction of contextual projectors. The figure-of-merit introduced above, then, can be seen as a generalisation or successor to the search for small Kochen-Specker sets.
 
@@ -208,7 +208,7 @@ This might imply that the quality of the bound does not degrade as the dimension
 \begin{figure}
 \begin{center}
 \begin{tabular}{|c | c | c| c|c| }\hline
-Name &  Quantum Dimension&Transversal Size & Independence Number & FoM\\ \hline
+Name &  \makecell{Quantum \\Dimension}&\makecell{Transversal\\ Size} & \makecell{Independence \\Number} & \makecell{Figure of \\Merit}\\ \hline
 \makecell{ABK Triangle-Free\\Graphs \cite{Alon2010}} &\ding{55}& $n-c\sqrt{n\log n}$ & $c\sqrt{n\log n}$  & $1-O\left(\frac{\log n}{n}\right) $\\\hline
 \makecell{Quantum Upper\\ Bound} &$d$& $\leq n\left(1-\frac1d\right)^{d-1}$ & $\geq\frac{n}{2^{d-1}}$&$\leq 0.385838$ \\\hline
 %\makecell{$d$-Dimensional \\ Hadamard Graphs} &$\leq\frac1e+O(2^{-d})$ &$\leq2de^{-cd}$&?&\ding{51} \\\hline
