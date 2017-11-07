@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    216498,       4941]
-NotebookOptionsPosition[    201531,       4612]
-NotebookOutlinePosition[    201888,       4628]
-CellTagsIndexPosition[    201845,       4625]
+NotebookDataLength[    216759,       4948]
+NotebookOptionsPosition[    201699,       4617]
+NotebookOutlinePosition[    202056,       4633]
+CellTagsIndexPosition[    202013,       4630]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4608,10 +4608,15 @@ pK73PygLOV/8E8o/w1LoWw==
  CellChangeTimes->{
   3.7162889300007544`*^9},ExpressionUUID->"e265d396-f822-4cfb-af17-\
 27232f66285c"]
-}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData["greedySolve"], "Input",
+ CellChangeTimes->{{3.717497836863278*^9, 
+  3.7174978386914883`*^9}},ExpressionUUID->"9dbd36d1-759a-4439-964e-\
+6fab14f247b2"]
 },
 WindowSize->{808, 911},
-WindowMargins->{{856, Automatic}, {Automatic, 119}},
+WindowMargins->{{Automatic, 648}, {Automatic, 142}},
 FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 16, \
 2017)",
 StyleDefinitions->"Default.nb"
@@ -4671,7 +4676,7 @@ Cell[23850, 624, 171, 3, 32, "Input", "ExpressionUUID" -> \
 "4a4ba849-a3a3-4d71-8c7e-58fd788b687e"],
 Cell[24024, 629, 196, 4, 32, "Input", "ExpressionUUID" -> \
 "8a720255-cbf7-46ac-81e4-914d82de32f7"],
-Cell[24223, 635, 195, 4, 32, InheritFromParent, "ExpressionUUID" -> \
+Cell[24223, 635, 195, 4, 32, "Input", "ExpressionUUID" -> \
 "34e3cb5e-bb88-494d-9aed-211041356326"],
 Cell[CellGroupData[{
 Cell[24443, 643, 306, 9, 32, "Input", "ExpressionUUID" -> \
@@ -4942,7 +4947,9 @@ Cell[182216, 4226, 332, 9, 32, "Input", "ExpressionUUID" -> \
 "be65c471-6ba7-4651-a699-d1fa69d36750"],
 Cell[182551, 4237, 18964, 372, 606, "Output", "ExpressionUUID" -> \
 "e265d396-f822-4cfb-af17-27232f66285c"]
-}, Open  ]]
+}, Open  ]],
+Cell[201530, 4612, 165, 3, 32, "Input", "ExpressionUUID" -> \
+"9dbd36d1-759a-4439-964e-6fab14f247b2"]
 }
 ]
 *)
