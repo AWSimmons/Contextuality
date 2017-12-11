@@ -1,0 +1,90 @@
+\begin{thebibliography}{10}
+
+\bibitem{Abra2017}
+Samson Abramsky, Rui~Soares Barbosa, and Shane Mansfield.
+\newblock The contextual fraction as a measure of contextuality.
+\newblock arXiv:1705.07918.
+
+\bibitem{Alon2010}
+Noga Alon, Sonny Ben-Shimon, and Michael Krivelevich.
+\newblock A note on regular {R}amsey graphs.
+\newblock {\em Journal of Graph Theory}, 64(3):244--249, 2010.
+
+\bibitem{Aren2011}
+Felix Arends, Jo{\"e}l Ouaknine, and Charles~W. Wampler.
+\newblock {\em On Searching for Small Kochen-Specker Vector Systems}, pages
+  23--34.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2011.
+
+\bibitem{Berm2016}
+J.~Bermejo-Vega, N.~Delfosse, D.~E. Browne, C.~Okay, and R.~Raussendorf.
+\newblock Contextuality as a resource for qubit quantum computation.
+\newblock arXiv:1610.08529.
+
+\bibitem{Cabe1997}
+Ad{\'a}n Cabello.
+\newblock {\em A Proof with 18 Vectors of the Bell-Kochen-Specker Theorem},
+  pages 59--62.
+\newblock Springer Netherlands, Dordrecht, 1997.
+
+\bibitem{DeCo2015}
+E.~DeCorte and O.~Pikhurko.
+\newblock Spherical sets avoiding a prescribed set of angles.
+\newblock {\em International Mathematics Research Notices}, (20):6096--6117,
+  2016.
+
+\bibitem{Gare1979}
+Michael~R. Garey and David~S. Johnson.
+\newblock {\em Computers and Intractability; a guide to the theory of
+  NP-completeness}.
+\newblock W.H. Freeman and Company, 1979.
+
+\bibitem{Kara2017}
+Angela Karanjai, Joel Wallman, and Stephen Bartlett.
+\newblock Forthcoming.
+
+\bibitem{Kerm2011}
+Jouni Kerman.
+\newblock A closed-form approximation for the median of the beta distribution.
+\newblock arXiv:1111.0433, November 2011.
+
+\bibitem{Pere1991}
+A.~Peres.
+\newblock Two simple proofs of the {K}ochen-{S}pecker theorem.
+\newblock {\em J. Phys. A: Math Gen}, 24:175--178, 1991.
+
+\bibitem{Polj1974}
+Svatopluk Poljak.
+\newblock A note on stable sets and colorings of graphs.
+\newblock {\em Commentationes Mathematica Universitatis Carolinae},
+  15(2):307--309, 1974.
+
+\bibitem{Renn2004}
+R.~Renner and S.~Wolf.
+\newblock Quantum pseudo-telepathy and the {K}ochen-{S}pecker theorem.
+\newblock In {\em International Symposium on Information Theory, 2004. ISIT
+  2004. Proceedings.}, pages 322--322, June 2004.
+
+\bibitem{SimmCC}
+A.~W. Simmons.
+\newblock On the computational complexity of detecting possibilistic locality.
+\newblock arXiv:1609.05550 [quant-ph].
+
+\bibitem{Soif2008}
+Alexander Soifer.
+\newblock {\em The Mathematical Coloring Book: Mathematics of Coloring and the
+  Colorful Life of its Creators}.
+\newblock Springer, 2008.
+
+\bibitem{Wits1974}
+Hans~S. Witsenhausen.
+\newblock Spherical sets without orthogonal point pairs.
+\newblock {\em American Mathematical Monthly}, pages 1101--1102, 1974.
+
+\bibitem{Zycz2000}
+Karol \.{Z}yczkowski and Hans-J{\"u}rgen Sommers.
+\newblock Truncations of random unitary matrices.
+\newblock {\em Journal of Physics A: Mathematical and General}, 33(10):2045,
+  2000.
+
+\end{thebibliography}

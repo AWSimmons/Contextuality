@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{osameet2}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\usepackage{bbm}
+\usepackage{wrapfig}
+\usepackage{amssymb}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows,decorations.pathreplacing,patterns}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{makecell}
+\usepackage{pifont}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{lem}{Lemma}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator*{\argmax}{arg\max} % thin space, limits underneath in displays
+\newcommand{\ket}[1]{{\left\vert{#1}\right\rangle}}
+\newcommand{\bra}[1]{{\left\langle{#1}\right\vert}}
+\newcommand{\braket}[2]{{\left< {#1} \middle\vert {#2}\right>}}
+\newcommand{\ketbra}[1]{{\left\vert {#1}\middle\rangle\middle\langle{#1}\right\vert}}
+\newcommand{\sprod}[2]{\left|\left< {#1} \middle| {#2} \right>\right|}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+\makeatletter
+\renewcommand*{\@textcolor}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+\interfootnotelinepenalty=10000
+
+%The Bell-Kochen-Specker theorem demonstrates that value assignments to certain sets of projectors must at least for some projectors be context dependent. We ask how many projectors must have contextual valuations.Contextuality
+%Kochen-Specker
+%Bell-Kochen Specker
+%Ontological models
+%Value assignments
+%Possibilistic contextuality
+%Quantum foundations
+\begin{document}
+\title{How (maximally) contextual is quantum mechanics?}
+\author{Andrew W. Simmons}
+\address{Department of Physics, Imperial College London, SW7 2AZ.}
+\email{andrew@simmons.co.uk}
+\begin{abstract}
+Proofs of Bell-Kochen-Specker contextuality demonstrate that outcome assignments for contexts formed from certain sets of projectors have the property that at the value assigned to at least one projector must depend on the context in which it is measured. This motivates the question of \emph{how many} of the projectors must have contextual valuations. In this paper, we demonstrate a bound on what fraction of rank-1 projective measurements on a quantum system must be considered to have context-dependent valuations as a function of the quantum dimension, and show that quantum mechanics is not as contextual, by this metric, as other possible physical theories. Attempts to find quantum mechanical scenarios that yield a high value of this figure-of-merit can be thought of as generalisations or extensions of the search for small Kochen-Specker sets. We also extend this result to projector-valued-measures with projectors of arbitrary equal rank.\end{abstract}
+\maketitle\ocis{270.0270}
+
+\section{Introduction}
+
+The Bell-Kochen-Specker theorem tells us that there exist sets of projectors onto states $\{\ket{\psi_i}\}$, such that it is impossible to assign to each of them a valuation of 0 or 1 in a context-independent way, and have there be exactly one 1-valued projector in every PVM context. We might ask the following question: under an assumption of outcome-definiteness, how many such projectors \emph{can} we give a noncontextual valuation to, and how many projectors (or more robustly, what \emph{fraction} of projectors), must be considered to have context-dependent valuations? This fraction is the key figure-of-merit that will be explored in this paper.
+
+Historically, Kochen-Specker style proofs of contextuality, also known as strong or maximal contextuality, have tended to have a ``lynchpin" quality; removal of any part of their structure causes the proof to fall apart in its entirety. In fact, this fact has been exploited in order to tame the maximal contextuality demonstrated by the Peres-Mermin magic square for all qubit states \cite{Berm2016}, as we need only remove the ability to measure one context before it fails to be a proof of contextuality at all. For such proofs, then, since removing one context is sufficient to remove all contextuality, certainly allowing a projector to vary in its value assignment by context will. This minimalism is partially motivated by the fact that since the original paper by Kochen and Specker, there has been interest in trying to find examples of small Kochen-Specker sets \cite{Aren2011}. When only a single projector need be considered to take a contextual valuation, finding a small such set is the only way of attaining a higher fraction of contextual projectors. The figure-of-merit introduced above, then, can be seen as a generalisation or successor to the search for small Kochen-Specker sets.
+
+In this paper, we use graph-theoretic methods as a computational tool to investigate how robust, in this sense, quantum-mechanically accessible Kochen-Specker proofs can be, and set an analytic upper bound. We will also demonstrate that it is possible that other physical theories can be more contextual, given this definition, than quantum mechanics. We can consider this as a stronger analogue than the observation that a PR-box is more nonlocal with respect to the CHSH inequality than any quantum-mechanically accessible scenario.
+
+One metric for contextuality is the \emph{contextual fraction} \cite{Abra2017}, in which we consider our probability distribution to be a convex mixture between a noncontextual theory and a contextual one. This notion is what prompts the term ``maximal contextuality''; if a scenario is maximally contextual then it has a contextual fraction that is the highest possible, \emph{viz} 1. It is independent under a  re-labelling the measurement effects, but the contextual fraction is hard to calculate when the number of corners of the noncontextual polytope is large, which is true in many natural situations such as in nonlocality scenarios in which one party has access to measurements with three or more outcomes \cite{SimmCC}. The figure-of-merit explored in this paper acts as a complementary measure of contextuality that can distinguish different scenarios which have the maximum possible contextual fraction of 1. However, it is likely to be hard to calculate in many circumstances, and in the case in which one is using the entirety of Hilbert space as one's vector set, we shall explore the connection to open problems in mathematics known as Witsenhausen's problem \cite{Wits1974} and the Hadwiger-Nelson problem \cite{Soif2008}.
+
+
+%This whole section should probably be merged elsewhere....
+
+
+\section{Acknowledgements}
+I acknowledge support from EPSRC, \emph{via} the CDT in Controlled Quantum Dynamics at Imperial College London; and from Cambridge Quantum Computing Limited. This research was supported in part by Perimeter Institute for Theoretical Physics. Research at Perimeter Institute is supported by the Government of Canada through the Department of Innovation, Science and Economic Development and by the Province of Ontario through the Ministry of Research and Innovation.
+
+\nocite{Berm2016}
+\nocite{Aren2011}
+\nocite{Abra2017}
+\nocite{SimmCC}
+\nocite{Wits1974}
+\nocite{Soif2008}
+\nocite{Renn2004}
+\nocite{Polj1974}
+\nocite{Gare1979}
+\nocite{Pere1991}
+\nocite{Zycz2000}
+\nocite{Alon2010}
+\nocite{Pere1991}
+\nocite{Cabe1997}
+\nocite{Pere1991}
+\nocite{Alon2010}
+\nocite{Zycz2000}
+\nocite{Kerm2011}
+\nocite{Wits1974}
+\nocite{DeCo2015}
+\nocite{DeCo2015}
+\nocite{Soif2008}
+\nocite{Kara2017}
+
+
+\bibliography{/Users/andrewsimmons/Documents/Latex/Bib/bibliography}{}
+\bibliographystyle{plain}
+%\appendix
+%\section{Peres-Mermin Magic Square}
+
+\end{document}

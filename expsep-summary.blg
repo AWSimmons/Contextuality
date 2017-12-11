@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: expsep-summary.aux
+The style file: plain.bst
+Database file #1: /Users/andrewsimmons/Documents/Latex/Bib/bibliography.bib
+Warning--can't use both author and editor fields in Aren2011
+Warning--can't use both author and editor fields in Cabe1997
+Warning--there's a number but no volume in DeCo2015
+Warning--empty title in Kara2017
+You've used 16 entries,
+            2118 wiz_defined-function locations,
+            608 strings with 6635 characters,
+and the built_in function-call counts, 5023 in all, are:
+= -- 492
+> -- 201
+< -- 4
++ -- 86
+- -- 64
+* -- 307
+:= -- 814
+add.period$ -- 47
+call.type$ -- 16
+change.case$ -- 75
+chr.to.int$ -- 0
+cite$ -- 20
+duplicate$ -- 198
+empty$ -- 423
+format.name$ -- 64
+if$ -- 1075
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 15
+newline$ -- 82
+num.names$ -- 32
+pop$ -- 105
+preamble$ -- 1
+purify$ -- 64
+quote$ -- 0
+skip$ -- 154
+stack$ -- 0
+substring$ -- 316
+swap$ -- 52
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 4
+while$ -- 51
+width$ -- 18
+write$ -- 167
+(There were 4 warnings)
